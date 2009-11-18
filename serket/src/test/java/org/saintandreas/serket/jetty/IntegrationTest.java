@@ -17,16 +17,19 @@
 */
 package org.saintandreas.serket.jetty;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.swt.SWT;
@@ -35,64 +38,57 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.swt.widgets.Tray;
 import org.eclipse.swt.widgets.TrayItem;
+import org.saintandreas.serket.reference.MediaServer;
+import org.saintandreas.serket.reference.servlet.DescriptionServlet;
 
-public class JettyRunner {
+public class IntegrationTest {
     static private ResourceBundle resources = null; //ResourceBundle.getBundle("JettyRunner");
     static private ExecutorService executor = Executors.newCachedThreadPool();
+    static private UUID uuid = UUID.randomUUID(); 
+    static private MediaServer mediaServer = new MediaServer(uuid.toString(), "/ui");
 
-    
     public static void runJetty() throws Exception {
         Server server = new Server(8080);
+        List<Handler> handlerList = new ArrayList<Handler>(); 
 
-        ServletContextHandler context0 = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context0.setContextPath("/scpd");
-        context0.setBaseResource(Resource.newClassPathResource("/scpd/"));
-        context0.addServlet(new ServletHolder(new DefaultServlet()),"/*");
+        // the description handler
+        {
+            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+            context.setContextPath("/description");
+            context.addServlet(new ServletHolder(new DescriptionServlet(mediaServer)),"/*");
+            handlerList.add(context);
+        }
+
+        // the service descriptor handler
+        {
+            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+            context.setContextPath("/scpd");
+            context.setBaseResource(Resource.newClassPathResource("/scpd/"));
+            context.addServlet(new ServletHolder(new DefaultServlet()),"/*");
+            handlerList.add(context);
+        }
+        
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[] { context0 });
+        contexts.setHandlers(handlerList.toArray(new Handler[]{}));
         server.setHandler(contexts);
         server.start();
-        server.join();
     }
 
+    public static void runSSDP() {
+        org.saintandreas.serket.ssdp.Server ssdpServer = new org.saintandreas.serket.ssdp.Server(executor); 
+        ssdpServer.listen();
+    }
+    
     public static void main(String[] args) throws Exception {
+        runSSDP();
         runJetty();
-//        Server server = new Server();
-//        XmlConfiguration configuration = new XmlConfiguration(new JettyRunner.class.getResourceAsStream("/testJetty.xml"));
-//        configuration.configure(server);
-//        server.start();
-//
-//        XmlConfiguration configuration = new XmlConfiguration(new File("myJetty.xml").toURL()); 
-//
-//        configuration.configure(server);
-//        server.start();
-//        
-////      org.eclipse.jetty.util.log.Log.getLog().setDebugEnabled(true);
-//        Server server = new Server(5001);
-//        server.setHandler(new WebAppContext("src/main/webapp", "/"));
-//        server.start();
-//        
-////        UPNPHelper.start(executor);
-//
-//        final Display display = new Display();
-//        final Shell shell = openShell(display);
-//        while (!shell.isDisposed()) {
-//            if (!display.readAndDispatch()) {
-//                display.sleep();
-//            }
-//        }
-//
-//        executor.shutdownNow();
-//        display.dispose();
-//        server.stop();
-//        server.join();
+        executor.awaitTermination(1, TimeUnit.DAYS);
     }
 
     private static Shell openShell(Display display) {
@@ -103,14 +99,14 @@ public class JettyRunner {
 //        shell.open();
         final ToolTip tip = new ToolTip(shell, SWT.BALLOON | SWT.ICON_INFORMATION);
         tip.setMessage("Balloon Message Goes Here!");
-        Image image = new Image(display, JettyRunner.class.getResourceAsStream("/images/Play1Hot_256.png"));
+        Image image = new Image(display, IntegrationTest.class.getResourceAsStream("/images/Play1Hot_256.png"));
         Tray tray = display.getSystemTray();
         if (tray != null) {
             TrayItem item = new TrayItem(tray, SWT.NONE);
             final Menu menu = new Menu(shell, SWT.POP_UP);
             item.setImage(image);
             item.setToolTip(tip); 
-            item.addListener (SWT.MenuDetect, new Listener () {
+            item.addListener (SWT.MenuDetect, new org.eclipse.swt.widgets.Listener () {
                 public void handleEvent (Event event) {
                     menu.setVisible (true);
                 }
@@ -138,3 +134,32 @@ public class JettyRunner {
 
 
 
+//Server server = new Server();
+//XmlConfiguration configuration = new XmlConfiguration(new JettyRunner.class.getResourceAsStream("/testJetty.xml"));
+//configuration.configure(server);
+//server.start();
+//
+//XmlConfiguration configuration = new XmlConfiguration(new File("myJetty.xml").toURL()); 
+//
+//configuration.configure(server);
+//server.start();
+//
+////org.eclipse.jetty.util.log.Log.getLog().setDebugEnabled(true);
+//Server server = new Server(5001);
+//server.setHandler(new WebAppContext("src/main/webapp", "/"));
+//server.start();
+//
+////UPNPHelper.start(executor);
+//
+//final Display display = new Display();
+//final Shell shell = openShell(display);
+//while (!shell.isDisposed()) {
+//  if (!display.readAndDispatch()) {
+//      display.sleep();
+//  }
+//}
+//
+//executor.shutdownNow();
+//display.dispose();
+//server.stop();
+//server.join();

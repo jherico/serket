@@ -11,6 +11,10 @@ public abstract class SOAPSerializable {
         } catch (SOAPException e) { }
     }
     
-    public abstract void parse(SOAPMessage soapmessage);
-    public abstract SOAPMessage format();
+    protected static SOAPMessage createMessage() throws SOAPException {
+        return MESSAGE_FACTORY.createMessage();
+    }
+    
+    public abstract void parse(SOAPMessage soapmessage) throws SOAPException;
+    public abstract SOAPMessage format() throws SOAPException;
 }

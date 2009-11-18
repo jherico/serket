@@ -1,0 +1,169 @@
+2009-11-17 18:00:24,907 DEBUG [pool-1-thread-2] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+ST: ssdp:all
+MX: 3
+MAN: "ssdp:discover"
+HOST: 239.255.255.250:1900
+
+
+2009-11-17 18:00:25,848 DEBUG [pool-1-thread-3] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+ST: upnp:rootdevice
+MX: 3
+MAN: "ssdp:discover"
+HOST: 239.255.255.250:1900
+
+
+2009-11-17 18:00:26,348 DEBUG [pool-1-thread-3] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+ST: upnp:rootdevice
+MX: 3
+MAN: "ssdp:discover"
+HOST: 239.255.255.250:1900
+
+
+2009-11-17 18:01:32,279 DEBUG [pool-1-thread-4] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+MX: 10
+ST: urn:schemas-upnp-org:device:MediaRenderer:1
+HOST: 239.255.255.250:1900
+MAN: "ssdp:discover"
+
+
+2009-11-17 18:01:32,279 DEBUG [pool-1-thread-5] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+MX: 10
+ST: urn:schemas-upnp-org:device:MediaServer:1
+HOST: 239.255.255.250:1900
+MAN: "ssdp:discover"
+
+
+2009-11-17 18:01:32,370 DEBUG [pool-1-thread-5] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+MX: 10
+ST: urn:schemas-upnp-org:device:MediaRenderer:1
+HOST: 239.255.255.250:1900
+MAN: "ssdp:discover"
+
+
+2009-11-17 18:01:32,370 DEBUG [pool-1-thread-4] org.saintandreas.serket.test.SSDPTests - M-SEARCH * HTTP/1.1
+MX: 10
+ST: urn:schemas-upnp-org:device:MediaServer:1
+HOST: 239.255.255.250:1900
+MAN: "ssdp:discover"
+
+
+2009-11-17 18:01:33,140 DEBUG [pool-1-thread-4] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: uuid:7076436f-6e65-1063-8074-0018dedc11b5
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5
+
+
+2009-11-17 18:01:33,140 DEBUG [pool-1-thread-6] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:schemas-upnp-org:device:MediaServer:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:schemas-upnp-org:device:MediaServer:1
+
+
+2009-11-17 18:01:33,140 DEBUG [pool-1-thread-5] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: upnp:rootdevice
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::upnp:rootdevice
+
+
+2009-11-17 18:01:33,150 DEBUG [pool-1-thread-9] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1
+
+
+2009-11-17 18:01:33,150 DEBUG [pool-1-thread-7] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:schemas-upnp-org:service:ContentDirectory:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:schemas-upnp-org:service:ContentDirectory:1
+
+
+2009-11-17 18:01:33,150 DEBUG [pool-1-thread-8] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:schemas-upnp-org:service:ConnectionManager:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:schemas-upnp-org:service:ConnectionManager:1
+
+
+2009-11-17 18:01:33,340 DEBUG [pool-1-thread-8] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: uuid:7076436f-6e65-1063-8074-0018dedc11b5
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5
+
+
+2009-11-17 18:01:33,340 DEBUG [pool-1-thread-8] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: upnp:rootdevice
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::upnp:rootdevice
+
+
+2009-11-17 18:01:33,340 DEBUG [pool-1-thread-7] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:schemas-upnp-org:device:MediaServer:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:schemas-upnp-org:device:MediaServer:1
+
+
+2009-11-17 18:01:33,340 DEBUG [pool-1-thread-6] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1
+
+
+2009-11-17 18:01:33,340 DEBUG [pool-1-thread-5] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:schemas-upnp-org:service:ConnectionManager:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:schemas-upnp-org:service:ConnectionManager:1
+
+
+2009-11-17 18:01:33,340 DEBUG [pool-1-thread-9] org.saintandreas.serket.test.SSDPTests - NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1810
+LOCATION: http://172.16.81.11:9000/DeviceDescription.xml
+NT: urn:schemas-upnp-org:service:ContentDirectory:1
+NTS: ssdp:alive
+SERVER: Windows NT/5.0, UPnP/1.0, pvConnect UPnP SDK/1.0
+USN: uuid:7076436f-6e65-1063-8074-0018dedc11b5::urn:schemas-upnp-org:service:ContentDirectory:1
+
+

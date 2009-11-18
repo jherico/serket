@@ -32,6 +32,7 @@ public class ContentDirectoryV1Helper {
         } catch (SOAPException e) { }
     }
 
+
     public static SOAPMessage createBrowseResponse(String resultDidl, int count, int total, String updateId) throws SOAPException {
         SOAPMessage responseMsg = MESSAGE_FACTORY.createMessage();
         SOAPBody body = responseMsg.getSOAPBody();
