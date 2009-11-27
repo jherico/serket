@@ -1,22 +1,8 @@
-/*
- * Copyright (C) 2009 Bradley Austin Davis.
- * 
- * This file is part of serket.
- * 
- * serket is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option) any later
- * version.
- * 
- * serket is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with
- * serket. If not, see <http://www.gnu.org/licenses/>.
-*/
-package org.saintandreas.serket.jetty;
+package org.saintandreas.serket.test;
 
+import java.net.DatagramPacket;
+import java.net.MulticastSocket;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.logging.LogFactory;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -45,23 +32,28 @@ import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.swt.widgets.Tray;
 import org.eclipse.swt.widgets.TrayItem;
 import org.saintandreas.serket.reference.MediaServer;
+import org.saintandreas.serket.reference.SerketContentDirectory;
 import org.saintandreas.serket.reference.servlet.DescriptionServlet;
+import org.saintandreas.serket.service.Service;
+import org.saintandreas.serket.ssdp.Message;
+import org.saintandreas.serket.ssdp.SSDP;
+import org.saintandreas.util.NetUtil;
 
 public class IntegrationTest {
     static private ResourceBundle resources = null; //ResourceBundle.getBundle("JettyRunner");
     static private ExecutorService executor = Executors.newCachedThreadPool();
-    static private UUID uuid = UUID.randomUUID(); 
-    static private MediaServer mediaServer = new MediaServer(uuid.toString(), "/ui");
+    static private String uuid = "uuid:" + UUID.randomUUID().toString();
+    static private MediaServer mediaServer = null;
 
     public static void runJetty() throws Exception {
         Server server = new Server(8080);
-        List<Handler> handlerList = new ArrayList<Handler>(); 
+        List<Handler> handlerList = new ArrayList<Handler>();
 
         // the description handler
         {
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/description");
-            context.addServlet(new ServletHolder(new DescriptionServlet(mediaServer)),"/*");
+            context.addServlet(new ServletHolder(new DescriptionServlet(mediaServer)), "/*");
             handlerList.add(context);
         }
 
@@ -70,33 +62,79 @@ public class IntegrationTest {
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/scpd");
             context.setBaseResource(Resource.newClassPathResource("/scpd/"));
-            context.addServlet(new ServletHolder(new DefaultServlet()),"/*");
+            context.addServlet(new ServletHolder(new DefaultServlet()), "/*");
             handlerList.add(context);
         }
-        
+
+        // the service descriptor handler
+        {
+            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+            context.setContextPath("/");
+            context.addServlet(new ServletHolder(new LoggingServlet()), "/*");
+            handlerList.add(context);
+        }
+
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(handlerList.toArray(new Handler[]{}));
+        contexts.setHandlers(handlerList.toArray(new Handler[] {}));
         server.setHandler(contexts);
         server.start();
     }
 
     public static void runSSDP() {
-        org.saintandreas.serket.ssdp.Server ssdpServer = new org.saintandreas.serket.ssdp.Server(executor); 
+        org.saintandreas.serket.ssdp.Server ssdpServer = new org.saintandreas.serket.ssdp.Server(uuid, executor);
         ssdpServer.listen();
     }
-    
+
+    private static void initMediaServer() {
+        mediaServer = new MediaServer(uuid, "/ui");
+        mediaServer.getServiceList().add(new SerketContentDirectory("service/cd/control", "service/cd/event"));
+    }
+
+    protected static class Sender implements Runnable {
+        @Override
+        public void run() {
+            try {
+                MulticastSocket socket = new MulticastSocket();
+//                socket.joinGroup(SSDP.MULTICAST_ADDRESS);
+//                socket.setReuseAddress(true);
+                while (!executor.isShutdown()) {
+                    try {
+                        List<String> nts = new ArrayList<String>();
+                        nts.add("upnp:rootdevice");
+                        nts.add(mediaServer.getDeviceType());
+                        for (Service s : mediaServer.getServiceList()) {
+                            nts.add(s.getServiceType());
+                        }
+                        LogFactory.getLog(Sender.class).debug("Sending alive messages");
+                        for (String s: nts) {
+                            String message = Message.buildNotifyAliveMessage(s, uuid + "::" + s, "http://" + NetUtil.getInet4Address().getHostAddress() + ":8080/description/", 60 * 60, "serketLib/0.1");
+                            socket.send(SSDP.getPacket(message));
+                        }
+                        Thread.sleep(5000);
+                    } catch (SocketTimeoutException e) {
+                        continue;
+                    }
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
     public static void main(String[] args) throws Exception {
+        initMediaServer();
         runSSDP();
         runJetty();
+        SSDP.sendDiscover();
+        executor.submit(new Sender());
         executor.awaitTermination(1, TimeUnit.DAYS);
     }
 
     private static Shell openShell(Display display) {
         final Shell shell = new Shell(display);
         shell.setVisible(false);
-//        shell.setText(resources.getString("Window_title"));
-//        shell.setSize(500, 300);
-//        shell.open();
+        //        shell.setText(resources.getString("Window_title"));
+        //        shell.setSize(500, 300);
+        //        shell.open();
         final ToolTip tip = new ToolTip(shell, SWT.BALLOON | SWT.ICON_INFORMATION);
         tip.setMessage("Balloon Message Goes Here!");
         Image image = new Image(display, IntegrationTest.class.getResourceAsStream("/images/Play1Hot_256.png"));
@@ -105,10 +143,10 @@ public class IntegrationTest {
             TrayItem item = new TrayItem(tray, SWT.NONE);
             final Menu menu = new Menu(shell, SWT.POP_UP);
             item.setImage(image);
-            item.setToolTip(tip); 
-            item.addListener (SWT.MenuDetect, new org.eclipse.swt.widgets.Listener () {
-                public void handleEvent (Event event) {
-                    menu.setVisible (true);
+            item.setToolTip(tip);
+            item.addListener(SWT.MenuDetect, new org.eclipse.swt.widgets.Listener() {
+                public void handleEvent(Event event) {
+                    menu.setVisible(true);
                 }
             });
 
@@ -131,8 +169,6 @@ public class IntegrationTest {
         return shell;
     }
 }
-
-
 
 //Server server = new Server();
 //XmlConfiguration configuration = new XmlConfiguration(new JettyRunner.class.getResourceAsStream("/testJetty.xml"));

@@ -17,8 +17,12 @@
 */
 package org.saintandreas.util;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.Collections;
 
 public class NetUtil {
     public static String getHostname() {
@@ -27,5 +31,22 @@ public class NetUtil {
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static InetAddress getInet4Address() throws SocketException {
+        for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+            if (ni.isLoopback()) {
+                continue;
+            }
+            for (InetAddress ia : Collections.list(ni.getInetAddresses())) {
+                if (ia.isLinkLocalAddress() || ia.isLoopbackAddress()) {
+                    continue;
+                }
+                if (ia instanceof Inet4Address) {
+                    return ia;
+                }
+            }
+        }
+        return null;
     }
 }

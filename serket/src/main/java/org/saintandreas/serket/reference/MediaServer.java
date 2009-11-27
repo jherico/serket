@@ -73,7 +73,7 @@ public class MediaServer extends BaseDevice {
 
     @Override
     public DeviceType getDeviceTypeEnum() {
-        return DeviceType.MediaServer3;
+        return DeviceType.MediaServer;
     }
 
 }

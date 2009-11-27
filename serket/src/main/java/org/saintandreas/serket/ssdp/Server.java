@@ -17,32 +17,38 @@
  */
 package org.saintandreas.serket.ssdp;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.test.SSDPTests;
-
-import com.google.common.base.Charsets;
 
 public class Server {
+    private static String [] SEARCH_RESPONSE_IDS = {
+        "ssdp:all", "upnp:rootdevice" 
+    };
     protected ExecutorService executor;
+    protected final String uuid;
 
-    public Server() {
-        this.executor = Executors.newCachedThreadPool();
+    public Server(String uuid) {
+        this(uuid, Executors.newCachedThreadPool());
     }
 
-    public Server(ExecutorService executor) {
+    public Server(String uuid, ExecutorService executor) {
+        this.uuid = uuid;
         this.executor = executor;
     }
 
     public void listen() {
         executor.submit(new Listener());
     }
-    
+
+
     protected class Listener implements Runnable {
         @Override
         public void run() {
@@ -51,13 +57,13 @@ public class Server {
                 socket = new MulticastSocket(SSDP.DEFAULT_PORT);
                 socket.setReuseAddress(true);
                 socket.joinGroup(SSDP.MULTICAST_ADDRESS);
-                socket.setSoTimeout(1000);
-                byte [] buffer = new byte[8192];
+                byte[] buffer = new byte[8192];
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 while (!executor.isShutdown()) {
                     try {
                         socket.receive(packet);
                         executor.submit(new Handler(packet));
+                        // create a new packet and buffer for the next listen
                         buffer = new byte[8192];
                         packet = new DatagramPacket(buffer, buffer.length);
                     } catch (SocketTimeoutException e) {
@@ -78,10 +84,40 @@ public class Server {
 
         @Override
         public void run() {
-            String data = new String(packet.getData(), 0, packet.getLength(), Charsets.UTF_8);
-            LogFactory.getLog(SSDPTests.class).debug(data);
+            try {
+                Message message = Message.parseMessage(packet);
+                switch (message.type) {
+                case NOTIFY_ALIVE:
+                case NOTIFY_UPDATE:
+                    break;
+                case SEARCH:
+                {
+                    if (message.usn.startsWith(uuid)) {
+                        handleSearchMessage(message);
+                    } else {
+                        for (String s :SEARCH_RESPONSE_IDS) {
+                            if (message.usn.equals(s)) {
+                                handleSearchMessage(message);
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+                
+
+                }
+            } catch (HttpException e) {
+                LogFactory.getLog(getClass()).warn(e);
+            } catch (IOException e) {
+                LogFactory.getLog(getClass()).warn(e);
+            }
         }
 
+    }
+
+    public void handleSearchMessage(Message message) {
+        LogFactory.getLog(getClass()).warn("handling message " + message.usn);
     }
 
 }

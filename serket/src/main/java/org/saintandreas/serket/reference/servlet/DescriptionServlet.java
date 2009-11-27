@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.device.Device;
 import org.saintandreas.serket.device.Icon;
 import org.saintandreas.serket.service.Service;
@@ -26,6 +27,7 @@ public class DescriptionServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        LogFactory.getLog(getClass()).debug("Got description request");
         response.setContentType("text/xml");
         response.getWriter().write(XmlUtil.formatXmlDocument(generateDocument(rootDevice)));
     }
@@ -100,7 +102,7 @@ public class DescriptionServlet extends HttpServlet {
     }
 
     public static Node createServiceNode(Service service, Document doc) {
-        Node serviceNode = doc.createElement("icon");
+        Node serviceNode = doc.createElement("service");
         XmlUtil.addChildElement(serviceNode, "serviceType", service.getServiceType());
         XmlUtil.addChildElement(serviceNode, "serviceId", service.getId());
         XmlUtil.addChildElement(serviceNode, "SCPDURL", service.getDescriptionURL());

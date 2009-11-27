@@ -17,8 +17,10 @@
 */
 package org.saintandreas.serket.ssdp;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
+import java.net.MulticastSocket;
 import java.net.UnknownHostException;
 
 import com.google.common.base.Charsets;
@@ -40,6 +42,19 @@ public class SSDP {
     public static DatagramPacket getPacket(String data) {
         byte[] buffer = data.getBytes(Charsets.UTF_8);
         return new DatagramPacket(buffer, buffer.length, MULTICAST_ADDRESS, DEFAULT_PORT);
+    }
+
+    private final static String DISCOVER_MESSAGE =
+    "M-SEARCH * HTTP/1.1\r\n" +
+    "ST: upnp:rootdevice\r\n" +
+    "MX: 3\r\n" +
+    "MAN: \"ssdp:discover\"\r\n" +
+    "HOST: 239.255.255.250:1900\r\n\r\n";
+
+    public static void sendDiscover() throws IOException {
+        MulticastSocket socket = new MulticastSocket();
+        DatagramPacket packet = getPacket(Message.buildSearchMessage("upnp:rootdevice", 3));
+        socket.send(packet);
     }
 
 }
