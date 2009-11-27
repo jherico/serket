@@ -1,6 +1,5 @@
 package org.saintandreas.serket.test;
 
-import java.net.DatagramPacket;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.jetty.server.Handler;
@@ -37,16 +35,40 @@ import org.saintandreas.serket.reference.servlet.DescriptionServlet;
 import org.saintandreas.serket.service.Service;
 import org.saintandreas.serket.ssdp.Message;
 import org.saintandreas.serket.ssdp.SSDP;
+import org.saintandreas.serket.ssdp.SSDPServer;
 import org.saintandreas.util.NetUtil;
 
 public class IntegrationTest {
-    static private ResourceBundle resources = null; //ResourceBundle.getBundle("JettyRunner");
-    static private ExecutorService executor = Executors.newCachedThreadPool();
-    static private String uuid = "uuid:" + UUID.randomUUID().toString();
-    static private MediaServer mediaServer = null;
+    private static final ResourceBundle resources = ResourceBundle.getBundle("serket");
+    private final ExecutorService executor = Executors.newCachedThreadPool();
+    private final String uuid;
+    private final MediaServer mediaServer;
+    private final Server jettyServer;
+    private final SSDPServer ssdpServer;
 
-    public static void runJetty() throws Exception {
-        Server server = new Server(8080);
+    public IntegrationTest() {
+        uuid = "uuid:" + UUID.randomUUID().toString();
+        mediaServer = new MediaServer(uuid, "/ui");
+        mediaServer.getServiceList().add(new SerketContentDirectory("service/cd/control", "service/cd/event"));
+        jettyServer = new Server(8080);
+        ssdpServer = new SSDPServer(uuid, executor);
+        initJetty();
+    }
+
+    public void start() throws Exception {
+        ssdpServer.listen();
+        jettyServer.start();
+        executor.submit(new Sender());
+        SSDP.sendDiscover();
+    }
+
+    public void stop() throws Exception {
+        jettyServer.stop();
+        jettyServer.join();
+        executor.shutdownNow();
+    }
+
+    public void initJetty() {
         List<Handler> handlerList = new ArrayList<Handler>();
 
         // the description handler
@@ -76,27 +98,14 @@ public class IntegrationTest {
 
         ContextHandlerCollection contexts = new ContextHandlerCollection();
         contexts.setHandlers(handlerList.toArray(new Handler[] {}));
-        server.setHandler(contexts);
-        server.start();
+        jettyServer.setHandler(contexts);
     }
 
-    public static void runSSDP() {
-        org.saintandreas.serket.ssdp.Server ssdpServer = new org.saintandreas.serket.ssdp.Server(uuid, executor);
-        ssdpServer.listen();
-    }
-
-    private static void initMediaServer() {
-        mediaServer = new MediaServer(uuid, "/ui");
-        mediaServer.getServiceList().add(new SerketContentDirectory("service/cd/control", "service/cd/event"));
-    }
-
-    protected static class Sender implements Runnable {
+    protected class Sender implements Runnable {
         @Override
         public void run() {
             try {
                 MulticastSocket socket = new MulticastSocket();
-//                socket.joinGroup(SSDP.MULTICAST_ADDRESS);
-//                socket.setReuseAddress(true);
                 while (!executor.isShutdown()) {
                     try {
                         List<String> nts = new ArrayList<String>();
@@ -106,8 +115,9 @@ public class IntegrationTest {
                             nts.add(s.getServiceType());
                         }
                         LogFactory.getLog(Sender.class).debug("Sending alive messages");
-                        for (String s: nts) {
-                            String message = Message.buildNotifyAliveMessage(s, uuid + "::" + s, "http://" + NetUtil.getInet4Address().getHostAddress() + ":8080/description/", 60 * 60, "serketLib/0.1");
+                        for (String s : nts) {
+                            String message = Message.buildNotifyAliveMessage(s, uuid + "::" + s, "http://" + NetUtil.getInet4Address().getHostAddress() + ":8080/description/",
+                                    60 * 60, "serketLib/0.1");
                             socket.send(SSDP.getPacket(message));
                         }
                         Thread.sleep(5000);
@@ -120,21 +130,12 @@ public class IntegrationTest {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        initMediaServer();
-        runSSDP();
-        runJetty();
-        SSDP.sendDiscover();
-        executor.submit(new Sender());
-        executor.awaitTermination(1, TimeUnit.DAYS);
-    }
-
     private static Shell openShell(Display display) {
         final Shell shell = new Shell(display);
         shell.setVisible(false);
-        //        shell.setText(resources.getString("Window_title"));
-        //        shell.setSize(500, 300);
-        //        shell.open();
+        // shell.setText(resources.getString("Window_title"));
+        // shell.setSize(500, 300);
+        // shell.open();
         final ToolTip tip = new ToolTip(shell, SWT.BALLOON | SWT.ICON_INFORMATION);
         tip.setMessage("Balloon Message Goes Here!");
         Image image = new Image(display, IntegrationTest.class.getResourceAsStream("/images/Play1Hot_256.png"));
@@ -168,34 +169,25 @@ public class IntegrationTest {
 
         return shell;
     }
+
+    public static void main(String[] args) throws Exception {
+        IntegrationTest app = new IntegrationTest();
+        app.start();
+
+        Display display = new Display();
+        Shell shell = openShell(display);
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch()) {
+                display.sleep();
+            }
+        }
+        display.dispose();
+
+        app.stop();
+    }
 }
 
-//Server server = new Server();
-//XmlConfiguration configuration = new XmlConfiguration(new JettyRunner.class.getResourceAsStream("/testJetty.xml"));
-//configuration.configure(server);
-//server.start();
-//
-//XmlConfiguration configuration = new XmlConfiguration(new File("myJetty.xml").toURL()); 
-//
-//configuration.configure(server);
-//server.start();
-//
-////org.eclipse.jetty.util.log.Log.getLog().setDebugEnabled(true);
-//Server server = new Server(5001);
-//server.setHandler(new WebAppContext("src/main/webapp", "/"));
-//server.start();
-//
-////UPNPHelper.start(executor);
-//
-//final Display display = new Display();
-//final Shell shell = openShell(display);
-//while (!shell.isDisposed()) {
-//  if (!display.readAndDispatch()) {
-//      display.sleep();
-//  }
-//}
-//
-//executor.shutdownNow();
-//display.dispose();
-//server.stop();
-//server.join();
+// XmlConfiguration configuration = new XmlConfiguration(new
+// File("myJetty.xml").toURL());
+// configuration.configure(server);
+// server.start();

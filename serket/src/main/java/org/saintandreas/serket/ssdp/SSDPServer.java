@@ -28,18 +28,18 @@ import java.util.concurrent.Executors;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.logging.LogFactory;
 
-public class Server {
+public class SSDPServer {
     private static String [] SEARCH_RESPONSE_IDS = {
         "ssdp:all", "upnp:rootdevice" 
     };
     protected ExecutorService executor;
     protected final String uuid;
 
-    public Server(String uuid) {
+    public SSDPServer(String uuid) {
         this(uuid, Executors.newCachedThreadPool());
     }
 
-    public Server(String uuid, ExecutorService executor) {
+    public SSDPServer(String uuid, ExecutorService executor) {
         this.uuid = uuid;
         this.executor = executor;
     }
