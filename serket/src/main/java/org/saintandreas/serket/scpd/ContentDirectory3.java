@@ -1,13 +1,15 @@
 
 package org.saintandreas.serket.scpd;
 
-import java.util.Iterator;
+import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
+import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Element;
 
 public abstract class ContentDirectory3
@@ -24,45 +26,85 @@ public abstract class ContentDirectory3
         return URI;
     }
 
-    public abstract ContentDirectory3 .GetSearchCapabilitiesResponse getSearchCapabilities(ContentDirectory3 .GetSearchCapabilitiesRequest input);
+    public abstract ContentDirectory3 .GetSearchCapabilitiesResponse getSearchCapabilities(ContentDirectory3 .GetSearchCapabilitiesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetSortCapabilitiesResponse getSortCapabilities(ContentDirectory3 .GetSortCapabilitiesRequest input);
+    public abstract ContentDirectory3 .GetSortCapabilitiesResponse getSortCapabilities(ContentDirectory3 .GetSortCapabilitiesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetSortExtensionCapabilitiesResponse getSortExtensionCapabilities(ContentDirectory3 .GetSortExtensionCapabilitiesRequest input);
+    public abstract ContentDirectory3 .GetSortExtensionCapabilitiesResponse getSortExtensionCapabilities(ContentDirectory3 .GetSortExtensionCapabilitiesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetFeatureListResponse getFeatureList(ContentDirectory3 .GetFeatureListRequest input);
+    public abstract ContentDirectory3 .GetFeatureListResponse getFeatureList(ContentDirectory3 .GetFeatureListRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetSystemUpdateIDResponse getSystemUpdateID(ContentDirectory3 .GetSystemUpdateIDRequest input);
+    public abstract ContentDirectory3 .GetSystemUpdateIDResponse getSystemUpdateID(ContentDirectory3 .GetSystemUpdateIDRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetServiceResetTokenResponse getServiceResetToken(ContentDirectory3 .GetServiceResetTokenRequest input);
+    public abstract ContentDirectory3 .GetServiceResetTokenResponse getServiceResetToken(ContentDirectory3 .GetServiceResetTokenRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .BrowseResponse browse(ContentDirectory3 .BrowseRequest input);
+    public abstract ContentDirectory3 .BrowseResponse browse(ContentDirectory3 .BrowseRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .SearchResponse search(ContentDirectory3 .SearchRequest input);
+    public abstract ContentDirectory3 .SearchResponse search(ContentDirectory3 .SearchRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .CreateObjectResponse createObject(ContentDirectory3 .CreateObjectRequest input);
+    public abstract ContentDirectory3 .CreateObjectResponse createObject(ContentDirectory3 .CreateObjectRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .DestroyObjectResponse destroyObject(ContentDirectory3 .DestroyObjectRequest input);
+    public abstract ContentDirectory3 .DestroyObjectResponse destroyObject(ContentDirectory3 .DestroyObjectRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .UpdateObjectResponse updateObject(ContentDirectory3 .UpdateObjectRequest input);
+    public abstract ContentDirectory3 .UpdateObjectResponse updateObject(ContentDirectory3 .UpdateObjectRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .MoveObjectResponse moveObject(ContentDirectory3 .MoveObjectRequest input);
+    public abstract ContentDirectory3 .MoveObjectResponse moveObject(ContentDirectory3 .MoveObjectRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .ImportResourceResponse importResource(ContentDirectory3 .ImportResourceRequest input);
+    public abstract ContentDirectory3 .ImportResourceResponse importResource(ContentDirectory3 .ImportResourceRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .ExportResourceResponse exportResource(ContentDirectory3 .ExportResourceRequest input);
+    public abstract ContentDirectory3 .ExportResourceResponse exportResource(ContentDirectory3 .ExportResourceRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .DeleteResourceResponse deleteResource(ContentDirectory3 .DeleteResourceRequest input);
+    public abstract ContentDirectory3 .DeleteResourceResponse deleteResource(ContentDirectory3 .DeleteResourceRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .StopTransferResourceResponse stopTransferResource(ContentDirectory3 .StopTransferResourceRequest input);
+    public abstract ContentDirectory3 .StopTransferResourceResponse stopTransferResource(ContentDirectory3 .StopTransferResourceRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetTransferProgressResponse getTransferProgress(ContentDirectory3 .GetTransferProgressRequest input);
+    public abstract ContentDirectory3 .GetTransferProgressResponse getTransferProgress(ContentDirectory3 .GetTransferProgressRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .CreateReferenceResponse createReference(ContentDirectory3 .CreateReferenceRequest input);
+    public abstract ContentDirectory3 .CreateReferenceResponse createReference(ContentDirectory3 .CreateReferenceRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .FreeFormQueryResponse freeFormQuery(ContentDirectory3 .FreeFormQueryRequest input);
+    public abstract ContentDirectory3 .FreeFormQueryResponse freeFormQuery(ContentDirectory3 .FreeFormQueryRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ContentDirectory3 .GetFreeFormQueryCapabilitiesResponse getFreeFormQueryCapabilities(ContentDirectory3 .GetFreeFormQueryCapabilitiesRequest input);
+    public abstract ContentDirectory3 .GetFreeFormQueryCapabilitiesResponse getFreeFormQueryCapabilities(ContentDirectory3 .GetFreeFormQueryCapabilitiesRequest input)
+        throws IOException, ServletException
+    ;
 
     public enum BrowseFlag {
 
@@ -86,31 +128,29 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("objectID".equals(name)) {
+                if ("ObjectID".equals(name)) {
                     objectID = e.getTextContent();
                     continue;
                 }
-                if ("browseFlag".equals(name)) {
+                if ("BrowseFlag".equals(name)) {
                     browseFlag = ContentDirectory3 .BrowseFlag.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
-                if ("startingIndex".equals(name)) {
+                if ("StartingIndex".equals(name)) {
                     startingIndex = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("requestedCount".equals(name)) {
+                if ("RequestedCount".equals(name)) {
                     requestedCount = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("sortCriteria".equals(name)) {
+                if ("SortCriteria".equals(name)) {
                     sortCriteria = e.getTextContent();
                     continue;
                 }
@@ -146,23 +186,21 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("numberReturned".equals(name)) {
+                if ("NumberReturned".equals(name)) {
                     numberReturned = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("totalMatches".equals(name)) {
+                if ("TotalMatches".equals(name)) {
                     totalMatches = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -194,15 +232,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("containerID".equals(name)) {
+                if ("ContainerID".equals(name)) {
                     containerID = e.getTextContent();
                     continue;
                 }
-                if ("elements".equals(name)) {
+                if ("Elements".equals(name)) {
                     elements = e.getTextContent();
                     continue;
                 }
@@ -232,15 +268,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("objectID".equals(name)) {
+                if ("ObjectID".equals(name)) {
                     objectID = e.getTextContent();
                     continue;
                 }
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
@@ -270,15 +304,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("containerID".equals(name)) {
+                if ("ContainerID".equals(name)) {
                     containerID = e.getTextContent();
                     continue;
                 }
-                if ("objectID".equals(name)) {
+                if ("ObjectID".equals(name)) {
                     objectID = e.getTextContent();
                     continue;
                 }
@@ -307,11 +339,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("newID".equals(name)) {
+                if ("NewID".equals(name)) {
                     newID = e.getTextContent();
                     continue;
                 }
@@ -339,11 +369,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("resourceURI".equals(name)) {
+                if ("ResourceURI".equals(name)) {
                     resourceURI = e.getTextContent();
                     continue;
                 }
@@ -389,11 +417,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("objectID".equals(name)) {
+                if ("ObjectID".equals(name)) {
                     objectID = e.getTextContent();
                     continue;
                 }
@@ -440,15 +466,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("sourceURI".equals(name)) {
+                if ("SourceURI".equals(name)) {
                     sourceURI = e.getTextContent();
                     continue;
                 }
-                if ("destinationURI".equals(name)) {
+                if ("DestinationURI".equals(name)) {
                     destinationURI = e.getTextContent();
                     continue;
                 }
@@ -477,11 +501,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("transferID".equals(name)) {
+                if ("TransferID".equals(name)) {
                     transferID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -511,19 +533,17 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("containerID".equals(name)) {
+                if ("ContainerID".equals(name)) {
                     containerID = e.getTextContent();
                     continue;
                 }
-                if ("cDSView".equals(name)) {
+                if ("CDSView".equals(name)) {
                     cDSView = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("queryRequest".equals(name)) {
+                if ("QueryRequest".equals(name)) {
                     queryRequest = e.getTextContent();
                     continue;
                 }
@@ -554,15 +574,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("queryResult".equals(name)) {
+                if ("QueryResult".equals(name)) {
                     queryResult = e.getTextContent();
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -609,11 +627,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("featureList".equals(name)) {
+                if ("FeatureList".equals(name)) {
                     featureList = e.getTextContent();
                     continue;
                 }
@@ -659,11 +675,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("fFQCapabilities".equals(name)) {
+                if ("FFQCapabilities".equals(name)) {
                     fFQCapabilities = e.getTextContent();
                     continue;
                 }
@@ -709,11 +723,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("searchCaps".equals(name)) {
+                if ("SearchCaps".equals(name)) {
                     searchCaps = e.getTextContent();
                     continue;
                 }
@@ -759,11 +771,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("resetToken".equals(name)) {
+                if ("ResetToken".equals(name)) {
                     resetToken = e.getTextContent();
                     continue;
                 }
@@ -809,11 +819,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("sortCaps".equals(name)) {
+                if ("SortCaps".equals(name)) {
                     sortCaps = e.getTextContent();
                     continue;
                 }
@@ -859,11 +867,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("sortExtensionCaps".equals(name)) {
+                if ("SortExtensionCaps".equals(name)) {
                     sortExtensionCaps = e.getTextContent();
                     continue;
                 }
@@ -909,11 +915,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("id".equals(name)) {
+                if ("Id".equals(name)) {
                     id = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -941,11 +945,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("transferID".equals(name)) {
+                if ("TransferID".equals(name)) {
                     transferID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -975,19 +977,17 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("transferStatus".equals(name)) {
+                if ("TransferStatus".equals(name)) {
                     transferStatus = ContentDirectory3 .TransferStatus.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("transferLength".equals(name)) {
+                if ("TransferLength".equals(name)) {
                     transferLength = e.getTextContent();
                     continue;
                 }
-                if ("transferTotal".equals(name)) {
+                if ("TransferTotal".equals(name)) {
                     transferTotal = e.getTextContent();
                     continue;
                 }
@@ -1018,15 +1018,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("sourceURI".equals(name)) {
+                if ("SourceURI".equals(name)) {
                     sourceURI = e.getTextContent();
                     continue;
                 }
-                if ("destinationURI".equals(name)) {
+                if ("DestinationURI".equals(name)) {
                     destinationURI = e.getTextContent();
                     continue;
                 }
@@ -1055,11 +1053,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("transferID".equals(name)) {
+                if ("TransferID".equals(name)) {
                     transferID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1088,15 +1084,13 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("objectID".equals(name)) {
+                if ("ObjectID".equals(name)) {
                     objectID = e.getTextContent();
                     continue;
                 }
-                if ("newParentID".equals(name)) {
+                if ("NewParentID".equals(name)) {
                     newParentID = e.getTextContent();
                     continue;
                 }
@@ -1125,11 +1119,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("newObjectID".equals(name)) {
+                if ("NewObjectID".equals(name)) {
                     newObjectID = e.getTextContent();
                     continue;
                 }
@@ -1162,31 +1154,29 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("containerID".equals(name)) {
+                if ("ContainerID".equals(name)) {
                     containerID = e.getTextContent();
                     continue;
                 }
-                if ("searchCriteria".equals(name)) {
+                if ("SearchCriteria".equals(name)) {
                     searchCriteria = e.getTextContent();
                     continue;
                 }
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
-                if ("startingIndex".equals(name)) {
+                if ("StartingIndex".equals(name)) {
                     startingIndex = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("requestedCount".equals(name)) {
+                if ("RequestedCount".equals(name)) {
                     requestedCount = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("sortCriteria".equals(name)) {
+                if ("SortCriteria".equals(name)) {
                     sortCriteria = e.getTextContent();
                     continue;
                 }
@@ -1222,23 +1212,21 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("numberReturned".equals(name)) {
+                if ("NumberReturned".equals(name)) {
                     numberReturned = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("totalMatches".equals(name)) {
+                if ("TotalMatches".equals(name)) {
                     totalMatches = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1269,11 +1257,9 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("transferID".equals(name)) {
+                if ("TransferID".equals(name)) {
                     transferID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1330,19 +1316,17 @@ public abstract class ContentDirectory3
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("objectID".equals(name)) {
+                if ("ObjectID".equals(name)) {
                     objectID = e.getTextContent();
                     continue;
                 }
-                if ("currentTagValue".equals(name)) {
+                if ("CurrentTagValue".equals(name)) {
                     currentTagValue = e.getTextContent();
                     continue;
                 }
-                if ("newTagValue".equals(name)) {
+                if ("NewTagValue".equals(name)) {
                     newTagValue = e.getTextContent();
                     continue;
                 }

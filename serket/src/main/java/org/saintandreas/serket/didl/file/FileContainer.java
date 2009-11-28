@@ -19,8 +19,11 @@ package org.saintandreas.serket.didl.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.logging.LogFactory;
+import org.saintandreas.serket.didl.Base;
 import org.saintandreas.serket.didl.util.AContainer;
 
 /**
@@ -30,11 +33,30 @@ import org.saintandreas.serket.didl.util.AContainer;
 public class FileContainer extends AContainer {
 
     private final File file;
+    private long lastModified;
     
     public FileContainer(File file) {
         this.file = file;
+        lastModified = -1;
     }
     
+    @Override
+    public List<Base> getChildren() {
+        if (lastModified < file.lastModified()) {
+            refreshChildren();
+        }
+        return super.getChildren();
+    }
+
+    
+    private void refreshChildren() {
+        for (File f : file.listFiles()) {
+            if (f.isDirectory()) {
+                addChild(new FileContainer(f));
+            }
+        }
+    }
+
     @Override
     public String getTitle() {
         return file.getName();

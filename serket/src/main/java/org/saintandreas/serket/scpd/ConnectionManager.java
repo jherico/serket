@@ -1,13 +1,15 @@
 
 package org.saintandreas.serket.scpd;
 
-import java.util.Iterator;
+import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
+import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Element;
 
 public abstract class ConnectionManager
@@ -24,15 +26,25 @@ public abstract class ConnectionManager
         return URI;
     }
 
-    public abstract ConnectionManager.GetProtocolInfoResponse getProtocolInfo(ConnectionManager.GetProtocolInfoRequest input);
+    public abstract ConnectionManager.GetProtocolInfoResponse getProtocolInfo(ConnectionManager.GetProtocolInfoRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ConnectionManager.PrepareForConnectionResponse prepareForConnection(ConnectionManager.PrepareForConnectionRequest input);
+    public abstract ConnectionManager.PrepareForConnectionResponse prepareForConnection(ConnectionManager.PrepareForConnectionRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ConnectionManager.ConnectionCompleteResponse connectionComplete(ConnectionManager.ConnectionCompleteRequest input);
+    public abstract ConnectionManager.ConnectionCompleteResponse connectionComplete(ConnectionManager.ConnectionCompleteRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ConnectionManager.GetCurrentConnectionIDsResponse getCurrentConnectionIDs(ConnectionManager.GetCurrentConnectionIDsRequest input);
+    public abstract ConnectionManager.GetCurrentConnectionIDsResponse getCurrentConnectionIDs(ConnectionManager.GetCurrentConnectionIDsRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ConnectionManager.GetCurrentConnectionInfoResponse getCurrentConnectionInfo(ConnectionManager.GetCurrentConnectionInfoRequest input);
+    public abstract ConnectionManager.GetCurrentConnectionInfoResponse getCurrentConnectionInfo(ConnectionManager.GetCurrentConnectionInfoRequest input)
+        throws IOException, ServletException
+    ;
 
     public static class ConnectionCompleteRequest
         extends SOAPSerializable
@@ -44,11 +56,9 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("connectionID".equals(name)) {
+                if ("ConnectionID".equals(name)) {
                     connectionID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -129,11 +139,9 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("connectionIDs".equals(name)) {
+                if ("ConnectionIDs".equals(name)) {
                     connectionIDs = e.getTextContent();
                     continue;
                 }
@@ -161,11 +169,9 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("connectionID".equals(name)) {
+                if ("ConnectionID".equals(name)) {
                     connectionID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -199,35 +205,33 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("rcsID".equals(name)) {
+                if ("RcsID".equals(name)) {
                     rcsID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("aVTransportID".equals(name)) {
+                if ("AVTransportID".equals(name)) {
                     aVTransportID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("protocolInfo".equals(name)) {
+                if ("ProtocolInfo".equals(name)) {
                     protocolInfo = e.getTextContent();
                     continue;
                 }
-                if ("peerConnectionManager".equals(name)) {
+                if ("PeerConnectionManager".equals(name)) {
                     peerConnectionManager = e.getTextContent();
                     continue;
                 }
-                if ("peerConnectionID".equals(name)) {
+                if ("PeerConnectionID".equals(name)) {
                     peerConnectionID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("direction".equals(name)) {
+                if ("Direction".equals(name)) {
                     direction = org.saintandreas.serket.scpd.ConnectionManager.Direction.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("status".equals(name)) {
+                if ("Status".equals(name)) {
                     status = ConnectionManager.ConnectionStatus.valueOf(e.getTextContent());
                     continue;
                 }
@@ -280,15 +284,13 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("source".equals(name)) {
+                if ("Source".equals(name)) {
                     source = e.getTextContent();
                     continue;
                 }
-                if ("sink".equals(name)) {
+                if ("Sink".equals(name)) {
                     sink = e.getTextContent();
                     continue;
                 }
@@ -320,23 +322,21 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("remoteProtocolInfo".equals(name)) {
+                if ("RemoteProtocolInfo".equals(name)) {
                     remoteProtocolInfo = e.getTextContent();
                     continue;
                 }
-                if ("peerConnectionManager".equals(name)) {
+                if ("PeerConnectionManager".equals(name)) {
                     peerConnectionManager = e.getTextContent();
                     continue;
                 }
-                if ("peerConnectionID".equals(name)) {
+                if ("PeerConnectionID".equals(name)) {
                     peerConnectionID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("direction".equals(name)) {
+                if ("Direction".equals(name)) {
                     direction = ConnectionManager.Direction.valueOf(e.getTextContent());
                     continue;
                 }
@@ -369,19 +369,17 @@ public abstract class ConnectionManager
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("connectionID".equals(name)) {
+                if ("ConnectionID".equals(name)) {
                     connectionID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("aVTransportID".equals(name)) {
+                if ("AVTransportID".equals(name)) {
                     aVTransportID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("rcsID".equals(name)) {
+                if ("RcsID".equals(name)) {
                     rcsID = Integer.valueOf(e.getTextContent());
                     continue;
                 }

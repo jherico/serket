@@ -1,5 +1,6 @@
 package org.saintandreas.serket.reference.servlet;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.soap.MimeHeaders;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 
@@ -18,6 +20,7 @@ import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.saintandreas.serket.soap.SOAPUtil;
+import org.saintandreas.util.StringUtil;
 
 @SuppressWarnings("serial")
 public class UpnpServiceServlet extends HttpServlet {
@@ -29,14 +32,16 @@ public class UpnpServiceServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         try {
-//            LOG.debug(soapAction);
             String[] soapAction = request.getHeader("SOAPACTION").replaceAll("\"", "").split("#");
+            String body = StringUtil.read(request.getReader());
+            MimeHeaders headers = SOAPUtil.getMIMEHeaders(request);
+            SOAPMessage message = SOAPUtil.parse(headers, new ByteArrayInputStream(body.getBytes()));
             for (BaseService service : services) {
                 if (soapAction[0].equals(service.getURI())) {
                     Method method = findMethod(service.getClass(), soapAction[1]);
                     Class<? extends SOAPSerializable> input = (Class<? extends SOAPSerializable>) method.getParameterTypes()[0];
                     SOAPSerializable inputObject = input.newInstance();
-                    inputObject.parse(SOAPUtil.parse(request));
+                    inputObject.parse(message);
                     SOAPSerializable outputObject = (SOAPSerializable) method.invoke(service, inputObject);
                     SOAPMessage outputMessage = outputObject.format();
                     outputMessage.writeTo(response.getOutputStream());

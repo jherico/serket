@@ -1,13 +1,15 @@
 
 package org.saintandreas.serket.scpd;
 
-import java.util.Iterator;
+import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
+import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Element;
 
 public abstract class AVTransport
@@ -24,39 +26,73 @@ public abstract class AVTransport
         return URI;
     }
 
-    public abstract AVTransport.SetAVTransportURIResponse setAVTransportURI(AVTransport.SetAVTransportURIRequest input);
+    public abstract AVTransport.SetAVTransportURIResponse setAVTransportURI(AVTransport.SetAVTransportURIRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.SetNextAVTransportURIResponse setNextAVTransportURI(AVTransport.SetNextAVTransportURIRequest input);
+    public abstract AVTransport.SetNextAVTransportURIResponse setNextAVTransportURI(AVTransport.SetNextAVTransportURIRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.GetMediaInfoResponse getMediaInfo(AVTransport.GetMediaInfoRequest input);
+    public abstract AVTransport.GetMediaInfoResponse getMediaInfo(AVTransport.GetMediaInfoRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.GetTransportInfoResponse getTransportInfo(AVTransport.GetTransportInfoRequest input);
+    public abstract AVTransport.GetTransportInfoResponse getTransportInfo(AVTransport.GetTransportInfoRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.GetPositionInfoResponse getPositionInfo(AVTransport.GetPositionInfoRequest input);
+    public abstract AVTransport.GetPositionInfoResponse getPositionInfo(AVTransport.GetPositionInfoRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.GetDeviceCapabilitiesResponse getDeviceCapabilities(AVTransport.GetDeviceCapabilitiesRequest input);
+    public abstract AVTransport.GetDeviceCapabilitiesResponse getDeviceCapabilities(AVTransport.GetDeviceCapabilitiesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.GetTransportSettingsResponse getTransportSettings(AVTransport.GetTransportSettingsRequest input);
+    public abstract AVTransport.GetTransportSettingsResponse getTransportSettings(AVTransport.GetTransportSettingsRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.StopResponse stop(AVTransport.StopRequest input);
+    public abstract AVTransport.StopResponse stop(AVTransport.StopRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.PlayResponse play(AVTransport.PlayRequest input);
+    public abstract AVTransport.PlayResponse play(AVTransport.PlayRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.PauseResponse pause(AVTransport.PauseRequest input);
+    public abstract AVTransport.PauseResponse pause(AVTransport.PauseRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.RecordResponse record(AVTransport.RecordRequest input);
+    public abstract AVTransport.RecordResponse record(AVTransport.RecordRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.SeekResponse seek(AVTransport.SeekRequest input);
+    public abstract AVTransport.SeekResponse seek(AVTransport.SeekRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.NextResponse next(AVTransport.NextRequest input);
+    public abstract AVTransport.NextResponse next(AVTransport.NextRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.PreviousResponse previous(AVTransport.PreviousRequest input);
+    public abstract AVTransport.PreviousResponse previous(AVTransport.PreviousRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.SetPlayModeResponse setPlayMode(AVTransport.SetPlayModeRequest input);
+    public abstract AVTransport.SetPlayModeResponse setPlayMode(AVTransport.SetPlayModeRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.SetRecordQualityModeResponse setRecordQualityMode(AVTransport.SetRecordQualityModeRequest input);
+    public abstract AVTransport.SetRecordQualityModeResponse setRecordQualityMode(AVTransport.SetRecordQualityModeRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract AVTransport.GetCurrentTransportActionsResponse getCurrentTransportActions(AVTransport.GetCurrentTransportActionsRequest input);
+    public abstract AVTransport.GetCurrentTransportActionsResponse getCurrentTransportActions(AVTransport.GetCurrentTransportActionsRequest input)
+        throws IOException, ServletException
+    ;
 
     public enum CurrentPlayMode {
 
@@ -74,11 +110,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -106,11 +140,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("actions".equals(name)) {
+                if ("Actions".equals(name)) {
                     actions = e.getTextContent();
                     continue;
                 }
@@ -138,11 +170,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -172,19 +202,17 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("playMedia".equals(name)) {
+                if ("PlayMedia".equals(name)) {
                     playMedia = e.getTextContent();
                     continue;
                 }
-                if ("recMedia".equals(name)) {
+                if ("RecMedia".equals(name)) {
                     recMedia = e.getTextContent();
                     continue;
                 }
-                if ("recQualityModes".equals(name)) {
+                if ("RecQualityModes".equals(name)) {
                     recQualityModes = e.getTextContent();
                     continue;
                 }
@@ -214,11 +242,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -254,43 +280,41 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("nrTracks".equals(name)) {
+                if ("NrTracks".equals(name)) {
                     nrTracks = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("mediaDuration".equals(name)) {
+                if ("MediaDuration".equals(name)) {
                     mediaDuration = e.getTextContent();
                     continue;
                 }
-                if ("currentURI".equals(name)) {
+                if ("CurrentURI".equals(name)) {
                     currentURI = e.getTextContent();
                     continue;
                 }
-                if ("currentURIMetaData".equals(name)) {
+                if ("CurrentURIMetaData".equals(name)) {
                     currentURIMetaData = e.getTextContent();
                     continue;
                 }
-                if ("nextURI".equals(name)) {
+                if ("NextURI".equals(name)) {
                     nextURI = e.getTextContent();
                     continue;
                 }
-                if ("nextURIMetaData".equals(name)) {
+                if ("NextURIMetaData".equals(name)) {
                     nextURIMetaData = e.getTextContent();
                     continue;
                 }
-                if ("playMedium".equals(name)) {
+                if ("PlayMedium".equals(name)) {
                     playMedium = e.getTextContent();
                     continue;
                 }
-                if ("recordMedium".equals(name)) {
+                if ("RecordMedium".equals(name)) {
                     recordMedium = e.getTextContent();
                     continue;
                 }
-                if ("writeStatus".equals(name)) {
+                if ("WriteStatus".equals(name)) {
                     writeStatus = e.getTextContent();
                     continue;
                 }
@@ -326,11 +350,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -365,39 +387,37 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("track".equals(name)) {
+                if ("Track".equals(name)) {
                     track = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("trackDuration".equals(name)) {
+                if ("TrackDuration".equals(name)) {
                     trackDuration = e.getTextContent();
                     continue;
                 }
-                if ("trackMetaData".equals(name)) {
+                if ("TrackMetaData".equals(name)) {
                     trackMetaData = e.getTextContent();
                     continue;
                 }
-                if ("trackURI".equals(name)) {
+                if ("TrackURI".equals(name)) {
                     trackURI = e.getTextContent();
                     continue;
                 }
-                if ("relTime".equals(name)) {
+                if ("RelTime".equals(name)) {
                     relTime = e.getTextContent();
                     continue;
                 }
-                if ("absTime".equals(name)) {
+                if ("AbsTime".equals(name)) {
                     absTime = e.getTextContent();
                     continue;
                 }
-                if ("relCount".equals(name)) {
+                if ("RelCount".equals(name)) {
                     relCount = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("absCount".equals(name)) {
+                if ("AbsCount".equals(name)) {
                     absCount = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -432,11 +452,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -466,19 +484,17 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentTransportState".equals(name)) {
+                if ("CurrentTransportState".equals(name)) {
                     currentTransportState = AVTransport.TransportState.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("currentTransportStatus".equals(name)) {
+                if ("CurrentTransportStatus".equals(name)) {
                     currentTransportStatus = AVTransport.TransportStatus.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("currentSpeed".equals(name)) {
+                if ("CurrentSpeed".equals(name)) {
                     currentSpeed = AVTransport.TransportPlaySpeed.valueOf(e.getTextContent());
                     continue;
                 }
@@ -508,11 +524,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -541,15 +555,13 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("playMode".equals(name)) {
+                if ("PlayMode".equals(name)) {
                     playMode = AVTransport.CurrentPlayMode.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("recQualityMode".equals(name)) {
+                if ("RecQualityMode".equals(name)) {
                     recQualityMode = e.getTextContent();
                     continue;
                 }
@@ -578,11 +590,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -628,11 +638,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -679,15 +687,13 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("speed".equals(name)) {
+                if ("Speed".equals(name)) {
                     speed = org.saintandreas.serket.scpd.AVTransport.TransportPlaySpeed.valueOf(e.getTextContent());
                     continue;
                 }
@@ -734,11 +740,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -784,11 +788,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -842,19 +844,17 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("unit".equals(name)) {
+                if ("Unit".equals(name)) {
                     unit = AVTransport.SeekMode.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("target".equals(name)) {
+                if ("Target".equals(name)) {
                     target = e.getTextContent();
                     continue;
                 }
@@ -904,19 +904,17 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("currentURI".equals(name)) {
+                if ("CurrentURI".equals(name)) {
                     currentURI = e.getTextContent();
                     continue;
                 }
-                if ("currentURIMetaData".equals(name)) {
+                if ("CurrentURIMetaData".equals(name)) {
                     currentURIMetaData = e.getTextContent();
                     continue;
                 }
@@ -966,19 +964,17 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("nextURI".equals(name)) {
+                if ("NextURI".equals(name)) {
                     nextURI = e.getTextContent();
                     continue;
                 }
-                if ("nextURIMetaData".equals(name)) {
+                if ("NextURIMetaData".equals(name)) {
                     nextURIMetaData = e.getTextContent();
                     continue;
                 }
@@ -1027,15 +1023,13 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("newPlayMode".equals(name)) {
+                if ("NewPlayMode".equals(name)) {
                     newPlayMode = org.saintandreas.serket.scpd.AVTransport.CurrentPlayMode.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1083,15 +1077,13 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("newRecordQualityMode".equals(name)) {
+                if ("NewRecordQualityMode".equals(name)) {
                     newRecordQualityMode = e.getTextContent();
                     continue;
                 }
@@ -1138,11 +1130,9 @@ public abstract class AVTransport
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }

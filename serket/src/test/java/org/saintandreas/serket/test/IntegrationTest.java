@@ -1,5 +1,6 @@
 package org.saintandreas.serket.test;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.MulticastSocket;
@@ -34,12 +35,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.swt.widgets.Tray;
 import org.eclipse.swt.widgets.TrayItem;
-import org.saintandreas.serket.reference.MediaServer;
+import org.saintandreas.serket.didl.file.FileContainer;
 import org.saintandreas.serket.reference.SerketConnectionManager;
 import org.saintandreas.serket.reference.SerketContentDirectory;
 import org.saintandreas.serket.reference.SerketIcon;
-import org.saintandreas.serket.reference.servlet.UpnpServiceServlet;
+import org.saintandreas.serket.reference.SerketMediaServer;
 import org.saintandreas.serket.reference.servlet.DescriptionServlet;
+import org.saintandreas.serket.reference.servlet.UpnpServiceServlet;
 import org.saintandreas.serket.service.Service;
 import org.saintandreas.serket.ssdp.Message;
 import org.saintandreas.serket.ssdp.SSDP;
@@ -52,7 +54,7 @@ public class IntegrationTest {
     private static final ResourceBundle resources = ResourceBundle.getBundle("serket");
     private final ExecutorService executor = Executors.newCachedThreadPool();
     private final String uuid;
-    private final MediaServer mediaServer;
+    private final SerketMediaServer mediaServer;
     private final SerketContentDirectory cd;
     private final SerketConnectionManager cm;
     private final Server jettyServer;
@@ -121,8 +123,9 @@ public class IntegrationTest {
 
     public IntegrationTest() {
         uuid = "uuid:" + UUID.randomUUID().toString();
-        mediaServer = new MediaServer(uuid, "/ui");
+        mediaServer = new SerketMediaServer(uuid, "/ui");
         mediaServer.getServiceList().add(cd = new SerketContentDirectory("/service/cd/control", "/service/cd/event"));
+        cd.getRootContainer().addChild(new FileContainer(new File("c:\\media")));
         mediaServer.getServiceList().add(cm = new SerketConnectionManager("/service/cm/control", "/service/cm/event"));
         mediaServer.getIconList().add(new SerketIcon("image/png", "/images/Play1Hot_256.png", 256, 256, 24));
         jettyServer = new Server(8080);

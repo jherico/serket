@@ -18,6 +18,7 @@
 package org.saintandreas.serket.didl.util;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.saintandreas.serket.didl.Base;
@@ -42,13 +43,17 @@ public class DIDLHelper {
     //     ..
     //    </DIDL-Lite>
 
+    public static String format(Base item) throws IOException {
+        return format(Arrays.asList(new Base[] {item}));
+    }
+
     public static String format(List<? extends Base> children) throws IOException {
         return XmlUtil.formatXmlDocument(createDocument(children));
     }
 
     public static Document createDocument(List<? extends Base> children) {
         Document retVal = XmlUtil.createDocument();
-        Element rootElement = retVal.createElementNS(DIDL_LITE_NAMESPACE_URI, "DIDL-Lite");
+        Element rootElement = retVal.createElementNS(DIDL_LITE_NAMESPACE_URI, ROOT_NODE_NAME);
         retVal.appendChild(rootElement);
         for (Base child : children) {
             retVal.getDocumentElement().appendChild(createElement(child, retVal));

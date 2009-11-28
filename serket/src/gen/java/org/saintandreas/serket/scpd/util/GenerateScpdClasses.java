@@ -5,6 +5,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.util.Iterator;
 
+import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.soap.SOAPBodyElement;
@@ -29,6 +30,7 @@ import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JFieldVar;
+import com.sun.codemodel.JForEach;
 import com.sun.codemodel.JForLoop;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
@@ -101,6 +103,8 @@ public class GenerateScpdClasses {
         JType returnType = getArgumentsType(cm, cls, name, outArgs, true);
         JType inputType = getArgumentsType(cm, cls, name, inArgs, false);
         JMethod method = cls.method(JMod.PUBLIC | JMod.ABSTRACT, returnType, methodName);
+        method._throws(IOException.class);
+        method._throws(ServletException.class);
         if (inputType != cm.VOID) {
             method.param(inputType, "input");
         }
@@ -120,17 +124,22 @@ public class GenerateScpdClasses {
         JVar formatRetVal = format.body().decl(cm.ref(SOAPMessage.class), "retVal").init(returnClass.staticInvoke("createMessage"));
         JInvocation formatBodyElementInvocation = formatRetVal.invoke("getSOAPBody").invoke("addBodyElement").arg(JExpr._new(cm.ref(QName.class)).arg(JExpr.ref("URI")).arg(JExpr.lit(returnClass.name())).arg(JExpr.lit("u")));
 
+        JClass xmlUtilClass = cm.ref(XmlUtil.class);
         if (args.length > 0) {
             parse.annotate(SuppressWarnings.class).param("value", "unchecked");
             parse._throws(SOAPException.class);
-            JVar parseItr = parse.body().decl(cm.ref(Iterator.class), "itr", soapMessageParam.invoke("getSOAPBody").invoke("getChildElements"));;
-            JForLoop parseFor = parse.body()._for();
-            parseFor.test(parseItr.invoke("hasNext"));
-            JVar parseForElement = parseFor.body().decl(cm.ref(Element.class), "e", JExpr.cast(cm.ref(Element.class), parseItr.invoke("next")));
+            
+//            for (Element e : XmlUtil.getChildElements(XmlUtil.getChildElements(body).get(0))) {
+            
+//            for (Element e : XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
+
+            JInvocation collection = xmlUtilClass.staticInvoke("getChildElements").arg(xmlUtilClass.staticInvoke("getChildElements").arg(soapMessageParam.invoke("getSOAPBody")).invoke("get").arg(JExpr.lit(0)));
+            
+            
+            JForEach parseFor = parse.body().forEach(cm._ref(Element.class), "e", collection);
+            JVar parseForElement = parseFor.var();
             JVar parseForName = parseFor.body().decl(cm.ref(String.class), "name", parseForElement.invoke("getNodeName"));
             JVar formatElement = format.body().decl(cm.ref(SOAPBodyElement.class), "soapBodyElement",formatBodyElementInvocation);   
-            // Element e = itr.next();
-            // String name = e.getNodeName();
             for (Element outArg : args) {
 
                 String relatedStateVariable = XPathUtil.getStringValue(outArg, "relatedStateVariable").trim();
@@ -143,7 +152,7 @@ public class GenerateScpdClasses {
                 JInvocation formatSetText = formatElement.invoke("addChildElement").arg(JExpr.lit(elementName)).invoke("setTextContent");
                 format.body().add(formatSetText);
                 // if ("Result".equals(name)) {
-                JBlock ifBody = parseFor.body()._if(JExpr.lit(fieldName).invoke("equals").arg(parseForName))._then();
+                JBlock ifBody = parseFor.body()._if(JExpr.lit(elementName).invoke("equals").arg(parseForName))._then();
                 // String value = e.getTextContent();
                 if (fieldType.isPrimitive()) {
                     formatSetText.arg(cm.ref(Integer.class).staticInvoke("toString").arg(fieldVar));

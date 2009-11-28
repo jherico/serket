@@ -1,13 +1,15 @@
 
 package org.saintandreas.serket.scpd;
 
-import java.util.Iterator;
+import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
+import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Element;
 
 public abstract class ScheduledRecording
@@ -24,41 +26,77 @@ public abstract class ScheduledRecording
         return URI;
     }
 
-    public abstract ScheduledRecording.GetSortCapabilitiesResponse getSortCapabilities(ScheduledRecording.GetSortCapabilitiesRequest input);
+    public abstract ScheduledRecording.GetSortCapabilitiesResponse getSortCapabilities(ScheduledRecording.GetSortCapabilitiesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetPropertyListResponse getPropertyList(ScheduledRecording.GetPropertyListRequest input);
+    public abstract ScheduledRecording.GetPropertyListResponse getPropertyList(ScheduledRecording.GetPropertyListRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetAllowedValuesResponse getAllowedValues(ScheduledRecording.GetAllowedValuesRequest input);
+    public abstract ScheduledRecording.GetAllowedValuesResponse getAllowedValues(ScheduledRecording.GetAllowedValuesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetStateUpdateIDResponse getStateUpdateID(ScheduledRecording.GetStateUpdateIDRequest input);
+    public abstract ScheduledRecording.GetStateUpdateIDResponse getStateUpdateID(ScheduledRecording.GetStateUpdateIDRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.BrowseRecordSchedulesResponse browseRecordSchedules(ScheduledRecording.BrowseRecordSchedulesRequest input);
+    public abstract ScheduledRecording.BrowseRecordSchedulesResponse browseRecordSchedules(ScheduledRecording.BrowseRecordSchedulesRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.BrowseRecordTasksResponse browseRecordTasks(ScheduledRecording.BrowseRecordTasksRequest input);
+    public abstract ScheduledRecording.BrowseRecordTasksResponse browseRecordTasks(ScheduledRecording.BrowseRecordTasksRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.CreateRecordScheduleResponse createRecordSchedule(ScheduledRecording.CreateRecordScheduleRequest input);
+    public abstract ScheduledRecording.CreateRecordScheduleResponse createRecordSchedule(ScheduledRecording.CreateRecordScheduleRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.DeleteRecordScheduleResponse deleteRecordSchedule(ScheduledRecording.DeleteRecordScheduleRequest input);
+    public abstract ScheduledRecording.DeleteRecordScheduleResponse deleteRecordSchedule(ScheduledRecording.DeleteRecordScheduleRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetRecordScheduleResponse getRecordSchedule(ScheduledRecording.GetRecordScheduleRequest input);
+    public abstract ScheduledRecording.GetRecordScheduleResponse getRecordSchedule(ScheduledRecording.GetRecordScheduleRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.EnableRecordScheduleResponse enableRecordSchedule(ScheduledRecording.EnableRecordScheduleRequest input);
+    public abstract ScheduledRecording.EnableRecordScheduleResponse enableRecordSchedule(ScheduledRecording.EnableRecordScheduleRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.DisableRecordScheduleResponse disableRecordSchedule(ScheduledRecording.DisableRecordScheduleRequest input);
+    public abstract ScheduledRecording.DisableRecordScheduleResponse disableRecordSchedule(ScheduledRecording.DisableRecordScheduleRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.DeleteRecordTaskResponse deleteRecordTask(ScheduledRecording.DeleteRecordTaskRequest input);
+    public abstract ScheduledRecording.DeleteRecordTaskResponse deleteRecordTask(ScheduledRecording.DeleteRecordTaskRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetRecordTaskResponse getRecordTask(ScheduledRecording.GetRecordTaskRequest input);
+    public abstract ScheduledRecording.GetRecordTaskResponse getRecordTask(ScheduledRecording.GetRecordTaskRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.EnableRecordTaskResponse enableRecordTask(ScheduledRecording.EnableRecordTaskRequest input);
+    public abstract ScheduledRecording.EnableRecordTaskResponse enableRecordTask(ScheduledRecording.EnableRecordTaskRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.DisableRecordTaskResponse disableRecordTask(ScheduledRecording.DisableRecordTaskRequest input);
+    public abstract ScheduledRecording.DisableRecordTaskResponse disableRecordTask(ScheduledRecording.DisableRecordTaskRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.ResetRecordTaskResponse resetRecordTask(ScheduledRecording.ResetRecordTaskRequest input);
+    public abstract ScheduledRecording.ResetRecordTaskResponse resetRecordTask(ScheduledRecording.ResetRecordTaskRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetRecordScheduleConflictsResponse getRecordScheduleConflicts(ScheduledRecording.GetRecordScheduleConflictsRequest input);
+    public abstract ScheduledRecording.GetRecordScheduleConflictsResponse getRecordScheduleConflicts(ScheduledRecording.GetRecordScheduleConflictsRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract ScheduledRecording.GetRecordTaskConflictsResponse getRecordTaskConflicts(ScheduledRecording.GetRecordTaskConflictsRequest input);
+    public abstract ScheduledRecording.GetRecordTaskConflictsResponse getRecordTaskConflicts(ScheduledRecording.GetRecordTaskConflictsRequest input)
+        throws IOException, ServletException
+    ;
 
     public static class BrowseRecordSchedulesRequest
         extends SOAPSerializable
@@ -73,23 +111,21 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
-                if ("startingIndex".equals(name)) {
+                if ("StartingIndex".equals(name)) {
                     startingIndex = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("requestedCount".equals(name)) {
+                if ("RequestedCount".equals(name)) {
                     requestedCount = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("sortCriteria".equals(name)) {
+                if ("SortCriteria".equals(name)) {
                     sortCriteria = e.getTextContent();
                     continue;
                 }
@@ -123,23 +159,21 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("numberReturned".equals(name)) {
+                if ("NumberReturned".equals(name)) {
                     numberReturned = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("totalMatches".equals(name)) {
+                if ("TotalMatches".equals(name)) {
                     totalMatches = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -174,27 +208,25 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
-                if ("startingIndex".equals(name)) {
+                if ("StartingIndex".equals(name)) {
                     startingIndex = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("requestedCount".equals(name)) {
+                if ("RequestedCount".equals(name)) {
                     requestedCount = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("sortCriteria".equals(name)) {
+                if ("SortCriteria".equals(name)) {
                     sortCriteria = e.getTextContent();
                     continue;
                 }
@@ -229,23 +261,21 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("numberReturned".equals(name)) {
+                if ("NumberReturned".equals(name)) {
                     numberReturned = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("totalMatches".equals(name)) {
+                if ("TotalMatches".equals(name)) {
                     totalMatches = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -276,11 +306,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("elements".equals(name)) {
+                if ("Elements".equals(name)) {
                     elements = e.getTextContent();
                     continue;
                 }
@@ -310,19 +338,17 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -360,11 +386,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
@@ -410,11 +434,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskID".equals(name)) {
+                if ("RecordTaskID".equals(name)) {
                     recordTaskID = e.getTextContent();
                     continue;
                 }
@@ -460,11 +482,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
@@ -510,11 +530,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskID".equals(name)) {
+                if ("RecordTaskID".equals(name)) {
                     recordTaskID = e.getTextContent();
                     continue;
                 }
@@ -560,11 +578,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
@@ -610,11 +626,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskID".equals(name)) {
+                if ("RecordTaskID".equals(name)) {
                     recordTaskID = e.getTextContent();
                     continue;
                 }
@@ -661,15 +675,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("dataTypeID".equals(name)) {
+                if ("DataTypeID".equals(name)) {
                     dataTypeID = org.saintandreas.serket.scpd.ScheduledRecording.DataTypeID.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
@@ -698,11 +710,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("propertyInfo".equals(name)) {
+                if ("PropertyInfo".equals(name)) {
                     propertyInfo = e.getTextContent();
                     continue;
                 }
@@ -730,11 +740,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("dataTypeID".equals(name)) {
+                if ("DataTypeID".equals(name)) {
                     dataTypeID = ScheduledRecording.DataTypeID.valueOf(e.getTextContent());
                     continue;
                 }
@@ -762,11 +770,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("propertyList".equals(name)) {
+                if ("PropertyList".equals(name)) {
                     propertyList = e.getTextContent();
                     continue;
                 }
@@ -794,11 +800,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
@@ -827,15 +831,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleConflictIDList".equals(name)) {
+                if ("RecordScheduleConflictIDList".equals(name)) {
                     recordScheduleConflictIDList = e.getTextContent();
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -865,15 +867,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordScheduleID".equals(name)) {
+                if ("RecordScheduleID".equals(name)) {
                     recordScheduleID = e.getTextContent();
                     continue;
                 }
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
@@ -903,15 +903,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -940,11 +938,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskID".equals(name)) {
+                if ("RecordTaskID".equals(name)) {
                     recordTaskID = e.getTextContent();
                     continue;
                 }
@@ -973,15 +969,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskConflictIDList".equals(name)) {
+                if ("RecordTaskConflictIDList".equals(name)) {
                     recordTaskConflictIDList = e.getTextContent();
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1011,15 +1005,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskID".equals(name)) {
+                if ("RecordTaskID".equals(name)) {
                     recordTaskID = e.getTextContent();
                     continue;
                 }
-                if ("filter".equals(name)) {
+                if ("Filter".equals(name)) {
                     filter = e.getTextContent();
                     continue;
                 }
@@ -1049,15 +1041,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("result".equals(name)) {
+                if ("Result".equals(name)) {
                     result = e.getTextContent();
                     continue;
                 }
-                if ("updateID".equals(name)) {
+                if ("UpdateID".equals(name)) {
                     updateID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1105,15 +1095,13 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("sortCaps".equals(name)) {
+                if ("SortCaps".equals(name)) {
                     sortCaps = e.getTextContent();
                     continue;
                 }
-                if ("sortLevelCap".equals(name)) {
+                if ("SortLevelCap".equals(name)) {
                     sortLevelCap = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1160,11 +1148,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("id".equals(name)) {
+                if ("Id".equals(name)) {
                     id = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1192,11 +1178,9 @@ public abstract class ScheduledRecording
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("recordTaskID".equals(name)) {
+                if ("RecordTaskID".equals(name)) {
                     recordTaskID = e.getTextContent();
                     continue;
                 }

@@ -24,7 +24,7 @@ import org.saintandreas.serket.device.Model;
 import org.saintandreas.serket.impl.BaseDevice;
 import org.saintandreas.util.NetUtil;
 
-public class MediaServer extends BaseDevice {
+public class SerketMediaServer extends BaseDevice {
     
     private static class SerketModel implements Model {
 
@@ -45,7 +45,7 @@ public class MediaServer extends BaseDevice {
 
         @Override
         public String getUPC() {
-            return "";
+            return null;
         }
 
         @Override
@@ -66,7 +66,7 @@ public class MediaServer extends BaseDevice {
         }
     }
 
-    public MediaServer(String UDN, String presentationURL) {
+    public SerketMediaServer(String UDN, String presentationURL) {
         super("Serket AV " + NetUtil.getHostname(), UDN, "", presentationURL, new SerketManufacturer(), new SerketModel());
     }
     

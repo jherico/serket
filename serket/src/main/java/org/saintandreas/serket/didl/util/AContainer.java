@@ -55,7 +55,7 @@ public abstract class AContainer extends ANode implements Container {
 
     @Override
     public List<Base> getChildren() {
-        return Collections.unmodifiableList(children);
+        return children;
     }
 
     @Override

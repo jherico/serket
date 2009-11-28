@@ -1,6 +1,7 @@
 package org.saintandreas.serket.soap;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.Enumeration;
 
@@ -24,7 +25,11 @@ public class SOAPUtil {
     }
     
     public static SOAPMessage parse(HttpServletRequest request) throws IOException, SOAPException {
-        return MESSAGE_FACTORY.createMessage(getMIMEHeaders(request), request.getInputStream());
+        return parse(getMIMEHeaders(request), request.getInputStream());
+    }
+
+    public static SOAPMessage parse(MimeHeaders headers, InputStream stream) throws IOException, SOAPException {
+        return MESSAGE_FACTORY.createMessage(headers, stream);
     }
 
     @SuppressWarnings("unchecked")

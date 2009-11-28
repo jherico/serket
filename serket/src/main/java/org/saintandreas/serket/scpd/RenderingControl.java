@@ -1,13 +1,15 @@
 
 package org.saintandreas.serket.scpd;
 
-import java.util.Iterator;
+import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
+import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Element;
 
 public abstract class RenderingControl
@@ -24,75 +26,145 @@ public abstract class RenderingControl
         return URI;
     }
 
-    public abstract RenderingControl.ListPresetsResponse listPresets(RenderingControl.ListPresetsRequest input);
+    public abstract RenderingControl.ListPresetsResponse listPresets(RenderingControl.ListPresetsRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SelectPresetResponse selectPreset(RenderingControl.SelectPresetRequest input);
+    public abstract RenderingControl.SelectPresetResponse selectPreset(RenderingControl.SelectPresetRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetBrightnessResponse getBrightness(RenderingControl.GetBrightnessRequest input);
+    public abstract RenderingControl.GetBrightnessResponse getBrightness(RenderingControl.GetBrightnessRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetBrightnessResponse setBrightness(RenderingControl.SetBrightnessRequest input);
+    public abstract RenderingControl.SetBrightnessResponse setBrightness(RenderingControl.SetBrightnessRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetContrastResponse getContrast(RenderingControl.GetContrastRequest input);
+    public abstract RenderingControl.GetContrastResponse getContrast(RenderingControl.GetContrastRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetContrastResponse setContrast(RenderingControl.SetContrastRequest input);
+    public abstract RenderingControl.SetContrastResponse setContrast(RenderingControl.SetContrastRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetSharpnessResponse getSharpness(RenderingControl.GetSharpnessRequest input);
+    public abstract RenderingControl.GetSharpnessResponse getSharpness(RenderingControl.GetSharpnessRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetSharpnessResponse setSharpness(RenderingControl.SetSharpnessRequest input);
+    public abstract RenderingControl.SetSharpnessResponse setSharpness(RenderingControl.SetSharpnessRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetRedVideoGainResponse getRedVideoGain(RenderingControl.GetRedVideoGainRequest input);
+    public abstract RenderingControl.GetRedVideoGainResponse getRedVideoGain(RenderingControl.GetRedVideoGainRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetRedVideoGainResponse setRedVideoGain(RenderingControl.SetRedVideoGainRequest input);
+    public abstract RenderingControl.SetRedVideoGainResponse setRedVideoGain(RenderingControl.SetRedVideoGainRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetGreenVideoGainResponse getGreenVideoGain(RenderingControl.GetGreenVideoGainRequest input);
+    public abstract RenderingControl.GetGreenVideoGainResponse getGreenVideoGain(RenderingControl.GetGreenVideoGainRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetGreenVideoGainResponse setGreenVideoGain(RenderingControl.SetGreenVideoGainRequest input);
+    public abstract RenderingControl.SetGreenVideoGainResponse setGreenVideoGain(RenderingControl.SetGreenVideoGainRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetBlueVideoGainResponse getBlueVideoGain(RenderingControl.GetBlueVideoGainRequest input);
+    public abstract RenderingControl.GetBlueVideoGainResponse getBlueVideoGain(RenderingControl.GetBlueVideoGainRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetBlueVideoGainResponse setBlueVideoGain(RenderingControl.SetBlueVideoGainRequest input);
+    public abstract RenderingControl.SetBlueVideoGainResponse setBlueVideoGain(RenderingControl.SetBlueVideoGainRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetRedVideoBlackLevelResponse getRedVideoBlackLevel(RenderingControl.GetRedVideoBlackLevelRequest input);
+    public abstract RenderingControl.GetRedVideoBlackLevelResponse getRedVideoBlackLevel(RenderingControl.GetRedVideoBlackLevelRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetRedVideoBlackLevelResponse setRedVideoBlackLevel(RenderingControl.SetRedVideoBlackLevelRequest input);
+    public abstract RenderingControl.SetRedVideoBlackLevelResponse setRedVideoBlackLevel(RenderingControl.SetRedVideoBlackLevelRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetGreenVideoBlackLevelResponse getGreenVideoBlackLevel(RenderingControl.GetGreenVideoBlackLevelRequest input);
+    public abstract RenderingControl.GetGreenVideoBlackLevelResponse getGreenVideoBlackLevel(RenderingControl.GetGreenVideoBlackLevelRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetGreenVideoBlackLevelResponse setGreenVideoBlackLevel(RenderingControl.SetGreenVideoBlackLevelRequest input);
+    public abstract RenderingControl.SetGreenVideoBlackLevelResponse setGreenVideoBlackLevel(RenderingControl.SetGreenVideoBlackLevelRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetBlueVideoBlackLevelResponse getBlueVideoBlackLevel(RenderingControl.GetBlueVideoBlackLevelRequest input);
+    public abstract RenderingControl.GetBlueVideoBlackLevelResponse getBlueVideoBlackLevel(RenderingControl.GetBlueVideoBlackLevelRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetBlueVideoBlackLevelResponse setBlueVideoBlackLevel(RenderingControl.SetBlueVideoBlackLevelRequest input);
+    public abstract RenderingControl.SetBlueVideoBlackLevelResponse setBlueVideoBlackLevel(RenderingControl.SetBlueVideoBlackLevelRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetColorTemperatureResponse getColorTemperature(RenderingControl.GetColorTemperatureRequest input);
+    public abstract RenderingControl.GetColorTemperatureResponse getColorTemperature(RenderingControl.GetColorTemperatureRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetColorTemperatureResponse setColorTemperature(RenderingControl.SetColorTemperatureRequest input);
+    public abstract RenderingControl.SetColorTemperatureResponse setColorTemperature(RenderingControl.SetColorTemperatureRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetHorizontalKeystoneResponse getHorizontalKeystone(RenderingControl.GetHorizontalKeystoneRequest input);
+    public abstract RenderingControl.GetHorizontalKeystoneResponse getHorizontalKeystone(RenderingControl.GetHorizontalKeystoneRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetHorizontalKeystoneResponse setHorizontalKeystone(RenderingControl.SetHorizontalKeystoneRequest input);
+    public abstract RenderingControl.SetHorizontalKeystoneResponse setHorizontalKeystone(RenderingControl.SetHorizontalKeystoneRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetVerticalKeystoneResponse getVerticalKeystone(RenderingControl.GetVerticalKeystoneRequest input);
+    public abstract RenderingControl.GetVerticalKeystoneResponse getVerticalKeystone(RenderingControl.GetVerticalKeystoneRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetVerticalKeystoneResponse setVerticalKeystone(RenderingControl.SetVerticalKeystoneRequest input);
+    public abstract RenderingControl.SetVerticalKeystoneResponse setVerticalKeystone(RenderingControl.SetVerticalKeystoneRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetMuteResponse getMute(RenderingControl.GetMuteRequest input);
+    public abstract RenderingControl.GetMuteResponse getMute(RenderingControl.GetMuteRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetMuteResponse setMute(RenderingControl.SetMuteRequest input);
+    public abstract RenderingControl.SetMuteResponse setMute(RenderingControl.SetMuteRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetVolumeResponse getVolume(RenderingControl.GetVolumeRequest input);
+    public abstract RenderingControl.GetVolumeResponse getVolume(RenderingControl.GetVolumeRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetVolumeResponse setVolume(RenderingControl.SetVolumeRequest input);
+    public abstract RenderingControl.SetVolumeResponse setVolume(RenderingControl.SetVolumeRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetVolumeDBResponse getVolumeDB(RenderingControl.GetVolumeDBRequest input);
+    public abstract RenderingControl.GetVolumeDBResponse getVolumeDB(RenderingControl.GetVolumeDBRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetVolumeDBResponse setVolumeDB(RenderingControl.SetVolumeDBRequest input);
+    public abstract RenderingControl.SetVolumeDBResponse setVolumeDB(RenderingControl.SetVolumeDBRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetVolumeDBRangeResponse getVolumeDBRange(RenderingControl.GetVolumeDBRangeRequest input);
+    public abstract RenderingControl.GetVolumeDBRangeResponse getVolumeDBRange(RenderingControl.GetVolumeDBRangeRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.GetLoudnessResponse getLoudness(RenderingControl.GetLoudnessRequest input);
+    public abstract RenderingControl.GetLoudnessResponse getLoudness(RenderingControl.GetLoudnessRequest input)
+        throws IOException, ServletException
+    ;
 
-    public abstract RenderingControl.SetLoudnessResponse setLoudness(RenderingControl.SetLoudnessRequest input);
+    public abstract RenderingControl.SetLoudnessResponse setLoudness(RenderingControl.SetLoudnessRequest input)
+        throws IOException, ServletException
+    ;
 
     public enum Channel {
 
@@ -110,11 +182,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -142,11 +212,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentBlueVideoBlackLevel".equals(name)) {
+                if ("CurrentBlueVideoBlackLevel".equals(name)) {
                     currentBlueVideoBlackLevel = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -174,11 +242,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -206,11 +272,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentBlueVideoGain".equals(name)) {
+                if ("CurrentBlueVideoGain".equals(name)) {
                     currentBlueVideoGain = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -238,11 +302,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -270,11 +332,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentBrightness".equals(name)) {
+                if ("CurrentBrightness".equals(name)) {
                     currentBrightness = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -302,11 +362,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -334,11 +392,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentColorTemperature".equals(name)) {
+                if ("CurrentColorTemperature".equals(name)) {
                     currentColorTemperature = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -366,11 +422,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -398,11 +452,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentContrast".equals(name)) {
+                if ("CurrentContrast".equals(name)) {
                     currentContrast = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -430,11 +482,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -462,11 +512,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentGreenVideoBlackLevel".equals(name)) {
+                if ("CurrentGreenVideoBlackLevel".equals(name)) {
                     currentGreenVideoBlackLevel = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -494,11 +542,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -526,11 +572,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentGreenVideoGain".equals(name)) {
+                if ("CurrentGreenVideoGain".equals(name)) {
                     currentGreenVideoGain = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -558,11 +602,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -590,11 +632,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentHorizontalKeystone".equals(name)) {
+                if ("CurrentHorizontalKeystone".equals(name)) {
                     currentHorizontalKeystone = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -623,15 +663,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
@@ -660,11 +698,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentLoudness".equals(name)) {
+                if ("CurrentLoudness".equals(name)) {
                     currentLoudness = Boolean.valueOf(e.getTextContent());
                     continue;
                 }
@@ -693,15 +729,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
@@ -730,11 +764,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentMute".equals(name)) {
+                if ("CurrentMute".equals(name)) {
                     currentMute = Boolean.valueOf(e.getTextContent());
                     continue;
                 }
@@ -762,11 +794,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -794,11 +824,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentRedVideoBlackLevel".equals(name)) {
+                if ("CurrentRedVideoBlackLevel".equals(name)) {
                     currentRedVideoBlackLevel = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -826,11 +854,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -858,11 +884,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentRedVideoGain".equals(name)) {
+                if ("CurrentRedVideoGain".equals(name)) {
                     currentRedVideoGain = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -890,11 +914,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -922,11 +944,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentSharpness".equals(name)) {
+                if ("CurrentSharpness".equals(name)) {
                     currentSharpness = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -954,11 +974,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -986,11 +1004,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentVerticalKeystone".equals(name)) {
+                if ("CurrentVerticalKeystone".equals(name)) {
                     currentVerticalKeystone = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1019,15 +1035,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1057,15 +1071,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("minValue".equals(name)) {
+                if ("MinValue".equals(name)) {
                     minValue = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("maxValue".equals(name)) {
+                if ("MaxValue".equals(name)) {
                     maxValue = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1095,15 +1107,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1132,11 +1142,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentVolume".equals(name)) {
+                if ("CurrentVolume".equals(name)) {
                     currentVolume = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1165,15 +1173,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1202,11 +1208,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentVolume".equals(name)) {
+                if ("CurrentVolume".equals(name)) {
                     currentVolume = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1234,11 +1238,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1266,11 +1268,9 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("currentPresetNameList".equals(name)) {
+                if ("CurrentPresetNameList".equals(name)) {
                     currentPresetNameList = e.getTextContent();
                     continue;
                 }
@@ -1305,15 +1305,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("presetName".equals(name)) {
+                if ("PresetName".equals(name)) {
                     presetName = RenderingControl.PresetName.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1361,15 +1359,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredBlueVideoBlackLevel".equals(name)) {
+                if ("DesiredBlueVideoBlackLevel".equals(name)) {
                     desiredBlueVideoBlackLevel = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1417,15 +1413,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredBlueVideoGain".equals(name)) {
+                if ("DesiredBlueVideoGain".equals(name)) {
                     desiredBlueVideoGain = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1473,15 +1467,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredBrightness".equals(name)) {
+                if ("DesiredBrightness".equals(name)) {
                     desiredBrightness = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1529,15 +1521,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredColorTemperature".equals(name)) {
+                if ("DesiredColorTemperature".equals(name)) {
                     desiredColorTemperature = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1585,15 +1575,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredContrast".equals(name)) {
+                if ("DesiredContrast".equals(name)) {
                     desiredContrast = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1641,15 +1629,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredGreenVideoBlackLevel".equals(name)) {
+                if ("DesiredGreenVideoBlackLevel".equals(name)) {
                     desiredGreenVideoBlackLevel = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1697,15 +1683,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredGreenVideoGain".equals(name)) {
+                if ("DesiredGreenVideoGain".equals(name)) {
                     desiredGreenVideoGain = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1753,15 +1737,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredHorizontalKeystone".equals(name)) {
+                if ("DesiredHorizontalKeystone".equals(name)) {
                     desiredHorizontalKeystone = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1810,19 +1792,17 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredLoudness".equals(name)) {
+                if ("DesiredLoudness".equals(name)) {
                     desiredLoudness = Boolean.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1872,19 +1852,17 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredMute".equals(name)) {
+                if ("DesiredMute".equals(name)) {
                     desiredMute = Boolean.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1933,15 +1911,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredRedVideoBlackLevel".equals(name)) {
+                if ("DesiredRedVideoBlackLevel".equals(name)) {
                     desiredRedVideoBlackLevel = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -1989,15 +1965,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredRedVideoGain".equals(name)) {
+                if ("DesiredRedVideoGain".equals(name)) {
                     desiredRedVideoGain = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -2045,15 +2019,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredSharpness".equals(name)) {
+                if ("DesiredSharpness".equals(name)) {
                     desiredSharpness = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -2101,15 +2073,13 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredVerticalKeystone".equals(name)) {
+                if ("DesiredVerticalKeystone".equals(name)) {
                     desiredVerticalKeystone = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -2158,19 +2128,17 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredVolume".equals(name)) {
+                if ("DesiredVolume".equals(name)) {
                     desiredVolume = Integer.valueOf(e.getTextContent());
                     continue;
                 }
@@ -2220,19 +2188,17 @@ public abstract class RenderingControl
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
-            Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext(); ) {
-                Element e = ((Element) itr.next());
+            for (Element e: XmlUtil.getChildElements(XmlUtil.getChildElements(soapMessage.getSOAPBody()).get(0))) {
                 String name = e.getNodeName();
-                if ("instanceID".equals(name)) {
+                if ("InstanceID".equals(name)) {
                     instanceID = Integer.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("channel".equals(name)) {
+                if ("Channel".equals(name)) {
                     channel = org.saintandreas.serket.scpd.RenderingControl.Channel.valueOf(e.getTextContent());
                     continue;
                 }
-                if ("desiredVolume".equals(name)) {
+                if ("DesiredVolume".equals(name)) {
                     desiredVolume = Integer.valueOf(e.getTextContent());
                     continue;
                 }
