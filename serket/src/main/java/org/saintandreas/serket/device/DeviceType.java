@@ -37,7 +37,7 @@ public enum DeviceType {
     private DeviceType(DeviceType originalType, int version) {
         this.originalType = originalType;
         this.version = version;
-        this.typeName = Serket.UPNP_SERVICE_URN_PREFIX + getDeviceName() + ":" + Integer.toString(version);
+        this.typeName = Serket.UPNP_DEVICE_URN_PREFIX + getDeviceName() + ":" + Integer.toString(version);
     }
  
     public final int getVersion() {

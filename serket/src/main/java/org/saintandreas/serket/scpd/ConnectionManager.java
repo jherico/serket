@@ -6,24 +6,35 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface ConnectionManager {
+public abstract class ConnectionManager
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:ConnectionManager:1";
 
-    public ConnectionManager.GetProtocolInfoResponse getProtocolInfo(ConnectionManager.GetProtocolInfoRequest input);
+    public ConnectionManager(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public ConnectionManager.PrepareForConnectionResponse prepareForConnection(ConnectionManager.PrepareForConnectionRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public ConnectionManager.ConnectionCompleteResponse connectionComplete(ConnectionManager.ConnectionCompleteRequest input);
+    public abstract ConnectionManager.GetProtocolInfoResponse getProtocolInfo(ConnectionManager.GetProtocolInfoRequest input);
 
-    public ConnectionManager.GetCurrentConnectionIDsResponse getCurrentConnectionIDs(ConnectionManager.GetCurrentConnectionIDsRequest input);
+    public abstract ConnectionManager.PrepareForConnectionResponse prepareForConnection(ConnectionManager.PrepareForConnectionRequest input);
 
-    public ConnectionManager.GetCurrentConnectionInfoResponse getCurrentConnectionInfo(ConnectionManager.GetCurrentConnectionInfoRequest input);
+    public abstract ConnectionManager.ConnectionCompleteResponse connectionComplete(ConnectionManager.ConnectionCompleteRequest input);
 
-    public static abstract class ConnectionCompleteRequest
+    public abstract ConnectionManager.GetCurrentConnectionIDsResponse getCurrentConnectionIDs(ConnectionManager.GetCurrentConnectionIDsRequest input);
+
+    public abstract ConnectionManager.GetCurrentConnectionInfoResponse getCurrentConnectionInfo(ConnectionManager.GetCurrentConnectionInfoRequest input);
+
+    public static class ConnectionCompleteRequest
         extends SOAPSerializable
     {
 
@@ -55,7 +66,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class ConnectionCompleteResponse
+    public static class ConnectionCompleteResponse
         extends SOAPSerializable
     {
 
@@ -90,7 +101,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class GetCurrentConnectionIDsRequest
+    public static class GetCurrentConnectionIDsRequest
         extends SOAPSerializable
     {
 
@@ -108,7 +119,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class GetCurrentConnectionIDsResponse
+    public static class GetCurrentConnectionIDsResponse
         extends SOAPSerializable
     {
 
@@ -140,7 +151,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class GetCurrentConnectionInfoRequest
+    public static class GetCurrentConnectionInfoRequest
         extends SOAPSerializable
     {
 
@@ -172,7 +183,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class GetCurrentConnectionInfoResponse
+    public static class GetCurrentConnectionInfoResponse
         extends SOAPSerializable
     {
 
@@ -240,7 +251,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class GetProtocolInfoRequest
+    public static class GetProtocolInfoRequest
         extends SOAPSerializable
     {
 
@@ -258,7 +269,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class GetProtocolInfoResponse
+    public static class GetProtocolInfoResponse
         extends SOAPSerializable
     {
 
@@ -296,7 +307,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class PrepareForConnectionRequest
+    public static class PrepareForConnectionRequest
         extends SOAPSerializable
     {
 
@@ -346,7 +357,7 @@ public interface ConnectionManager {
 
     }
 
-    public static abstract class PrepareForConnectionResponse
+    public static class PrepareForConnectionResponse
         extends SOAPSerializable
     {
 

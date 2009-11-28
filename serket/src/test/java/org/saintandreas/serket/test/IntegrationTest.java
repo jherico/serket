@@ -1,16 +1,21 @@
 package org.saintandreas.serket.test;
 
+import java.io.IOException;
+import java.net.DatagramPacket;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.servlet.DefaultServlet;
@@ -30,7 +35,10 @@ import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.swt.widgets.Tray;
 import org.eclipse.swt.widgets.TrayItem;
 import org.saintandreas.serket.reference.MediaServer;
+import org.saintandreas.serket.reference.SerketConnectionManager;
 import org.saintandreas.serket.reference.SerketContentDirectory;
+import org.saintandreas.serket.reference.SerketIcon;
+import org.saintandreas.serket.reference.servlet.UpnpServiceServlet;
 import org.saintandreas.serket.reference.servlet.DescriptionServlet;
 import org.saintandreas.serket.service.Service;
 import org.saintandreas.serket.ssdp.Message;
@@ -39,19 +47,86 @@ import org.saintandreas.serket.ssdp.SSDPServer;
 import org.saintandreas.util.NetUtil;
 
 public class IntegrationTest {
+    private static final Log LOG = LogFactory.getLog(IntegrationTest.class);
+
     private static final ResourceBundle resources = ResourceBundle.getBundle("serket");
     private final ExecutorService executor = Executors.newCachedThreadPool();
     private final String uuid;
     private final MediaServer mediaServer;
+    private final SerketContentDirectory cd;
+    private final SerketConnectionManager cm;
     private final Server jettyServer;
     private final SSDPServer ssdpServer;
+
+    
+    public class HandlerFactory implements SSDPServer.HandlerFactory {
+        @Override
+        public org.saintandreas.serket.ssdp.SSDPServer.Handler buildHandler(DatagramPacket packet) {
+            return new Handler(packet);
+        }
+    }
+    
+    
+    public void handleSearchMessage(Message message) {
+        LogFactory.getLog(getClass()).trace("handling message " + message.usn);
+    }
+
+    
+    public static Set<String> URL_SET = new HashSet<String>();
+    public class Handler extends SSDPServer.Handler {
+
+        public Handler(DatagramPacket packet) {
+            super(packet);
+        }
+
+        @Override
+        public void run() {
+            try {
+                Message message = Message.parseMessage(packet);
+                switch (message.type) {
+                case NOTIFY_ALIVE:
+                case NOTIFY_UPDATE:
+                    String url = message.headers.get("LOCATION").getValue();
+                    if (!URL_SET.contains(url)) {
+                        synchronized (URL_SET){
+                            if (URL_SET.add(url)) {
+                                LOG.warn(url);
+                            }
+                        }
+                    }
+                    break;
+                case SEARCH: {
+                    if (message.usn.startsWith(uuid)) {
+                        handleSearchMessage(message);
+                    } else {
+                        for (String s : SSDPServer.SEARCH_RESPONSE_IDS) {
+                            if (message.usn.equals(s)) {
+                                handleSearchMessage(message);
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+
+                }
+            } catch (HttpException e) {
+                LogFactory.getLog(getClass()).warn(e);
+            } catch (IOException e) {
+                LogFactory.getLog(getClass()).warn(e);
+            }
+        }
+        
+    }
 
     public IntegrationTest() {
         uuid = "uuid:" + UUID.randomUUID().toString();
         mediaServer = new MediaServer(uuid, "/ui");
-        mediaServer.getServiceList().add(new SerketContentDirectory("service/cd/control", "service/cd/event"));
+        mediaServer.getServiceList().add(cd = new SerketContentDirectory("/service/cd/control", "/service/cd/event"));
+        mediaServer.getServiceList().add(cm = new SerketConnectionManager("/service/cm/control", "/service/cm/event"));
+        mediaServer.getIconList().add(new SerketIcon("image/png", "/images/Play1Hot_256.png", 256, 256, 24));
         jettyServer = new Server(8080);
-        ssdpServer = new SSDPServer(uuid, executor);
+        ssdpServer = new SSDPServer(executor, new HandlerFactory());
         initJetty();
     }
 
@@ -69,13 +144,14 @@ public class IntegrationTest {
     }
 
     public void initJetty() {
-        List<Handler> handlerList = new ArrayList<Handler>();
+        List<org.eclipse.jetty.server.Handler> handlerList = new ArrayList<org.eclipse.jetty.server.Handler>();
 
-        // the description handler
+        // the service descriptor handler
         {
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-            context.setContextPath("/description");
-            context.addServlet(new ServletHolder(new DescriptionServlet(mediaServer)), "/*");
+            context.setContextPath("/images");
+            context.setBaseResource(Resource.newClassPathResource("/images/"));
+            context.addServlet(new ServletHolder(new DefaultServlet()), "/*");
             handlerList.add(context);
         }
 
@@ -88,6 +164,25 @@ public class IntegrationTest {
             handlerList.add(context);
         }
 
+        // the description handler
+        {
+            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+            context.setContextPath("/description");
+            context.addServlet(new ServletHolder(new DescriptionServlet(mediaServer)), "/*");
+            handlerList.add(context);
+        }
+
+        // the content directory handler
+        {
+            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+            context.setContextPath("/service");
+            UpnpServiceServlet servlet = new UpnpServiceServlet();
+            servlet.getServices().add(cd);
+            servlet.getServices().add(cm);
+            context.addServlet(new ServletHolder(servlet), "/*");
+            handlerList.add(context);
+        }
+
         // the service descriptor handler
         {
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -97,7 +192,7 @@ public class IntegrationTest {
         }
 
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(handlerList.toArray(new Handler[] {}));
+        contexts.setHandlers(handlerList.toArray(new org.eclipse.jetty.server.Handler[] {}));
         jettyServer.setHandler(contexts);
     }
 
@@ -114,7 +209,7 @@ public class IntegrationTest {
                         for (Service s : mediaServer.getServiceList()) {
                             nts.add(s.getServiceType());
                         }
-                        LogFactory.getLog(Sender.class).debug("Sending alive messages");
+                        LOG.trace("Sending alive messages");
                         for (String s : nts) {
                             String message = Message.buildNotifyAliveMessage(s, uuid + "::" + s, "http://" + NetUtil.getInet4Address().getHostAddress() + ":8080/description/",
                                     60 * 60, "serketLib/0.1");
@@ -170,6 +265,7 @@ public class IntegrationTest {
         return shell;
     }
 
+
     public static void main(String[] args) throws Exception {
         IntegrationTest app = new IntegrationTest();
         app.start();
@@ -191,3 +287,7 @@ public class IntegrationTest {
 // File("myJetty.xml").toURL());
 // configuration.configure(server);
 // server.start();
+//
+//@Override
+//public void run() {
+//}

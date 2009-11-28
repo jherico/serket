@@ -20,14 +20,13 @@ package org.saintandreas.serket.didl.util;
 import java.io.IOException;
 import java.util.List;
 
-import org.saintandreas.serket.didl.Container;
 import org.saintandreas.serket.didl.Base;
+import org.saintandreas.serket.didl.Container;
 import org.saintandreas.serket.didl.Desc;
 import org.saintandreas.serket.didl.Item;
 import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 /**
  * @author bdavis@saintandreas.org
@@ -43,11 +42,11 @@ public class DIDLHelper {
     //     ..
     //    </DIDL-Lite>
 
-    public static String format(List<Base> children) throws IOException {
+    public static String format(List<? extends Base> children) throws IOException {
         return XmlUtil.formatXmlDocument(createDocument(children));
     }
 
-    public static Document createDocument(List<Base> children) {
+    public static Document createDocument(List<? extends Base> children) {
         Document retVal = XmlUtil.createDocument();
         Element rootElement = retVal.createElementNS(DIDL_LITE_NAMESPACE_URI, "DIDL-Lite");
         retVal.appendChild(rootElement);

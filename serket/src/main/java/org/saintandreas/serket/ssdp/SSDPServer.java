@@ -17,37 +17,32 @@
  */
 package org.saintandreas.serket.ssdp;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.logging.LogFactory;
 
 public class SSDPServer {
-    private static String [] SEARCH_RESPONSE_IDS = {
+    public static String [] SEARCH_RESPONSE_IDS = {
         "ssdp:all", "upnp:rootdevice" 
     };
-    protected ExecutorService executor;
-    protected final String uuid;
-
-    public SSDPServer(String uuid) {
-        this(uuid, Executors.newCachedThreadPool());
+    public interface HandlerFactory {
+        Handler buildHandler(DatagramPacket packet);
     }
 
-    public SSDPServer(String uuid, ExecutorService executor) {
-        this.uuid = uuid;
+    protected final ExecutorService executor;
+    protected final HandlerFactory handlerFactory;
+    
+    public SSDPServer(ExecutorService executor, HandlerFactory handlerFactory) {
         this.executor = executor;
+        this.handlerFactory = handlerFactory;
     }
 
     public void listen() {
         executor.submit(new Listener());
     }
-
 
     protected class Listener implements Runnable {
         @Override
@@ -62,7 +57,7 @@ public class SSDPServer {
                 while (!executor.isShutdown()) {
                     try {
                         socket.receive(packet);
-                        executor.submit(new Handler(packet));
+                        executor.submit(handlerFactory.buildHandler(packet));
                         // create a new packet and buffer for the next listen
                         buffer = new byte[8192];
                         packet = new DatagramPacket(buffer, buffer.length);
@@ -75,49 +70,12 @@ public class SSDPServer {
         }
     }
 
-    protected class Handler implements Runnable {
-        DatagramPacket packet;
-
+    public static abstract class Handler implements Runnable {
+        protected DatagramPacket packet;
         public Handler(DatagramPacket packet) {
             this.packet = packet;
         }
 
-        @Override
-        public void run() {
-            try {
-                Message message = Message.parseMessage(packet);
-                switch (message.type) {
-                case NOTIFY_ALIVE:
-                case NOTIFY_UPDATE:
-                    break;
-                case SEARCH:
-                {
-                    if (message.usn.startsWith(uuid)) {
-                        handleSearchMessage(message);
-                    } else {
-                        for (String s :SEARCH_RESPONSE_IDS) {
-                            if (message.usn.equals(s)) {
-                                handleSearchMessage(message);
-                                break;
-                            }
-                        }
-                    }
-                    break;
-                }
-                
-
-                }
-            } catch (HttpException e) {
-                LogFactory.getLog(getClass()).warn(e);
-            } catch (IOException e) {
-                LogFactory.getLog(getClass()).warn(e);
-            }
-        }
-
-    }
-
-    public void handleSearchMessage(Message message) {
-        LogFactory.getLog(getClass()).warn("handling message " + message.usn);
     }
 
 }

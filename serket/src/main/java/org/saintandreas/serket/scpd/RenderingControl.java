@@ -6,82 +6,93 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface RenderingControl {
+public abstract class RenderingControl
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:RenderingControl:1";
 
-    public RenderingControl.ListPresetsResponse listPresets(RenderingControl.ListPresetsRequest input);
+    public RenderingControl(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public RenderingControl.SelectPresetResponse selectPreset(RenderingControl.SelectPresetRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public RenderingControl.GetBrightnessResponse getBrightness(RenderingControl.GetBrightnessRequest input);
+    public abstract RenderingControl.ListPresetsResponse listPresets(RenderingControl.ListPresetsRequest input);
 
-    public RenderingControl.SetBrightnessResponse setBrightness(RenderingControl.SetBrightnessRequest input);
+    public abstract RenderingControl.SelectPresetResponse selectPreset(RenderingControl.SelectPresetRequest input);
 
-    public RenderingControl.GetContrastResponse getContrast(RenderingControl.GetContrastRequest input);
+    public abstract RenderingControl.GetBrightnessResponse getBrightness(RenderingControl.GetBrightnessRequest input);
 
-    public RenderingControl.SetContrastResponse setContrast(RenderingControl.SetContrastRequest input);
+    public abstract RenderingControl.SetBrightnessResponse setBrightness(RenderingControl.SetBrightnessRequest input);
 
-    public RenderingControl.GetSharpnessResponse getSharpness(RenderingControl.GetSharpnessRequest input);
+    public abstract RenderingControl.GetContrastResponse getContrast(RenderingControl.GetContrastRequest input);
 
-    public RenderingControl.SetSharpnessResponse setSharpness(RenderingControl.SetSharpnessRequest input);
+    public abstract RenderingControl.SetContrastResponse setContrast(RenderingControl.SetContrastRequest input);
 
-    public RenderingControl.GetRedVideoGainResponse getRedVideoGain(RenderingControl.GetRedVideoGainRequest input);
+    public abstract RenderingControl.GetSharpnessResponse getSharpness(RenderingControl.GetSharpnessRequest input);
 
-    public RenderingControl.SetRedVideoGainResponse setRedVideoGain(RenderingControl.SetRedVideoGainRequest input);
+    public abstract RenderingControl.SetSharpnessResponse setSharpness(RenderingControl.SetSharpnessRequest input);
 
-    public RenderingControl.GetGreenVideoGainResponse getGreenVideoGain(RenderingControl.GetGreenVideoGainRequest input);
+    public abstract RenderingControl.GetRedVideoGainResponse getRedVideoGain(RenderingControl.GetRedVideoGainRequest input);
 
-    public RenderingControl.SetGreenVideoGainResponse setGreenVideoGain(RenderingControl.SetGreenVideoGainRequest input);
+    public abstract RenderingControl.SetRedVideoGainResponse setRedVideoGain(RenderingControl.SetRedVideoGainRequest input);
 
-    public RenderingControl.GetBlueVideoGainResponse getBlueVideoGain(RenderingControl.GetBlueVideoGainRequest input);
+    public abstract RenderingControl.GetGreenVideoGainResponse getGreenVideoGain(RenderingControl.GetGreenVideoGainRequest input);
 
-    public RenderingControl.SetBlueVideoGainResponse setBlueVideoGain(RenderingControl.SetBlueVideoGainRequest input);
+    public abstract RenderingControl.SetGreenVideoGainResponse setGreenVideoGain(RenderingControl.SetGreenVideoGainRequest input);
 
-    public RenderingControl.GetRedVideoBlackLevelResponse getRedVideoBlackLevel(RenderingControl.GetRedVideoBlackLevelRequest input);
+    public abstract RenderingControl.GetBlueVideoGainResponse getBlueVideoGain(RenderingControl.GetBlueVideoGainRequest input);
 
-    public RenderingControl.SetRedVideoBlackLevelResponse setRedVideoBlackLevel(RenderingControl.SetRedVideoBlackLevelRequest input);
+    public abstract RenderingControl.SetBlueVideoGainResponse setBlueVideoGain(RenderingControl.SetBlueVideoGainRequest input);
 
-    public RenderingControl.GetGreenVideoBlackLevelResponse getGreenVideoBlackLevel(RenderingControl.GetGreenVideoBlackLevelRequest input);
+    public abstract RenderingControl.GetRedVideoBlackLevelResponse getRedVideoBlackLevel(RenderingControl.GetRedVideoBlackLevelRequest input);
 
-    public RenderingControl.SetGreenVideoBlackLevelResponse setGreenVideoBlackLevel(RenderingControl.SetGreenVideoBlackLevelRequest input);
+    public abstract RenderingControl.SetRedVideoBlackLevelResponse setRedVideoBlackLevel(RenderingControl.SetRedVideoBlackLevelRequest input);
 
-    public RenderingControl.GetBlueVideoBlackLevelResponse getBlueVideoBlackLevel(RenderingControl.GetBlueVideoBlackLevelRequest input);
+    public abstract RenderingControl.GetGreenVideoBlackLevelResponse getGreenVideoBlackLevel(RenderingControl.GetGreenVideoBlackLevelRequest input);
 
-    public RenderingControl.SetBlueVideoBlackLevelResponse setBlueVideoBlackLevel(RenderingControl.SetBlueVideoBlackLevelRequest input);
+    public abstract RenderingControl.SetGreenVideoBlackLevelResponse setGreenVideoBlackLevel(RenderingControl.SetGreenVideoBlackLevelRequest input);
 
-    public RenderingControl.GetColorTemperatureResponse getColorTemperature(RenderingControl.GetColorTemperatureRequest input);
+    public abstract RenderingControl.GetBlueVideoBlackLevelResponse getBlueVideoBlackLevel(RenderingControl.GetBlueVideoBlackLevelRequest input);
 
-    public RenderingControl.SetColorTemperatureResponse setColorTemperature(RenderingControl.SetColorTemperatureRequest input);
+    public abstract RenderingControl.SetBlueVideoBlackLevelResponse setBlueVideoBlackLevel(RenderingControl.SetBlueVideoBlackLevelRequest input);
 
-    public RenderingControl.GetHorizontalKeystoneResponse getHorizontalKeystone(RenderingControl.GetHorizontalKeystoneRequest input);
+    public abstract RenderingControl.GetColorTemperatureResponse getColorTemperature(RenderingControl.GetColorTemperatureRequest input);
 
-    public RenderingControl.SetHorizontalKeystoneResponse setHorizontalKeystone(RenderingControl.SetHorizontalKeystoneRequest input);
+    public abstract RenderingControl.SetColorTemperatureResponse setColorTemperature(RenderingControl.SetColorTemperatureRequest input);
 
-    public RenderingControl.GetVerticalKeystoneResponse getVerticalKeystone(RenderingControl.GetVerticalKeystoneRequest input);
+    public abstract RenderingControl.GetHorizontalKeystoneResponse getHorizontalKeystone(RenderingControl.GetHorizontalKeystoneRequest input);
 
-    public RenderingControl.SetVerticalKeystoneResponse setVerticalKeystone(RenderingControl.SetVerticalKeystoneRequest input);
+    public abstract RenderingControl.SetHorizontalKeystoneResponse setHorizontalKeystone(RenderingControl.SetHorizontalKeystoneRequest input);
 
-    public RenderingControl.GetMuteResponse getMute(RenderingControl.GetMuteRequest input);
+    public abstract RenderingControl.GetVerticalKeystoneResponse getVerticalKeystone(RenderingControl.GetVerticalKeystoneRequest input);
 
-    public RenderingControl.SetMuteResponse setMute(RenderingControl.SetMuteRequest input);
+    public abstract RenderingControl.SetVerticalKeystoneResponse setVerticalKeystone(RenderingControl.SetVerticalKeystoneRequest input);
 
-    public RenderingControl.GetVolumeResponse getVolume(RenderingControl.GetVolumeRequest input);
+    public abstract RenderingControl.GetMuteResponse getMute(RenderingControl.GetMuteRequest input);
 
-    public RenderingControl.SetVolumeResponse setVolume(RenderingControl.SetVolumeRequest input);
+    public abstract RenderingControl.SetMuteResponse setMute(RenderingControl.SetMuteRequest input);
 
-    public RenderingControl.GetVolumeDBResponse getVolumeDB(RenderingControl.GetVolumeDBRequest input);
+    public abstract RenderingControl.GetVolumeResponse getVolume(RenderingControl.GetVolumeRequest input);
 
-    public RenderingControl.SetVolumeDBResponse setVolumeDB(RenderingControl.SetVolumeDBRequest input);
+    public abstract RenderingControl.SetVolumeResponse setVolume(RenderingControl.SetVolumeRequest input);
 
-    public RenderingControl.GetVolumeDBRangeResponse getVolumeDBRange(RenderingControl.GetVolumeDBRangeRequest input);
+    public abstract RenderingControl.GetVolumeDBResponse getVolumeDB(RenderingControl.GetVolumeDBRequest input);
 
-    public RenderingControl.GetLoudnessResponse getLoudness(RenderingControl.GetLoudnessRequest input);
+    public abstract RenderingControl.SetVolumeDBResponse setVolumeDB(RenderingControl.SetVolumeDBRequest input);
 
-    public RenderingControl.SetLoudnessResponse setLoudness(RenderingControl.SetLoudnessRequest input);
+    public abstract RenderingControl.GetVolumeDBRangeResponse getVolumeDBRange(RenderingControl.GetVolumeDBRangeRequest input);
+
+    public abstract RenderingControl.GetLoudnessResponse getLoudness(RenderingControl.GetLoudnessRequest input);
+
+    public abstract RenderingControl.SetLoudnessResponse setLoudness(RenderingControl.SetLoudnessRequest input);
 
     public enum Channel {
 
@@ -89,7 +100,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetBlueVideoBlackLevelRequest
+    public static class GetBlueVideoBlackLevelRequest
         extends SOAPSerializable
     {
 
@@ -121,7 +132,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetBlueVideoBlackLevelResponse
+    public static class GetBlueVideoBlackLevelResponse
         extends SOAPSerializable
     {
 
@@ -153,7 +164,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetBlueVideoGainRequest
+    public static class GetBlueVideoGainRequest
         extends SOAPSerializable
     {
 
@@ -185,7 +196,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetBlueVideoGainResponse
+    public static class GetBlueVideoGainResponse
         extends SOAPSerializable
     {
 
@@ -217,7 +228,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetBrightnessRequest
+    public static class GetBrightnessRequest
         extends SOAPSerializable
     {
 
@@ -249,7 +260,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetBrightnessResponse
+    public static class GetBrightnessResponse
         extends SOAPSerializable
     {
 
@@ -281,7 +292,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetColorTemperatureRequest
+    public static class GetColorTemperatureRequest
         extends SOAPSerializable
     {
 
@@ -313,7 +324,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetColorTemperatureResponse
+    public static class GetColorTemperatureResponse
         extends SOAPSerializable
     {
 
@@ -345,7 +356,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetContrastRequest
+    public static class GetContrastRequest
         extends SOAPSerializable
     {
 
@@ -377,7 +388,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetContrastResponse
+    public static class GetContrastResponse
         extends SOAPSerializable
     {
 
@@ -409,7 +420,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetGreenVideoBlackLevelRequest
+    public static class GetGreenVideoBlackLevelRequest
         extends SOAPSerializable
     {
 
@@ -441,7 +452,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetGreenVideoBlackLevelResponse
+    public static class GetGreenVideoBlackLevelResponse
         extends SOAPSerializable
     {
 
@@ -473,7 +484,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetGreenVideoGainRequest
+    public static class GetGreenVideoGainRequest
         extends SOAPSerializable
     {
 
@@ -505,7 +516,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetGreenVideoGainResponse
+    public static class GetGreenVideoGainResponse
         extends SOAPSerializable
     {
 
@@ -537,7 +548,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetHorizontalKeystoneRequest
+    public static class GetHorizontalKeystoneRequest
         extends SOAPSerializable
     {
 
@@ -569,7 +580,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetHorizontalKeystoneResponse
+    public static class GetHorizontalKeystoneResponse
         extends SOAPSerializable
     {
 
@@ -601,7 +612,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetLoudnessRequest
+    public static class GetLoudnessRequest
         extends SOAPSerializable
     {
 
@@ -639,7 +650,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetLoudnessResponse
+    public static class GetLoudnessResponse
         extends SOAPSerializable
     {
 
@@ -671,7 +682,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetMuteRequest
+    public static class GetMuteRequest
         extends SOAPSerializable
     {
 
@@ -709,7 +720,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetMuteResponse
+    public static class GetMuteResponse
         extends SOAPSerializable
     {
 
@@ -741,7 +752,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetRedVideoBlackLevelRequest
+    public static class GetRedVideoBlackLevelRequest
         extends SOAPSerializable
     {
 
@@ -773,7 +784,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetRedVideoBlackLevelResponse
+    public static class GetRedVideoBlackLevelResponse
         extends SOAPSerializable
     {
 
@@ -805,7 +816,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetRedVideoGainRequest
+    public static class GetRedVideoGainRequest
         extends SOAPSerializable
     {
 
@@ -837,7 +848,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetRedVideoGainResponse
+    public static class GetRedVideoGainResponse
         extends SOAPSerializable
     {
 
@@ -869,7 +880,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetSharpnessRequest
+    public static class GetSharpnessRequest
         extends SOAPSerializable
     {
 
@@ -901,7 +912,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetSharpnessResponse
+    public static class GetSharpnessResponse
         extends SOAPSerializable
     {
 
@@ -933,7 +944,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVerticalKeystoneRequest
+    public static class GetVerticalKeystoneRequest
         extends SOAPSerializable
     {
 
@@ -965,7 +976,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVerticalKeystoneResponse
+    public static class GetVerticalKeystoneResponse
         extends SOAPSerializable
     {
 
@@ -997,7 +1008,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVolumeDBRangeRequest
+    public static class GetVolumeDBRangeRequest
         extends SOAPSerializable
     {
 
@@ -1035,7 +1046,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVolumeDBRangeResponse
+    public static class GetVolumeDBRangeResponse
         extends SOAPSerializable
     {
 
@@ -1073,7 +1084,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVolumeDBRequest
+    public static class GetVolumeDBRequest
         extends SOAPSerializable
     {
 
@@ -1111,7 +1122,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVolumeDBResponse
+    public static class GetVolumeDBResponse
         extends SOAPSerializable
     {
 
@@ -1143,7 +1154,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVolumeRequest
+    public static class GetVolumeRequest
         extends SOAPSerializable
     {
 
@@ -1181,7 +1192,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class GetVolumeResponse
+    public static class GetVolumeResponse
         extends SOAPSerializable
     {
 
@@ -1213,7 +1224,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class ListPresetsRequest
+    public static class ListPresetsRequest
         extends SOAPSerializable
     {
 
@@ -1245,7 +1256,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class ListPresetsResponse
+    public static class ListPresetsResponse
         extends SOAPSerializable
     {
 
@@ -1283,7 +1294,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SelectPresetRequest
+    public static class SelectPresetRequest
         extends SOAPSerializable
     {
 
@@ -1321,7 +1332,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SelectPresetResponse
+    public static class SelectPresetResponse
         extends SOAPSerializable
     {
 
@@ -1339,7 +1350,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetBlueVideoBlackLevelRequest
+    public static class SetBlueVideoBlackLevelRequest
         extends SOAPSerializable
     {
 
@@ -1377,7 +1388,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetBlueVideoBlackLevelResponse
+    public static class SetBlueVideoBlackLevelResponse
         extends SOAPSerializable
     {
 
@@ -1395,7 +1406,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetBlueVideoGainRequest
+    public static class SetBlueVideoGainRequest
         extends SOAPSerializable
     {
 
@@ -1433,7 +1444,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetBlueVideoGainResponse
+    public static class SetBlueVideoGainResponse
         extends SOAPSerializable
     {
 
@@ -1451,7 +1462,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetBrightnessRequest
+    public static class SetBrightnessRequest
         extends SOAPSerializable
     {
 
@@ -1489,7 +1500,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetBrightnessResponse
+    public static class SetBrightnessResponse
         extends SOAPSerializable
     {
 
@@ -1507,7 +1518,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetColorTemperatureRequest
+    public static class SetColorTemperatureRequest
         extends SOAPSerializable
     {
 
@@ -1545,7 +1556,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetColorTemperatureResponse
+    public static class SetColorTemperatureResponse
         extends SOAPSerializable
     {
 
@@ -1563,7 +1574,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetContrastRequest
+    public static class SetContrastRequest
         extends SOAPSerializable
     {
 
@@ -1601,7 +1612,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetContrastResponse
+    public static class SetContrastResponse
         extends SOAPSerializable
     {
 
@@ -1619,7 +1630,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetGreenVideoBlackLevelRequest
+    public static class SetGreenVideoBlackLevelRequest
         extends SOAPSerializable
     {
 
@@ -1657,7 +1668,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetGreenVideoBlackLevelResponse
+    public static class SetGreenVideoBlackLevelResponse
         extends SOAPSerializable
     {
 
@@ -1675,7 +1686,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetGreenVideoGainRequest
+    public static class SetGreenVideoGainRequest
         extends SOAPSerializable
     {
 
@@ -1713,7 +1724,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetGreenVideoGainResponse
+    public static class SetGreenVideoGainResponse
         extends SOAPSerializable
     {
 
@@ -1731,7 +1742,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetHorizontalKeystoneRequest
+    public static class SetHorizontalKeystoneRequest
         extends SOAPSerializable
     {
 
@@ -1769,7 +1780,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetHorizontalKeystoneResponse
+    public static class SetHorizontalKeystoneResponse
         extends SOAPSerializable
     {
 
@@ -1787,7 +1798,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetLoudnessRequest
+    public static class SetLoudnessRequest
         extends SOAPSerializable
     {
 
@@ -1831,7 +1842,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetLoudnessResponse
+    public static class SetLoudnessResponse
         extends SOAPSerializable
     {
 
@@ -1849,7 +1860,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetMuteRequest
+    public static class SetMuteRequest
         extends SOAPSerializable
     {
 
@@ -1893,7 +1904,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetMuteResponse
+    public static class SetMuteResponse
         extends SOAPSerializable
     {
 
@@ -1911,7 +1922,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetRedVideoBlackLevelRequest
+    public static class SetRedVideoBlackLevelRequest
         extends SOAPSerializable
     {
 
@@ -1949,7 +1960,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetRedVideoBlackLevelResponse
+    public static class SetRedVideoBlackLevelResponse
         extends SOAPSerializable
     {
 
@@ -1967,7 +1978,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetRedVideoGainRequest
+    public static class SetRedVideoGainRequest
         extends SOAPSerializable
     {
 
@@ -2005,7 +2016,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetRedVideoGainResponse
+    public static class SetRedVideoGainResponse
         extends SOAPSerializable
     {
 
@@ -2023,7 +2034,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetSharpnessRequest
+    public static class SetSharpnessRequest
         extends SOAPSerializable
     {
 
@@ -2061,7 +2072,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetSharpnessResponse
+    public static class SetSharpnessResponse
         extends SOAPSerializable
     {
 
@@ -2079,7 +2090,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetVerticalKeystoneRequest
+    public static class SetVerticalKeystoneRequest
         extends SOAPSerializable
     {
 
@@ -2117,7 +2128,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetVerticalKeystoneResponse
+    public static class SetVerticalKeystoneResponse
         extends SOAPSerializable
     {
 
@@ -2135,7 +2146,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetVolumeDBRequest
+    public static class SetVolumeDBRequest
         extends SOAPSerializable
     {
 
@@ -2179,7 +2190,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetVolumeDBResponse
+    public static class SetVolumeDBResponse
         extends SOAPSerializable
     {
 
@@ -2197,7 +2208,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetVolumeRequest
+    public static class SetVolumeRequest
         extends SOAPSerializable
     {
 
@@ -2241,7 +2252,7 @@ public interface RenderingControl {
 
     }
 
-    public static abstract class SetVolumeResponse
+    public static class SetVolumeResponse
         extends SOAPSerializable
     {
 

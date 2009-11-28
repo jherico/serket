@@ -1,12 +1,10 @@
 package org.saintandreas.serket.reference;
 
-import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.scpd.ContentDirectory;
-import org.saintandreas.serket.scpd.ContentDirectory3;
 import org.saintandreas.serket.service.ServiceType;
 
-public class SerketContentDirectory extends BaseService implements ContentDirectory {
-
+public class SerketContentDirectory extends ContentDirectory {
+    
     public SerketContentDirectory(String controlURL, String eventURL) {
         super(SERVICE_ID_PREFIX + "ContentDirectory", controlURL, eventURL);
     }
@@ -18,8 +16,8 @@ public class SerketContentDirectory extends BaseService implements ContentDirect
 
     @Override
     public BrowseResponse browse(BrowseRequest input) {
-        // TODO Auto-generated method stub
-        return null;
+        BrowseResponse response = new BrowseResponse();
+        return response;
     }
 
     @Override
@@ -66,8 +64,10 @@ public class SerketContentDirectory extends BaseService implements ContentDirect
 
     @Override
     public GetSystemUpdateIDResponse getSystemUpdateID(GetSystemUpdateIDRequest input) {
-        // TODO Auto-generated method stub
-        return null;
+        GetSystemUpdateIDResponse retVal = new GetSystemUpdateIDResponse();
+//        retVal.id = System.currentTimeMillis();
+        retVal.id = 1; // System.currentTimeMillis();
+        return retVal;
     }
 
     @Override

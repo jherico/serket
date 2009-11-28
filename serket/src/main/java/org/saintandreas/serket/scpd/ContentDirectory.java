@@ -6,40 +6,51 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface ContentDirectory {
+public abstract class ContentDirectory
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:ContentDirectory:1";
 
-    public ContentDirectory.GetSearchCapabilitiesResponse getSearchCapabilities(ContentDirectory.GetSearchCapabilitiesRequest input);
+    public ContentDirectory(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public ContentDirectory.GetSortCapabilitiesResponse getSortCapabilities(ContentDirectory.GetSortCapabilitiesRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public ContentDirectory.GetSystemUpdateIDResponse getSystemUpdateID(ContentDirectory.GetSystemUpdateIDRequest input);
+    public abstract ContentDirectory.GetSearchCapabilitiesResponse getSearchCapabilities(ContentDirectory.GetSearchCapabilitiesRequest input);
 
-    public ContentDirectory.BrowseResponse browse(ContentDirectory.BrowseRequest input);
+    public abstract ContentDirectory.GetSortCapabilitiesResponse getSortCapabilities(ContentDirectory.GetSortCapabilitiesRequest input);
 
-    public ContentDirectory.SearchResponse search(ContentDirectory.SearchRequest input);
+    public abstract ContentDirectory.GetSystemUpdateIDResponse getSystemUpdateID(ContentDirectory.GetSystemUpdateIDRequest input);
 
-    public ContentDirectory.CreateObjectResponse createObject(ContentDirectory.CreateObjectRequest input);
+    public abstract ContentDirectory.BrowseResponse browse(ContentDirectory.BrowseRequest input);
 
-    public ContentDirectory.DestroyObjectResponse destroyObject(ContentDirectory.DestroyObjectRequest input);
+    public abstract ContentDirectory.SearchResponse search(ContentDirectory.SearchRequest input);
 
-    public ContentDirectory.UpdateObjectResponse updateObject(ContentDirectory.UpdateObjectRequest input);
+    public abstract ContentDirectory.CreateObjectResponse createObject(ContentDirectory.CreateObjectRequest input);
 
-    public ContentDirectory.ImportResourceResponse importResource(ContentDirectory.ImportResourceRequest input);
+    public abstract ContentDirectory.DestroyObjectResponse destroyObject(ContentDirectory.DestroyObjectRequest input);
 
-    public ContentDirectory.ExportResourceResponse exportResource(ContentDirectory.ExportResourceRequest input);
+    public abstract ContentDirectory.UpdateObjectResponse updateObject(ContentDirectory.UpdateObjectRequest input);
 
-    public ContentDirectory.StopTransferResourceResponse stopTransferResource(ContentDirectory.StopTransferResourceRequest input);
+    public abstract ContentDirectory.ImportResourceResponse importResource(ContentDirectory.ImportResourceRequest input);
 
-    public ContentDirectory.GetTransferProgressResponse getTransferProgress(ContentDirectory.GetTransferProgressRequest input);
+    public abstract ContentDirectory.ExportResourceResponse exportResource(ContentDirectory.ExportResourceRequest input);
 
-    public ContentDirectory.DeleteResourceResponse deleteResource(ContentDirectory.DeleteResourceRequest input);
+    public abstract ContentDirectory.StopTransferResourceResponse stopTransferResource(ContentDirectory.StopTransferResourceRequest input);
 
-    public ContentDirectory.CreateReferenceResponse createReference(ContentDirectory.CreateReferenceRequest input);
+    public abstract ContentDirectory.GetTransferProgressResponse getTransferProgress(ContentDirectory.GetTransferProgressRequest input);
+
+    public abstract ContentDirectory.DeleteResourceResponse deleteResource(ContentDirectory.DeleteResourceRequest input);
+
+    public abstract ContentDirectory.CreateReferenceResponse createReference(ContentDirectory.CreateReferenceRequest input);
 
     public enum BrowseFlag {
 
@@ -48,7 +59,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class BrowseRequest
+    public static class BrowseRequest
         extends SOAPSerializable
     {
 
@@ -110,7 +121,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class BrowseResponse
+    public static class BrowseResponse
         extends SOAPSerializable
     {
 
@@ -160,7 +171,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class CreateObjectRequest
+    public static class CreateObjectRequest
         extends SOAPSerializable
     {
 
@@ -198,7 +209,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class CreateObjectResponse
+    public static class CreateObjectResponse
         extends SOAPSerializable
     {
 
@@ -236,7 +247,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class CreateReferenceRequest
+    public static class CreateReferenceRequest
         extends SOAPSerializable
     {
 
@@ -274,7 +285,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class CreateReferenceResponse
+    public static class CreateReferenceResponse
         extends SOAPSerializable
     {
 
@@ -306,7 +317,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class DeleteResourceRequest
+    public static class DeleteResourceRequest
         extends SOAPSerializable
     {
 
@@ -338,7 +349,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class DeleteResourceResponse
+    public static class DeleteResourceResponse
         extends SOAPSerializable
     {
 
@@ -356,7 +367,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class DestroyObjectRequest
+    public static class DestroyObjectRequest
         extends SOAPSerializable
     {
 
@@ -388,7 +399,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class DestroyObjectResponse
+    public static class DestroyObjectResponse
         extends SOAPSerializable
     {
 
@@ -406,7 +417,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class ExportResourceRequest
+    public static class ExportResourceRequest
         extends SOAPSerializable
     {
 
@@ -444,7 +455,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class ExportResourceResponse
+    public static class ExportResourceResponse
         extends SOAPSerializable
     {
 
@@ -476,7 +487,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetSearchCapabilitiesRequest
+    public static class GetSearchCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -494,7 +505,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetSearchCapabilitiesResponse
+    public static class GetSearchCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -526,7 +537,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetSortCapabilitiesRequest
+    public static class GetSortCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -544,7 +555,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetSortCapabilitiesResponse
+    public static class GetSortCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -576,7 +587,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetSystemUpdateIDRequest
+    public static class GetSystemUpdateIDRequest
         extends SOAPSerializable
     {
 
@@ -594,7 +605,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetSystemUpdateIDResponse
+    public static class GetSystemUpdateIDResponse
         extends SOAPSerializable
     {
 
@@ -626,7 +637,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetTransferProgressRequest
+    public static class GetTransferProgressRequest
         extends SOAPSerializable
     {
 
@@ -658,7 +669,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class GetTransferProgressResponse
+    public static class GetTransferProgressResponse
         extends SOAPSerializable
     {
 
@@ -702,7 +713,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class ImportResourceRequest
+    public static class ImportResourceRequest
         extends SOAPSerializable
     {
 
@@ -740,7 +751,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class ImportResourceResponse
+    public static class ImportResourceResponse
         extends SOAPSerializable
     {
 
@@ -772,7 +783,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class SearchRequest
+    public static class SearchRequest
         extends SOAPSerializable
     {
 
@@ -834,7 +845,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class SearchResponse
+    public static class SearchResponse
         extends SOAPSerializable
     {
 
@@ -884,7 +895,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class StopTransferResourceRequest
+    public static class StopTransferResourceRequest
         extends SOAPSerializable
     {
 
@@ -916,7 +927,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class StopTransferResourceResponse
+    public static class StopTransferResourceResponse
         extends SOAPSerializable
     {
 
@@ -943,7 +954,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class UpdateObjectRequest
+    public static class UpdateObjectRequest
         extends SOAPSerializable
     {
 
@@ -987,7 +998,7 @@ public interface ContentDirectory {
 
     }
 
-    public static abstract class UpdateObjectResponse
+    public static class UpdateObjectResponse
         extends SOAPSerializable
     {
 

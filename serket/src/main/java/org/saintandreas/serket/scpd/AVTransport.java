@@ -6,46 +6,57 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface AVTransport {
+public abstract class AVTransport
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:AVTransport:1";
 
-    public AVTransport.SetAVTransportURIResponse setAVTransportURI(AVTransport.SetAVTransportURIRequest input);
+    public AVTransport(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public AVTransport.SetNextAVTransportURIResponse setNextAVTransportURI(AVTransport.SetNextAVTransportURIRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public AVTransport.GetMediaInfoResponse getMediaInfo(AVTransport.GetMediaInfoRequest input);
+    public abstract AVTransport.SetAVTransportURIResponse setAVTransportURI(AVTransport.SetAVTransportURIRequest input);
 
-    public AVTransport.GetTransportInfoResponse getTransportInfo(AVTransport.GetTransportInfoRequest input);
+    public abstract AVTransport.SetNextAVTransportURIResponse setNextAVTransportURI(AVTransport.SetNextAVTransportURIRequest input);
 
-    public AVTransport.GetPositionInfoResponse getPositionInfo(AVTransport.GetPositionInfoRequest input);
+    public abstract AVTransport.GetMediaInfoResponse getMediaInfo(AVTransport.GetMediaInfoRequest input);
 
-    public AVTransport.GetDeviceCapabilitiesResponse getDeviceCapabilities(AVTransport.GetDeviceCapabilitiesRequest input);
+    public abstract AVTransport.GetTransportInfoResponse getTransportInfo(AVTransport.GetTransportInfoRequest input);
 
-    public AVTransport.GetTransportSettingsResponse getTransportSettings(AVTransport.GetTransportSettingsRequest input);
+    public abstract AVTransport.GetPositionInfoResponse getPositionInfo(AVTransport.GetPositionInfoRequest input);
 
-    public AVTransport.StopResponse stop(AVTransport.StopRequest input);
+    public abstract AVTransport.GetDeviceCapabilitiesResponse getDeviceCapabilities(AVTransport.GetDeviceCapabilitiesRequest input);
 
-    public AVTransport.PlayResponse play(AVTransport.PlayRequest input);
+    public abstract AVTransport.GetTransportSettingsResponse getTransportSettings(AVTransport.GetTransportSettingsRequest input);
 
-    public AVTransport.PauseResponse pause(AVTransport.PauseRequest input);
+    public abstract AVTransport.StopResponse stop(AVTransport.StopRequest input);
 
-    public AVTransport.RecordResponse record(AVTransport.RecordRequest input);
+    public abstract AVTransport.PlayResponse play(AVTransport.PlayRequest input);
 
-    public AVTransport.SeekResponse seek(AVTransport.SeekRequest input);
+    public abstract AVTransport.PauseResponse pause(AVTransport.PauseRequest input);
 
-    public AVTransport.NextResponse next(AVTransport.NextRequest input);
+    public abstract AVTransport.RecordResponse record(AVTransport.RecordRequest input);
 
-    public AVTransport.PreviousResponse previous(AVTransport.PreviousRequest input);
+    public abstract AVTransport.SeekResponse seek(AVTransport.SeekRequest input);
 
-    public AVTransport.SetPlayModeResponse setPlayMode(AVTransport.SetPlayModeRequest input);
+    public abstract AVTransport.NextResponse next(AVTransport.NextRequest input);
 
-    public AVTransport.SetRecordQualityModeResponse setRecordQualityMode(AVTransport.SetRecordQualityModeRequest input);
+    public abstract AVTransport.PreviousResponse previous(AVTransport.PreviousRequest input);
 
-    public AVTransport.GetCurrentTransportActionsResponse getCurrentTransportActions(AVTransport.GetCurrentTransportActionsRequest input);
+    public abstract AVTransport.SetPlayModeResponse setPlayMode(AVTransport.SetPlayModeRequest input);
+
+    public abstract AVTransport.SetRecordQualityModeResponse setRecordQualityMode(AVTransport.SetRecordQualityModeRequest input);
+
+    public abstract AVTransport.GetCurrentTransportActionsResponse getCurrentTransportActions(AVTransport.GetCurrentTransportActionsRequest input);
 
     public enum CurrentPlayMode {
 
@@ -53,7 +64,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetCurrentTransportActionsRequest
+    public static class GetCurrentTransportActionsRequest
         extends SOAPSerializable
     {
 
@@ -85,7 +96,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetCurrentTransportActionsResponse
+    public static class GetCurrentTransportActionsResponse
         extends SOAPSerializable
     {
 
@@ -117,7 +128,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetDeviceCapabilitiesRequest
+    public static class GetDeviceCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -149,7 +160,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetDeviceCapabilitiesResponse
+    public static class GetDeviceCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -193,7 +204,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetMediaInfoRequest
+    public static class GetMediaInfoRequest
         extends SOAPSerializable
     {
 
@@ -225,7 +236,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetMediaInfoResponse
+    public static class GetMediaInfoResponse
         extends SOAPSerializable
     {
 
@@ -305,7 +316,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetPositionInfoRequest
+    public static class GetPositionInfoRequest
         extends SOAPSerializable
     {
 
@@ -337,7 +348,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetPositionInfoResponse
+    public static class GetPositionInfoResponse
         extends SOAPSerializable
     {
 
@@ -411,7 +422,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetTransportInfoRequest
+    public static class GetTransportInfoRequest
         extends SOAPSerializable
     {
 
@@ -443,7 +454,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetTransportInfoResponse
+    public static class GetTransportInfoResponse
         extends SOAPSerializable
     {
 
@@ -487,7 +498,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetTransportSettingsRequest
+    public static class GetTransportSettingsRequest
         extends SOAPSerializable
     {
 
@@ -519,7 +530,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class GetTransportSettingsResponse
+    public static class GetTransportSettingsResponse
         extends SOAPSerializable
     {
 
@@ -557,7 +568,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class NextRequest
+    public static class NextRequest
         extends SOAPSerializable
     {
 
@@ -589,7 +600,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class NextResponse
+    public static class NextResponse
         extends SOAPSerializable
     {
 
@@ -607,7 +618,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class PauseRequest
+    public static class PauseRequest
         extends SOAPSerializable
     {
 
@@ -639,7 +650,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class PauseResponse
+    public static class PauseResponse
         extends SOAPSerializable
     {
 
@@ -657,7 +668,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class PlayRequest
+    public static class PlayRequest
         extends SOAPSerializable
     {
 
@@ -695,7 +706,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class PlayResponse
+    public static class PlayResponse
         extends SOAPSerializable
     {
 
@@ -713,7 +724,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class PreviousRequest
+    public static class PreviousRequest
         extends SOAPSerializable
     {
 
@@ -745,7 +756,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class PreviousResponse
+    public static class PreviousResponse
         extends SOAPSerializable
     {
 
@@ -763,7 +774,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class RecordRequest
+    public static class RecordRequest
         extends SOAPSerializable
     {
 
@@ -795,7 +806,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class RecordResponse
+    public static class RecordResponse
         extends SOAPSerializable
     {
 
@@ -819,7 +830,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SeekRequest
+    public static class SeekRequest
         extends SOAPSerializable
     {
 
@@ -863,7 +874,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SeekResponse
+    public static class SeekResponse
         extends SOAPSerializable
     {
 
@@ -881,7 +892,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetAVTransportURIRequest
+    public static class SetAVTransportURIRequest
         extends SOAPSerializable
     {
 
@@ -925,7 +936,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetAVTransportURIResponse
+    public static class SetAVTransportURIResponse
         extends SOAPSerializable
     {
 
@@ -943,7 +954,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetNextAVTransportURIRequest
+    public static class SetNextAVTransportURIRequest
         extends SOAPSerializable
     {
 
@@ -987,7 +998,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetNextAVTransportURIResponse
+    public static class SetNextAVTransportURIResponse
         extends SOAPSerializable
     {
 
@@ -1005,7 +1016,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetPlayModeRequest
+    public static class SetPlayModeRequest
         extends SOAPSerializable
     {
 
@@ -1043,7 +1054,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetPlayModeResponse
+    public static class SetPlayModeResponse
         extends SOAPSerializable
     {
 
@@ -1061,7 +1072,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetRecordQualityModeRequest
+    public static class SetRecordQualityModeRequest
         extends SOAPSerializable
     {
 
@@ -1099,7 +1110,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class SetRecordQualityModeResponse
+    public static class SetRecordQualityModeResponse
         extends SOAPSerializable
     {
 
@@ -1117,7 +1128,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class StopRequest
+    public static class StopRequest
         extends SOAPSerializable
     {
 
@@ -1149,7 +1160,7 @@ public interface AVTransport {
 
     }
 
-    public static abstract class StopResponse
+    public static class StopResponse
         extends SOAPSerializable
     {
 
@@ -1169,7 +1180,7 @@ public interface AVTransport {
 
     public enum TransportPlaySpeed {
 
-        ONE;
+        //1;
 
     }
 

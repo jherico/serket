@@ -6,50 +6,61 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface ScheduledRecording {
+public abstract class ScheduledRecording
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:ScheduledRecording:1";
 
-    public ScheduledRecording.GetSortCapabilitiesResponse getSortCapabilities(ScheduledRecording.GetSortCapabilitiesRequest input);
+    public ScheduledRecording(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public ScheduledRecording.GetPropertyListResponse getPropertyList(ScheduledRecording.GetPropertyListRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public ScheduledRecording.GetAllowedValuesResponse getAllowedValues(ScheduledRecording.GetAllowedValuesRequest input);
+    public abstract ScheduledRecording.GetSortCapabilitiesResponse getSortCapabilities(ScheduledRecording.GetSortCapabilitiesRequest input);
 
-    public ScheduledRecording.GetStateUpdateIDResponse getStateUpdateID(ScheduledRecording.GetStateUpdateIDRequest input);
+    public abstract ScheduledRecording.GetPropertyListResponse getPropertyList(ScheduledRecording.GetPropertyListRequest input);
 
-    public ScheduledRecording.BrowseRecordSchedulesResponse browseRecordSchedules(ScheduledRecording.BrowseRecordSchedulesRequest input);
+    public abstract ScheduledRecording.GetAllowedValuesResponse getAllowedValues(ScheduledRecording.GetAllowedValuesRequest input);
 
-    public ScheduledRecording.BrowseRecordTasksResponse browseRecordTasks(ScheduledRecording.BrowseRecordTasksRequest input);
+    public abstract ScheduledRecording.GetStateUpdateIDResponse getStateUpdateID(ScheduledRecording.GetStateUpdateIDRequest input);
 
-    public ScheduledRecording.CreateRecordScheduleResponse createRecordSchedule(ScheduledRecording.CreateRecordScheduleRequest input);
+    public abstract ScheduledRecording.BrowseRecordSchedulesResponse browseRecordSchedules(ScheduledRecording.BrowseRecordSchedulesRequest input);
 
-    public ScheduledRecording.DeleteRecordScheduleResponse deleteRecordSchedule(ScheduledRecording.DeleteRecordScheduleRequest input);
+    public abstract ScheduledRecording.BrowseRecordTasksResponse browseRecordTasks(ScheduledRecording.BrowseRecordTasksRequest input);
 
-    public ScheduledRecording.GetRecordScheduleResponse getRecordSchedule(ScheduledRecording.GetRecordScheduleRequest input);
+    public abstract ScheduledRecording.CreateRecordScheduleResponse createRecordSchedule(ScheduledRecording.CreateRecordScheduleRequest input);
 
-    public ScheduledRecording.EnableRecordScheduleResponse enableRecordSchedule(ScheduledRecording.EnableRecordScheduleRequest input);
+    public abstract ScheduledRecording.DeleteRecordScheduleResponse deleteRecordSchedule(ScheduledRecording.DeleteRecordScheduleRequest input);
 
-    public ScheduledRecording.DisableRecordScheduleResponse disableRecordSchedule(ScheduledRecording.DisableRecordScheduleRequest input);
+    public abstract ScheduledRecording.GetRecordScheduleResponse getRecordSchedule(ScheduledRecording.GetRecordScheduleRequest input);
 
-    public ScheduledRecording.DeleteRecordTaskResponse deleteRecordTask(ScheduledRecording.DeleteRecordTaskRequest input);
+    public abstract ScheduledRecording.EnableRecordScheduleResponse enableRecordSchedule(ScheduledRecording.EnableRecordScheduleRequest input);
 
-    public ScheduledRecording.GetRecordTaskResponse getRecordTask(ScheduledRecording.GetRecordTaskRequest input);
+    public abstract ScheduledRecording.DisableRecordScheduleResponse disableRecordSchedule(ScheduledRecording.DisableRecordScheduleRequest input);
 
-    public ScheduledRecording.EnableRecordTaskResponse enableRecordTask(ScheduledRecording.EnableRecordTaskRequest input);
+    public abstract ScheduledRecording.DeleteRecordTaskResponse deleteRecordTask(ScheduledRecording.DeleteRecordTaskRequest input);
 
-    public ScheduledRecording.DisableRecordTaskResponse disableRecordTask(ScheduledRecording.DisableRecordTaskRequest input);
+    public abstract ScheduledRecording.GetRecordTaskResponse getRecordTask(ScheduledRecording.GetRecordTaskRequest input);
 
-    public ScheduledRecording.ResetRecordTaskResponse resetRecordTask(ScheduledRecording.ResetRecordTaskRequest input);
+    public abstract ScheduledRecording.EnableRecordTaskResponse enableRecordTask(ScheduledRecording.EnableRecordTaskRequest input);
 
-    public ScheduledRecording.GetRecordScheduleConflictsResponse getRecordScheduleConflicts(ScheduledRecording.GetRecordScheduleConflictsRequest input);
+    public abstract ScheduledRecording.DisableRecordTaskResponse disableRecordTask(ScheduledRecording.DisableRecordTaskRequest input);
 
-    public ScheduledRecording.GetRecordTaskConflictsResponse getRecordTaskConflicts(ScheduledRecording.GetRecordTaskConflictsRequest input);
+    public abstract ScheduledRecording.ResetRecordTaskResponse resetRecordTask(ScheduledRecording.ResetRecordTaskRequest input);
 
-    public static abstract class BrowseRecordSchedulesRequest
+    public abstract ScheduledRecording.GetRecordScheduleConflictsResponse getRecordScheduleConflicts(ScheduledRecording.GetRecordScheduleConflictsRequest input);
+
+    public abstract ScheduledRecording.GetRecordTaskConflictsResponse getRecordTaskConflicts(ScheduledRecording.GetRecordTaskConflictsRequest input);
+
+    public static class BrowseRecordSchedulesRequest
         extends SOAPSerializable
     {
 
@@ -99,7 +110,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class BrowseRecordSchedulesResponse
+    public static class BrowseRecordSchedulesResponse
         extends SOAPSerializable
     {
 
@@ -149,7 +160,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class BrowseRecordTasksRequest
+    public static class BrowseRecordTasksRequest
         extends SOAPSerializable
     {
 
@@ -205,7 +216,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class BrowseRecordTasksResponse
+    public static class BrowseRecordTasksResponse
         extends SOAPSerializable
     {
 
@@ -255,7 +266,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class CreateRecordScheduleRequest
+    public static class CreateRecordScheduleRequest
         extends SOAPSerializable
     {
 
@@ -287,7 +298,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class CreateRecordScheduleResponse
+    public static class CreateRecordScheduleResponse
         extends SOAPSerializable
     {
 
@@ -339,7 +350,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DeleteRecordScheduleRequest
+    public static class DeleteRecordScheduleRequest
         extends SOAPSerializable
     {
 
@@ -371,7 +382,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DeleteRecordScheduleResponse
+    public static class DeleteRecordScheduleResponse
         extends SOAPSerializable
     {
 
@@ -389,7 +400,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DeleteRecordTaskRequest
+    public static class DeleteRecordTaskRequest
         extends SOAPSerializable
     {
 
@@ -421,7 +432,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DeleteRecordTaskResponse
+    public static class DeleteRecordTaskResponse
         extends SOAPSerializable
     {
 
@@ -439,7 +450,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DisableRecordScheduleRequest
+    public static class DisableRecordScheduleRequest
         extends SOAPSerializable
     {
 
@@ -471,7 +482,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DisableRecordScheduleResponse
+    public static class DisableRecordScheduleResponse
         extends SOAPSerializable
     {
 
@@ -489,7 +500,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DisableRecordTaskRequest
+    public static class DisableRecordTaskRequest
         extends SOAPSerializable
     {
 
@@ -521,7 +532,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class DisableRecordTaskResponse
+    public static class DisableRecordTaskResponse
         extends SOAPSerializable
     {
 
@@ -539,7 +550,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class EnableRecordScheduleRequest
+    public static class EnableRecordScheduleRequest
         extends SOAPSerializable
     {
 
@@ -571,7 +582,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class EnableRecordScheduleResponse
+    public static class EnableRecordScheduleResponse
         extends SOAPSerializable
     {
 
@@ -589,7 +600,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class EnableRecordTaskRequest
+    public static class EnableRecordTaskRequest
         extends SOAPSerializable
     {
 
@@ -621,7 +632,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class EnableRecordTaskResponse
+    public static class EnableRecordTaskResponse
         extends SOAPSerializable
     {
 
@@ -639,7 +650,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetAllowedValuesRequest
+    public static class GetAllowedValuesRequest
         extends SOAPSerializable
     {
 
@@ -677,7 +688,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetAllowedValuesResponse
+    public static class GetAllowedValuesResponse
         extends SOAPSerializable
     {
 
@@ -709,7 +720,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetPropertyListRequest
+    public static class GetPropertyListRequest
         extends SOAPSerializable
     {
 
@@ -741,7 +752,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetPropertyListResponse
+    public static class GetPropertyListResponse
         extends SOAPSerializable
     {
 
@@ -773,7 +784,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordScheduleConflictsRequest
+    public static class GetRecordScheduleConflictsRequest
         extends SOAPSerializable
     {
 
@@ -805,7 +816,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordScheduleConflictsResponse
+    public static class GetRecordScheduleConflictsResponse
         extends SOAPSerializable
     {
 
@@ -843,7 +854,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordScheduleRequest
+    public static class GetRecordScheduleRequest
         extends SOAPSerializable
     {
 
@@ -881,7 +892,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordScheduleResponse
+    public static class GetRecordScheduleResponse
         extends SOAPSerializable
     {
 
@@ -919,7 +930,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordTaskConflictsRequest
+    public static class GetRecordTaskConflictsRequest
         extends SOAPSerializable
     {
 
@@ -951,7 +962,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordTaskConflictsResponse
+    public static class GetRecordTaskConflictsResponse
         extends SOAPSerializable
     {
 
@@ -989,7 +1000,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordTaskRequest
+    public static class GetRecordTaskRequest
         extends SOAPSerializable
     {
 
@@ -1027,7 +1038,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetRecordTaskResponse
+    public static class GetRecordTaskResponse
         extends SOAPSerializable
     {
 
@@ -1065,7 +1076,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetSortCapabilitiesRequest
+    public static class GetSortCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -1083,7 +1094,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetSortCapabilitiesResponse
+    public static class GetSortCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -1121,7 +1132,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetStateUpdateIDRequest
+    public static class GetStateUpdateIDRequest
         extends SOAPSerializable
     {
 
@@ -1139,7 +1150,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class GetStateUpdateIDResponse
+    public static class GetStateUpdateIDResponse
         extends SOAPSerializable
     {
 
@@ -1171,7 +1182,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class ResetRecordTaskRequest
+    public static class ResetRecordTaskRequest
         extends SOAPSerializable
     {
 
@@ -1203,7 +1214,7 @@ public interface ScheduledRecording {
 
     }
 
-    public static abstract class ResetRecordTaskResponse
+    public static class ResetRecordTaskResponse
         extends SOAPSerializable
     {
 

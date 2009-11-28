@@ -45,12 +45,12 @@ public class MediaServer extends BaseDevice {
 
         @Override
         public String getUPC() {
-            return null;
+            return "";
         }
 
         @Override
         public String getURL() {
-            return null;
+            return "http://code.google.com/p/serket/";
         }
         
     }
@@ -67,7 +67,7 @@ public class MediaServer extends BaseDevice {
     }
 
     public MediaServer(String UDN, String presentationURL) {
-        super("Serket AV " + NetUtil.getHostname(), UDN, "software", presentationURL, new SerketManufacturer(), new SerketModel());
+        super("Serket AV " + NetUtil.getHostname(), UDN, "", presentationURL, new SerketManufacturer(), new SerketModel());
     }
     
 

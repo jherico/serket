@@ -6,52 +6,63 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface ContentDirectory3 {
+public abstract class ContentDirectory3
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:ContentDirectory:3";
 
-    public ContentDirectory3 .GetSearchCapabilitiesResponse getSearchCapabilities(ContentDirectory3 .GetSearchCapabilitiesRequest input);
+    public ContentDirectory3(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public ContentDirectory3 .GetSortCapabilitiesResponse getSortCapabilities(ContentDirectory3 .GetSortCapabilitiesRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public ContentDirectory3 .GetSortExtensionCapabilitiesResponse getSortExtensionCapabilities(ContentDirectory3 .GetSortExtensionCapabilitiesRequest input);
+    public abstract ContentDirectory3 .GetSearchCapabilitiesResponse getSearchCapabilities(ContentDirectory3 .GetSearchCapabilitiesRequest input);
 
-    public ContentDirectory3 .GetFeatureListResponse getFeatureList(ContentDirectory3 .GetFeatureListRequest input);
+    public abstract ContentDirectory3 .GetSortCapabilitiesResponse getSortCapabilities(ContentDirectory3 .GetSortCapabilitiesRequest input);
 
-    public ContentDirectory3 .GetSystemUpdateIDResponse getSystemUpdateID(ContentDirectory3 .GetSystemUpdateIDRequest input);
+    public abstract ContentDirectory3 .GetSortExtensionCapabilitiesResponse getSortExtensionCapabilities(ContentDirectory3 .GetSortExtensionCapabilitiesRequest input);
 
-    public ContentDirectory3 .GetServiceResetTokenResponse getServiceResetToken(ContentDirectory3 .GetServiceResetTokenRequest input);
+    public abstract ContentDirectory3 .GetFeatureListResponse getFeatureList(ContentDirectory3 .GetFeatureListRequest input);
 
-    public ContentDirectory3 .BrowseResponse browse(ContentDirectory3 .BrowseRequest input);
+    public abstract ContentDirectory3 .GetSystemUpdateIDResponse getSystemUpdateID(ContentDirectory3 .GetSystemUpdateIDRequest input);
 
-    public ContentDirectory3 .SearchResponse search(ContentDirectory3 .SearchRequest input);
+    public abstract ContentDirectory3 .GetServiceResetTokenResponse getServiceResetToken(ContentDirectory3 .GetServiceResetTokenRequest input);
 
-    public ContentDirectory3 .CreateObjectResponse createObject(ContentDirectory3 .CreateObjectRequest input);
+    public abstract ContentDirectory3 .BrowseResponse browse(ContentDirectory3 .BrowseRequest input);
 
-    public ContentDirectory3 .DestroyObjectResponse destroyObject(ContentDirectory3 .DestroyObjectRequest input);
+    public abstract ContentDirectory3 .SearchResponse search(ContentDirectory3 .SearchRequest input);
 
-    public ContentDirectory3 .UpdateObjectResponse updateObject(ContentDirectory3 .UpdateObjectRequest input);
+    public abstract ContentDirectory3 .CreateObjectResponse createObject(ContentDirectory3 .CreateObjectRequest input);
 
-    public ContentDirectory3 .MoveObjectResponse moveObject(ContentDirectory3 .MoveObjectRequest input);
+    public abstract ContentDirectory3 .DestroyObjectResponse destroyObject(ContentDirectory3 .DestroyObjectRequest input);
 
-    public ContentDirectory3 .ImportResourceResponse importResource(ContentDirectory3 .ImportResourceRequest input);
+    public abstract ContentDirectory3 .UpdateObjectResponse updateObject(ContentDirectory3 .UpdateObjectRequest input);
 
-    public ContentDirectory3 .ExportResourceResponse exportResource(ContentDirectory3 .ExportResourceRequest input);
+    public abstract ContentDirectory3 .MoveObjectResponse moveObject(ContentDirectory3 .MoveObjectRequest input);
 
-    public ContentDirectory3 .DeleteResourceResponse deleteResource(ContentDirectory3 .DeleteResourceRequest input);
+    public abstract ContentDirectory3 .ImportResourceResponse importResource(ContentDirectory3 .ImportResourceRequest input);
 
-    public ContentDirectory3 .StopTransferResourceResponse stopTransferResource(ContentDirectory3 .StopTransferResourceRequest input);
+    public abstract ContentDirectory3 .ExportResourceResponse exportResource(ContentDirectory3 .ExportResourceRequest input);
 
-    public ContentDirectory3 .GetTransferProgressResponse getTransferProgress(ContentDirectory3 .GetTransferProgressRequest input);
+    public abstract ContentDirectory3 .DeleteResourceResponse deleteResource(ContentDirectory3 .DeleteResourceRequest input);
 
-    public ContentDirectory3 .CreateReferenceResponse createReference(ContentDirectory3 .CreateReferenceRequest input);
+    public abstract ContentDirectory3 .StopTransferResourceResponse stopTransferResource(ContentDirectory3 .StopTransferResourceRequest input);
 
-    public ContentDirectory3 .FreeFormQueryResponse freeFormQuery(ContentDirectory3 .FreeFormQueryRequest input);
+    public abstract ContentDirectory3 .GetTransferProgressResponse getTransferProgress(ContentDirectory3 .GetTransferProgressRequest input);
 
-    public ContentDirectory3 .GetFreeFormQueryCapabilitiesResponse getFreeFormQueryCapabilities(ContentDirectory3 .GetFreeFormQueryCapabilitiesRequest input);
+    public abstract ContentDirectory3 .CreateReferenceResponse createReference(ContentDirectory3 .CreateReferenceRequest input);
+
+    public abstract ContentDirectory3 .FreeFormQueryResponse freeFormQuery(ContentDirectory3 .FreeFormQueryRequest input);
+
+    public abstract ContentDirectory3 .GetFreeFormQueryCapabilitiesResponse getFreeFormQueryCapabilities(ContentDirectory3 .GetFreeFormQueryCapabilitiesRequest input);
 
     public enum BrowseFlag {
 
@@ -60,7 +71,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class BrowseRequest
+    public static class BrowseRequest
         extends SOAPSerializable
     {
 
@@ -122,7 +133,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class BrowseResponse
+    public static class BrowseResponse
         extends SOAPSerializable
     {
 
@@ -172,7 +183,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class CreateObjectRequest
+    public static class CreateObjectRequest
         extends SOAPSerializable
     {
 
@@ -210,7 +221,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class CreateObjectResponse
+    public static class CreateObjectResponse
         extends SOAPSerializable
     {
 
@@ -248,7 +259,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class CreateReferenceRequest
+    public static class CreateReferenceRequest
         extends SOAPSerializable
     {
 
@@ -286,7 +297,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class CreateReferenceResponse
+    public static class CreateReferenceResponse
         extends SOAPSerializable
     {
 
@@ -318,7 +329,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class DeleteResourceRequest
+    public static class DeleteResourceRequest
         extends SOAPSerializable
     {
 
@@ -350,7 +361,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class DeleteResourceResponse
+    public static class DeleteResourceResponse
         extends SOAPSerializable
     {
 
@@ -368,7 +379,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class DestroyObjectRequest
+    public static class DestroyObjectRequest
         extends SOAPSerializable
     {
 
@@ -400,7 +411,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class DestroyObjectResponse
+    public static class DestroyObjectResponse
         extends SOAPSerializable
     {
 
@@ -418,7 +429,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class ExportResourceRequest
+    public static class ExportResourceRequest
         extends SOAPSerializable
     {
 
@@ -456,7 +467,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class ExportResourceResponse
+    public static class ExportResourceResponse
         extends SOAPSerializable
     {
 
@@ -488,7 +499,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class FreeFormQueryRequest
+    public static class FreeFormQueryRequest
         extends SOAPSerializable
     {
 
@@ -532,7 +543,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class FreeFormQueryResponse
+    public static class FreeFormQueryResponse
         extends SOAPSerializable
     {
 
@@ -570,7 +581,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetFeatureListRequest
+    public static class GetFeatureListRequest
         extends SOAPSerializable
     {
 
@@ -588,7 +599,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetFeatureListResponse
+    public static class GetFeatureListResponse
         extends SOAPSerializable
     {
 
@@ -620,7 +631,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetFreeFormQueryCapabilitiesRequest
+    public static class GetFreeFormQueryCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -638,7 +649,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetFreeFormQueryCapabilitiesResponse
+    public static class GetFreeFormQueryCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -670,7 +681,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSearchCapabilitiesRequest
+    public static class GetSearchCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -688,7 +699,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSearchCapabilitiesResponse
+    public static class GetSearchCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -720,7 +731,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetServiceResetTokenRequest
+    public static class GetServiceResetTokenRequest
         extends SOAPSerializable
     {
 
@@ -738,7 +749,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetServiceResetTokenResponse
+    public static class GetServiceResetTokenResponse
         extends SOAPSerializable
     {
 
@@ -770,7 +781,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSortCapabilitiesRequest
+    public static class GetSortCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -788,7 +799,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSortCapabilitiesResponse
+    public static class GetSortCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -820,7 +831,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSortExtensionCapabilitiesRequest
+    public static class GetSortExtensionCapabilitiesRequest
         extends SOAPSerializable
     {
 
@@ -838,7 +849,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSortExtensionCapabilitiesResponse
+    public static class GetSortExtensionCapabilitiesResponse
         extends SOAPSerializable
     {
 
@@ -870,7 +881,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSystemUpdateIDRequest
+    public static class GetSystemUpdateIDRequest
         extends SOAPSerializable
     {
 
@@ -888,7 +899,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetSystemUpdateIDResponse
+    public static class GetSystemUpdateIDResponse
         extends SOAPSerializable
     {
 
@@ -920,7 +931,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetTransferProgressRequest
+    public static class GetTransferProgressRequest
         extends SOAPSerializable
     {
 
@@ -952,7 +963,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class GetTransferProgressResponse
+    public static class GetTransferProgressResponse
         extends SOAPSerializable
     {
 
@@ -996,7 +1007,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class ImportResourceRequest
+    public static class ImportResourceRequest
         extends SOAPSerializable
     {
 
@@ -1034,7 +1045,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class ImportResourceResponse
+    public static class ImportResourceResponse
         extends SOAPSerializable
     {
 
@@ -1066,7 +1077,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class MoveObjectRequest
+    public static class MoveObjectRequest
         extends SOAPSerializable
     {
 
@@ -1104,7 +1115,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class MoveObjectResponse
+    public static class MoveObjectResponse
         extends SOAPSerializable
     {
 
@@ -1136,7 +1147,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class SearchRequest
+    public static class SearchRequest
         extends SOAPSerializable
     {
 
@@ -1198,7 +1209,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class SearchResponse
+    public static class SearchResponse
         extends SOAPSerializable
     {
 
@@ -1248,7 +1259,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class StopTransferResourceRequest
+    public static class StopTransferResourceRequest
         extends SOAPSerializable
     {
 
@@ -1280,7 +1291,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class StopTransferResourceResponse
+    public static class StopTransferResourceResponse
         extends SOAPSerializable
     {
 
@@ -1307,7 +1318,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class UpdateObjectRequest
+    public static class UpdateObjectRequest
         extends SOAPSerializable
     {
 
@@ -1351,7 +1362,7 @@ public interface ContentDirectory3 {
 
     }
 
-    public static abstract class UpdateObjectResponse
+    public static class UpdateObjectResponse
         extends SOAPSerializable
     {
 

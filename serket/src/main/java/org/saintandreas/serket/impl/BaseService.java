@@ -58,4 +58,43 @@ public abstract class BaseService implements Service {
        return id;
     }
 
+    public abstract String getURI();
+    
+//    @SuppressWarnings("unchecked")
+//    protected void doSoap(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        try {
+//            String soapAction = request.getHeader("SOAPACTION");
+//            String function = soapAction.substring(soapAction.lastIndexOf("#") + 1, soapAction.length() - 1);
+//            Method method = findMethod(getClass(), function);
+//            Class<? extends SOAPSerializable> input = (Class<? extends SOAPSerializable>) method.getParameterTypes()[0];
+//            SOAPSerializable inputObject = input.newInstance();
+//            inputObject.parse(SOAPUtil.parse(request));
+//            SOAPSerializable outputObject = (SOAPSerializable) method.invoke(this, inputObject);
+//            SOAPMessage outputMessage = outputObject.format();
+//            outputMessage.writeTo(response.getOutputStream());
+//        } catch (SOAPException e) {
+//            throw new ServletException(e);
+//        } catch (IllegalArgumentException e) {
+//            throw new ServletException(e);
+//        } catch (IllegalAccessException e) {
+//            throw new ServletException(e);
+//        } catch (InvocationTargetException e) {
+//            throw new ServletException(e);
+//        } catch (InstantiationException e) {
+//            throw new ServletException(e);
+//        } 
+//        
+//    }
+//    
+//    protected static Method findMethod(Class<?> clazz, String function) {
+//        Method retVal = null;
+//        for (Method m : clazz.getMethods()) {
+//            if (m.getName().equalsIgnoreCase(function)) {
+//                retVal = m;
+//                break;
+//            }
+//        }
+//        return retVal;
+//    }
+
 }

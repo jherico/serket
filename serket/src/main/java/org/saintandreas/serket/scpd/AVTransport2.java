@@ -1,3 +1,4 @@
+
 package org.saintandreas.serket.scpd;
 
 import java.util.Iterator;
@@ -5,58 +6,71 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.w3c.dom.Element;
 
-public interface AVTransport2 {
+public abstract class AVTransport2
+    extends BaseService
+{
 
     public final static String URI = "urn:schemas-upnp-org:service:AVTransport:2";
 
-    public AVTransport2.SetAVTransportURIResponse setAVTransportURI(AVTransport2.SetAVTransportURIRequest input);
+    public AVTransport2(String id, String controlURL, String eventURL) {
+        super(id, controlURL, eventURL);
+    }
 
-    public AVTransport2.SetNextAVTransportURIResponse setNextAVTransportURI(AVTransport2.SetNextAVTransportURIRequest input);
+    public String getURI() {
+        return URI;
+    }
 
-    public AVTransport2.GetMediaInfoResponse getMediaInfo(AVTransport2.GetMediaInfoRequest input);
+    public abstract AVTransport2 .SetAVTransportURIResponse setAVTransportURI(AVTransport2 .SetAVTransportURIRequest input);
 
-    public AVTransport2.GetMediaInfo_ExtResponse getMediaInfo_Ext(AVTransport2.GetMediaInfo_ExtRequest input);
+    public abstract AVTransport2 .SetNextAVTransportURIResponse setNextAVTransportURI(AVTransport2 .SetNextAVTransportURIRequest input);
 
-    public AVTransport2.GetTransportInfoResponse getTransportInfo(AVTransport2.GetTransportInfoRequest input);
+    public abstract AVTransport2 .GetMediaInfoResponse getMediaInfo(AVTransport2 .GetMediaInfoRequest input);
 
-    public AVTransport2.GetPositionInfoResponse getPositionInfo(AVTransport2.GetPositionInfoRequest input);
+    public abstract AVTransport2 .GetMediaInfo_ExtResponse getMediaInfo_Ext(AVTransport2 .GetMediaInfo_ExtRequest input);
 
-    public AVTransport2.GetDeviceCapabilitiesResponse getDeviceCapabilities(AVTransport2.GetDeviceCapabilitiesRequest input);
+    public abstract AVTransport2 .GetTransportInfoResponse getTransportInfo(AVTransport2 .GetTransportInfoRequest input);
 
-    public AVTransport2.GetTransportSettingsResponse getTransportSettings(AVTransport2.GetTransportSettingsRequest input);
+    public abstract AVTransport2 .GetPositionInfoResponse getPositionInfo(AVTransport2 .GetPositionInfoRequest input);
 
-    public AVTransport2.StopResponse stop(AVTransport2.StopRequest input);
+    public abstract AVTransport2 .GetDeviceCapabilitiesResponse getDeviceCapabilities(AVTransport2 .GetDeviceCapabilitiesRequest input);
 
-    public AVTransport2.PlayResponse play(AVTransport2.PlayRequest input);
+    public abstract AVTransport2 .GetTransportSettingsResponse getTransportSettings(AVTransport2 .GetTransportSettingsRequest input);
 
-    public AVTransport2.PauseResponse pause(AVTransport2.PauseRequest input);
+    public abstract AVTransport2 .StopResponse stop(AVTransport2 .StopRequest input);
 
-    public AVTransport2.RecordResponse record(AVTransport2.RecordRequest input);
+    public abstract AVTransport2 .PlayResponse play(AVTransport2 .PlayRequest input);
 
-    public AVTransport2.SeekResponse seek(AVTransport2.SeekRequest input);
+    public abstract AVTransport2 .PauseResponse pause(AVTransport2 .PauseRequest input);
 
-    public AVTransport2.NextResponse next(AVTransport2.NextRequest input);
+    public abstract AVTransport2 .RecordResponse record(AVTransport2 .RecordRequest input);
 
-    public AVTransport2.PreviousResponse previous(AVTransport2.PreviousRequest input);
+    public abstract AVTransport2 .SeekResponse seek(AVTransport2 .SeekRequest input);
 
-    public AVTransport2.SetPlayModeResponse setPlayMode(AVTransport2.SetPlayModeRequest input);
+    public abstract AVTransport2 .NextResponse next(AVTransport2 .NextRequest input);
 
-    public AVTransport2.SetRecordQualityModeResponse setRecordQualityMode(AVTransport2.SetRecordQualityModeRequest input);
+    public abstract AVTransport2 .PreviousResponse previous(AVTransport2 .PreviousRequest input);
 
-    public AVTransport2.GetCurrentTransportActionsResponse getCurrentTransportActions(AVTransport2.GetCurrentTransportActionsRequest input);
+    public abstract AVTransport2 .SetPlayModeResponse setPlayMode(AVTransport2 .SetPlayModeRequest input);
 
-    public AVTransport2.GetDRMStateResponse getDRMState(AVTransport2.GetDRMStateRequest input);
+    public abstract AVTransport2 .SetRecordQualityModeResponse setRecordQualityMode(AVTransport2 .SetRecordQualityModeRequest input);
 
-    public AVTransport2.GetStateVariablesResponse getStateVariables(AVTransport2.GetStateVariablesRequest input);
+    public abstract AVTransport2 .GetCurrentTransportActionsResponse getCurrentTransportActions(AVTransport2 .GetCurrentTransportActionsRequest input);
 
-    public AVTransport2.SetStateVariablesResponse setStateVariables(AVTransport2.SetStateVariablesRequest input);
+    public abstract AVTransport2 .GetDRMStateResponse getDRMState(AVTransport2 .GetDRMStateRequest input);
+
+    public abstract AVTransport2 .GetStateVariablesResponse getStateVariables(AVTransport2 .GetStateVariablesRequest input);
+
+    public abstract AVTransport2 .SetStateVariablesResponse setStateVariables(AVTransport2 .SetStateVariablesRequest input);
 
     public enum CurrentMediaCategory {
 
-        NO_MEDIA, TRACK_AWARE, TRACK_UNAWARE;
+        NO_MEDIA,
+        TRACK_AWARE,
+        TRACK_UNAWARE;
 
     }
 
@@ -72,14 +86,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetCurrentTransportActionsRequest extends SOAPSerializable {
+    public static class GetCurrentTransportActionsRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -89,8 +107,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetCurrentTransportActionsRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetCurrentTransportActionsRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetCurrentTransportActionsRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -98,14 +118,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetCurrentTransportActionsResponse extends SOAPSerializable {
+    public static class GetCurrentTransportActionsResponse
+        extends SOAPSerializable
+    {
 
         public String actions;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("actions".equals(name)) {
@@ -115,8 +139,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetCurrentTransportActionsResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetCurrentTransportActionsResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetCurrentTransportActionsResponse", "u"));
             soapBodyElement.addChildElement("Actions").setTextContent(actions.toString());
             return retVal;
@@ -124,14 +150,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetDRMStateRequest extends SOAPSerializable {
+    public static class GetDRMStateRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -141,8 +171,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetDRMStateRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetDRMStateRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetDRMStateRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -150,25 +182,31 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetDRMStateResponse extends SOAPSerializable {
+    public static class GetDRMStateResponse
+        extends SOAPSerializable
+    {
 
-        public AVTransport2.DRMState currentDRMState;
+        public AVTransport2 .DRMState currentDRMState;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("currentDRMState".equals(name)) {
-                    currentDRMState = AVTransport2.DRMState.valueOf(e.getTextContent());
+                    currentDRMState = AVTransport2 .DRMState.valueOf(e.getTextContent());
                     continue;
                 }
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetDRMStateResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetDRMStateResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetDRMStateResponse", "u"));
             soapBodyElement.addChildElement("CurrentDRMState").setTextContent(currentDRMState.toString());
             return retVal;
@@ -176,14 +214,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetDeviceCapabilitiesRequest extends SOAPSerializable {
+    public static class GetDeviceCapabilitiesRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -193,8 +235,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetDeviceCapabilitiesRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetDeviceCapabilitiesRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetDeviceCapabilitiesRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -202,16 +246,20 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetDeviceCapabilitiesResponse extends SOAPSerializable {
+    public static class GetDeviceCapabilitiesResponse
+        extends SOAPSerializable
+    {
 
         public String playMedia;
         public String recMedia;
         public String recQualityModes;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("playMedia".equals(name)) {
@@ -229,8 +277,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetDeviceCapabilitiesResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetDeviceCapabilitiesResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetDeviceCapabilitiesResponse", "u"));
             soapBodyElement.addChildElement("PlayMedia").setTextContent(playMedia.toString());
             soapBodyElement.addChildElement("RecMedia").setTextContent(recMedia.toString());
@@ -240,14 +290,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetMediaInfoRequest extends SOAPSerializable {
+    public static class GetMediaInfoRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -257,8 +311,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetMediaInfoRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetMediaInfoRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetMediaInfoRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -266,7 +322,9 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetMediaInfoResponse extends SOAPSerializable {
+    public static class GetMediaInfoResponse
+        extends SOAPSerializable
+    {
 
         public int nrTracks;
         public String mediaDuration;
@@ -279,9 +337,11 @@ public interface AVTransport2 {
         public String writeStatus;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("nrTracks".equals(name)) {
@@ -323,8 +383,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetMediaInfoResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetMediaInfoResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetMediaInfoResponse", "u"));
             soapBodyElement.addChildElement("NrTracks").setTextContent(Integer.toString(nrTracks));
             soapBodyElement.addChildElement("MediaDuration").setTextContent(mediaDuration.toString());
@@ -340,14 +402,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetMediaInfo_ExtRequest extends SOAPSerializable {
+    public static class GetMediaInfo_ExtRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -357,8 +423,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetMediaInfo_ExtRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetMediaInfo_ExtRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetMediaInfo_ExtRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -366,9 +434,11 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetMediaInfo_ExtResponse extends SOAPSerializable {
+    public static class GetMediaInfo_ExtResponse
+        extends SOAPSerializable
+    {
 
-        public AVTransport2.CurrentMediaCategory currentType;
+        public AVTransport2 .CurrentMediaCategory currentType;
         public int nrTracks;
         public String mediaDuration;
         public String currentURI;
@@ -380,13 +450,15 @@ public interface AVTransport2 {
         public String writeStatus;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("currentType".equals(name)) {
-                    currentType = AVTransport2.CurrentMediaCategory.valueOf(e.getTextContent());
+                    currentType = AVTransport2 .CurrentMediaCategory.valueOf(e.getTextContent());
                     continue;
                 }
                 if ("nrTracks".equals(name)) {
@@ -428,8 +500,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetMediaInfo_ExtResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetMediaInfo_ExtResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetMediaInfo_ExtResponse", "u"));
             soapBodyElement.addChildElement("CurrentType").setTextContent(currentType.toString());
             soapBodyElement.addChildElement("NrTracks").setTextContent(Integer.toString(nrTracks));
@@ -446,14 +520,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetPositionInfoRequest extends SOAPSerializable {
+    public static class GetPositionInfoRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -463,8 +541,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetPositionInfoRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetPositionInfoRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetPositionInfoRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -472,7 +552,9 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetPositionInfoResponse extends SOAPSerializable {
+    public static class GetPositionInfoResponse
+        extends SOAPSerializable
+    {
 
         public int track;
         public String trackDuration;
@@ -484,9 +566,11 @@ public interface AVTransport2 {
         public int absCount;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("track".equals(name)) {
@@ -524,8 +608,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetPositionInfoResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetPositionInfoResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetPositionInfoResponse", "u"));
             soapBodyElement.addChildElement("Track").setTextContent(Integer.toString(track));
             soapBodyElement.addChildElement("TrackDuration").setTextContent(trackDuration.toString());
@@ -540,15 +626,19 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetStateVariablesRequest extends SOAPSerializable {
+    public static class GetStateVariablesRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public String stateVariableList;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -562,8 +652,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetStateVariablesRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetStateVariablesRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetStateVariablesRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("StateVariableList").setTextContent(stateVariableList.toString());
@@ -572,14 +664,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetStateVariablesResponse extends SOAPSerializable {
+    public static class GetStateVariablesResponse
+        extends SOAPSerializable
+    {
 
         public String stateVariableValuePairs;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("stateVariableValuePairs".equals(name)) {
@@ -589,8 +685,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetStateVariablesResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetStateVariablesResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetStateVariablesResponse", "u"));
             soapBodyElement.addChildElement("StateVariableValuePairs").setTextContent(stateVariableValuePairs.toString());
             return retVal;
@@ -598,14 +696,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetTransportInfoRequest extends SOAPSerializable {
+    public static class GetTransportInfoRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -615,8 +717,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetTransportInfoRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetTransportInfoRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetTransportInfoRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -624,35 +728,41 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetTransportInfoResponse extends SOAPSerializable {
+    public static class GetTransportInfoResponse
+        extends SOAPSerializable
+    {
 
-        public AVTransport2.TransportState currentTransportState;
-        public AVTransport2.TransportStatus currentTransportStatus;
-        public AVTransport2.TransportPlaySpeed currentSpeed;
+        public AVTransport2 .TransportState currentTransportState;
+        public AVTransport2 .TransportStatus currentTransportStatus;
+        public AVTransport2 .TransportPlaySpeed currentSpeed;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("currentTransportState".equals(name)) {
-                    currentTransportState = AVTransport2.TransportState.valueOf(e.getTextContent());
+                    currentTransportState = AVTransport2 .TransportState.valueOf(e.getTextContent());
                     continue;
                 }
                 if ("currentTransportStatus".equals(name)) {
-                    currentTransportStatus = AVTransport2.TransportStatus.valueOf(e.getTextContent());
+                    currentTransportStatus = AVTransport2 .TransportStatus.valueOf(e.getTextContent());
                     continue;
                 }
                 if ("currentSpeed".equals(name)) {
-                    currentSpeed = AVTransport2.TransportPlaySpeed.valueOf(e.getTextContent());
+                    currentSpeed = AVTransport2 .TransportPlaySpeed.valueOf(e.getTextContent());
                     continue;
                 }
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetTransportInfoResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetTransportInfoResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetTransportInfoResponse", "u"));
             soapBodyElement.addChildElement("CurrentTransportState").setTextContent(currentTransportState.toString());
             soapBodyElement.addChildElement("CurrentTransportStatus").setTextContent(currentTransportStatus.toString());
@@ -662,14 +772,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetTransportSettingsRequest extends SOAPSerializable {
+    public static class GetTransportSettingsRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -679,8 +793,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetTransportSettingsRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetTransportSettingsRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetTransportSettingsRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -688,19 +804,23 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class GetTransportSettingsResponse extends SOAPSerializable {
+    public static class GetTransportSettingsResponse
+        extends SOAPSerializable
+    {
 
-        public AVTransport2.CurrentPlayMode playMode;
+        public AVTransport2 .CurrentPlayMode playMode;
         public String recQualityMode;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("playMode".equals(name)) {
-                    playMode = AVTransport2.CurrentPlayMode.valueOf(e.getTextContent());
+                    playMode = AVTransport2 .CurrentPlayMode.valueOf(e.getTextContent());
                     continue;
                 }
                 if ("recQualityMode".equals(name)) {
@@ -710,8 +830,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.GetTransportSettingsResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .GetTransportSettingsResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "GetTransportSettingsResponse", "u"));
             soapBodyElement.addChildElement("PlayMode").setTextContent(playMode.toString());
             soapBodyElement.addChildElement("RecQualityMode").setTextContent(recQualityMode.toString());
@@ -720,14 +842,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class NextRequest extends SOAPSerializable {
+    public static class NextRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -737,8 +863,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.NextRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .NextRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "NextRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -746,27 +874,36 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class NextResponse extends SOAPSerializable {
+    public static class NextResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.NextResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .NextResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "NextResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class PauseRequest extends SOAPSerializable {
+    public static class PauseRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -776,8 +913,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.PauseRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .PauseRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "PauseRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -785,28 +924,37 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class PauseResponse extends SOAPSerializable {
+    public static class PauseResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.PauseResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .PauseResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "PauseResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class PlayRequest extends SOAPSerializable {
+    public static class PlayRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public org.saintandreas.serket.scpd.AVTransport2.TransportPlaySpeed speed;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -820,8 +968,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.PlayRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .PlayRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "PlayRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("Speed").setTextContent(speed.toString());
@@ -830,27 +980,36 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class PlayResponse extends SOAPSerializable {
+    public static class PlayResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.PlayResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .PlayResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "PlayResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class PreviousRequest extends SOAPSerializable {
+    public static class PreviousRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -860,8 +1019,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.PreviousRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .PreviousRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "PreviousRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -869,27 +1030,36 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class PreviousResponse extends SOAPSerializable {
+    public static class PreviousResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.PreviousResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .PreviousResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "PreviousResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class RecordRequest extends SOAPSerializable {
+    public static class RecordRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -899,8 +1069,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.RecordRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .RecordRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "RecordRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -908,13 +1080,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class RecordResponse extends SOAPSerializable {
+    public static class RecordResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.RecordResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .RecordResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "RecordResponse", "u"));
             return retVal;
         }
@@ -927,16 +1104,20 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SeekRequest extends SOAPSerializable {
+    public static class SeekRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
-        public AVTransport2.SeekMode unit;
+        public AVTransport2 .SeekMode unit;
         public String target;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -944,7 +1125,7 @@ public interface AVTransport2 {
                     continue;
                 }
                 if ("unit".equals(name)) {
-                    unit = AVTransport2.SeekMode.valueOf(e.getTextContent());
+                    unit = AVTransport2 .SeekMode.valueOf(e.getTextContent());
                     continue;
                 }
                 if ("target".equals(name)) {
@@ -954,8 +1135,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SeekRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SeekRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SeekRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("Unit").setTextContent(unit.toString());
@@ -965,29 +1148,38 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SeekResponse extends SOAPSerializable {
+    public static class SeekResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SeekResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SeekResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "SeekResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class SetAVTransportURIRequest extends SOAPSerializable {
+    public static class SetAVTransportURIRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public String currentURI;
         public String currentURIMetaData;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -1005,8 +1197,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetAVTransportURIRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetAVTransportURIRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SetAVTransportURIRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("CurrentURI").setTextContent(currentURI.toString());
@@ -1016,29 +1210,38 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SetAVTransportURIResponse extends SOAPSerializable {
+    public static class SetAVTransportURIResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetAVTransportURIResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetAVTransportURIResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "SetAVTransportURIResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class SetNextAVTransportURIRequest extends SOAPSerializable {
+    public static class SetNextAVTransportURIRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public String nextURI;
         public String nextURIMetaData;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -1056,8 +1259,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetNextAVTransportURIRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetNextAVTransportURIRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SetNextAVTransportURIRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("NextURI").setTextContent(nextURI.toString());
@@ -1067,28 +1272,37 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SetNextAVTransportURIResponse extends SOAPSerializable {
+    public static class SetNextAVTransportURIResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetNextAVTransportURIResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetNextAVTransportURIResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "SetNextAVTransportURIResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class SetPlayModeRequest extends SOAPSerializable {
+    public static class SetPlayModeRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public org.saintandreas.serket.scpd.AVTransport2.CurrentPlayMode newPlayMode;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -1102,8 +1316,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetPlayModeRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetPlayModeRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SetPlayModeRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("NewPlayMode").setTextContent(newPlayMode.toString());
@@ -1112,28 +1328,37 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SetPlayModeResponse extends SOAPSerializable {
+    public static class SetPlayModeResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetPlayModeResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetPlayModeResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "SetPlayModeResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class SetRecordQualityModeRequest extends SOAPSerializable {
+    public static class SetRecordQualityModeRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public String newRecordQualityMode;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -1147,8 +1372,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetRecordQualityModeRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetRecordQualityModeRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SetRecordQualityModeRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("NewRecordQualityMode").setTextContent(newRecordQualityMode.toString());
@@ -1157,20 +1384,27 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SetRecordQualityModeResponse extends SOAPSerializable {
+    public static class SetRecordQualityModeResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetRecordQualityModeResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetRecordQualityModeResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "SetRecordQualityModeResponse", "u"));
             return retVal;
         }
 
     }
 
-    public static abstract class SetStateVariablesRequest extends SOAPSerializable {
+    public static class SetStateVariablesRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
         public String aVTransportUDN;
@@ -1179,9 +1413,11 @@ public interface AVTransport2 {
         public String stateVariableValuePairs;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -1207,8 +1443,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetStateVariablesRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetStateVariablesRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SetStateVariablesRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             soapBodyElement.addChildElement("AVTransportUDN").setTextContent(aVTransportUDN.toString());
@@ -1220,14 +1458,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class SetStateVariablesResponse extends SOAPSerializable {
+    public static class SetStateVariablesResponse
+        extends SOAPSerializable
+    {
 
         public String stateVariableList;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("stateVariableList".equals(name)) {
@@ -1237,8 +1479,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.SetStateVariablesResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .SetStateVariablesResponse.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "SetStateVariablesResponse", "u"));
             soapBodyElement.addChildElement("StateVariableList").setTextContent(stateVariableList.toString());
             return retVal;
@@ -1246,14 +1490,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class StopRequest extends SOAPSerializable {
+    public static class StopRequest
+        extends SOAPSerializable
+    {
 
         public int instanceID;
 
         @SuppressWarnings("unchecked")
-        public void parse(SOAPMessage soapMessage) throws SOAPException {
+        public void parse(SOAPMessage soapMessage)
+            throws SOAPException
+        {
             Iterator itr = soapMessage.getSOAPBody().getChildElements();
-            for (; itr.hasNext();) {
+            for (; itr.hasNext(); ) {
                 Element e = ((Element) itr.next());
                 String name = e.getNodeName();
                 if ("instanceID".equals(name)) {
@@ -1263,8 +1511,10 @@ public interface AVTransport2 {
             }
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.StopRequest.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .StopRequest.createMessage();
             SOAPBodyElement soapBodyElement = retVal.getSOAPBody().addBodyElement(new QName(URI, "StopRequest", "u"));
             soapBodyElement.addChildElement("InstanceID").setTextContent(Integer.toString(instanceID));
             return retVal;
@@ -1272,13 +1522,18 @@ public interface AVTransport2 {
 
     }
 
-    public static abstract class StopResponse extends SOAPSerializable {
+    public static class StopResponse
+        extends SOAPSerializable
+    {
+
 
         public void parse(SOAPMessage soapMessage) {
         }
 
-        public SOAPMessage format() throws SOAPException {
-            SOAPMessage retVal = AVTransport2.StopResponse.createMessage();
+        public SOAPMessage format()
+            throws SOAPException
+        {
+            SOAPMessage retVal = AVTransport2 .StopResponse.createMessage();
             retVal.getSOAPBody().addBodyElement(new QName(URI, "StopResponse", "u"));
             return retVal;
         }
@@ -1287,19 +1542,21 @@ public interface AVTransport2 {
 
     public enum TransportPlaySpeed {
 
-        ONE;
+        //1;
 
     }
 
     public enum TransportState {
 
-        STOPPED, PLAYING;
+        STOPPED,
+        PLAYING;
 
     }
 
     public enum TransportStatus {
 
-        OK, ERROR_OCCURRED;
+        OK,
+        ERROR_OCCURRED;
 
     }
 

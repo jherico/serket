@@ -12,6 +12,7 @@ import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.xpath.XPathExpressionException;
 
+import org.saintandreas.serket.impl.BaseService;
 import org.saintandreas.serket.soap.SOAPSerializable;
 import org.saintandreas.util.XPathUtil;
 import org.saintandreas.util.XmlUtil;
@@ -55,8 +56,16 @@ public class GenerateScpdClasses {
             String serviceName = f.getName();//"ContentDirectory3";
             serviceName = serviceName.substring(0, serviceName.length() - 4);
             Document scpdDoc = XmlUtil.parseXmlFile(f);
-            JDefinedClass cls = pkg._class(JMod.PUBLIC, serviceName, ClassType.INTERFACE);
-
+            JDefinedClass cls = pkg._class(JMod.PUBLIC | JMod.ABSTRACT, serviceName, ClassType.CLASS);
+            {
+                JClass type = (JClass) cm._ref(BaseService.class);
+                cls._extends(type);
+                JMethod method = cls.constructor(JMod.PUBLIC);
+                method.param(String.class, "id");
+                method.param(String.class, "controlURL");
+                method.param(String.class, "eventURL");
+                method.body().directStatement("super(id, controlURL, eventURL);") ;
+            }
             
             // public static final String URI = "urn:schemas-upnp-org:service:ContentDirectory:1";
             {
@@ -66,8 +75,11 @@ public class GenerateScpdClasses {
                     uriVersionNumber = serviceName.substring(serviceName.length() - 1);
                     uriServiceName = serviceName.substring(0, serviceName.length() - 1);
                 }
-                cls.field(JMod.STATIC | JMod.PUBLIC | JMod.FINAL, String.class, "URI").init(JExpr.lit(URI_PREFIX + uriServiceName + ":" + uriVersionNumber));
+                JVar uriDecl = cls.field(JMod.STATIC | JMod.PUBLIC | JMod.FINAL, String.class, "URI").init(JExpr.lit(URI_PREFIX + uriServiceName + ":" + uriVersionNumber));
+                cls.method(JMod.PUBLIC, String.class, "getURI").body()._return(uriDecl);
             }
+            
+            
             for (Element e : XPathUtil.getElements(scpdDoc, "/scpd/actionList/action")) {
                 createAction(cm, cls, e);
             }
@@ -88,14 +100,14 @@ public class GenerateScpdClasses {
         Element[] inArgs = XPathUtil.getElements(e, "argumentList/argument[direction='in']");
         JType returnType = getArgumentsType(cm, cls, name, outArgs, true);
         JType inputType = getArgumentsType(cm, cls, name, inArgs, false);
-        JMethod method = cls.method(JMod.PUBLIC, returnType, methodName);
+        JMethod method = cls.method(JMod.PUBLIC | JMod.ABSTRACT, returnType, methodName);
         if (inputType != cm.VOID) {
             method.param(inputType, "input");
         }
     }
 
     private static JType getArgumentsType(JCodeModel cm, JDefinedClass cls, String name, Element[] args, boolean out) throws XPathExpressionException, JClassAlreadyExistsException {
-        JDefinedClass returnClass = cls._class(JMod.PUBLIC | JMod.STATIC | JMod.ABSTRACT, name + (out ? "Response" : "Request"));
+        JDefinedClass returnClass = cls._class(JMod.PUBLIC | JMod.STATIC , name + (out ? "Response" : "Request"));
         returnClass._extends(SOAPSerializable.class);
 
         // public void parse(SOAPMessage soapmessage) throws SOAPException;
