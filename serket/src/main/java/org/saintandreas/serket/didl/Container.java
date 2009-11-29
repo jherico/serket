@@ -27,5 +27,6 @@ import org.saintandreas.serket.scpd.ContentDirectory;
  * 
  */
 public interface Container extends Base {
-    public List<Base> getChildren(ContentDirectory.BrowseRequest request);
+//    public List<? e Base> getRawChildren();
+//    public List<? extends Base> getChildren(ContentDirectory.BrowseRequest request);
 }

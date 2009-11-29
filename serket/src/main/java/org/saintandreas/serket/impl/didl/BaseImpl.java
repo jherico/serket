@@ -25,10 +25,14 @@ import org.w3c.dom.Node;
  * @author bdavis@saintandreas.org
  *
  */
-public abstract class Base implements org.saintandreas.serket.didl.Base {
+public abstract class BaseImpl implements org.saintandreas.serket.didl.Base {
 
-    private Base parent = null;
+    private ContainerImpl parent = null;
 
+    public BaseImpl(ContainerImpl parent) {
+        this.parent= parent;
+    }
+    
     @DIDLAttribute(name = "id")
     public abstract String getId();
 
@@ -48,11 +52,11 @@ public abstract class Base implements org.saintandreas.serket.didl.Base {
         return getParent().getId();
     }
 
-    public Base getParent() {
+    public ContainerImpl getParent() {
         return parent;
     }
 
-    public void setParent(Base parent) {
+    public void setParent(ContainerImpl parent) {
         this.parent = parent;
     }
     

@@ -17,17 +17,24 @@
 */
 package org.saintandreas.serket.impl.didl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.saintandreas.serket.impl.didl.file.FileContainer;
-import org.w3c.dom.Node;
+import org.saintandreas.serket.scpd.ContentDirectory.BrowseRequest;
 
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class RootContainer extends Base{
+public class RootContainer extends ContainerImpl {
 
     private volatile int updateId = 1; 
+
+    public RootContainer() {
+        super(null);
+    }
 
     @Override
     public String getId() {
@@ -50,7 +57,19 @@ public class RootContainer extends Base{
 
     @Override
     public String getUpnpClass() {
-        // TODO Auto-generated method stub
         return FileContainer.UPNP_OBJECT_CLASS;
+    }
+    
+    public List<BaseImpl> getChildren() {
+        return children;
+    }
+
+    @Override
+    public List<? extends org.saintandreas.serket.didl.Base> getChildren(BrowseRequest request) {
+        return children;
+    }
+
+    @Override
+    protected void refreshChildren() {
     }
 }

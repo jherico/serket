@@ -18,68 +18,70 @@
 package org.saintandreas.serket.impl.didl.file;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.saintandreas.serket.didl.Base;
+import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.didl.Container;
-import org.w3c.dom.Node;
+import org.saintandreas.serket.impl.didl.BaseImpl;
+import org.saintandreas.serket.impl.didl.ContainerImpl;
+import org.saintandreas.serket.scpd.ContentDirectory.BrowseRequest;
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class FileContainer extends FileNode implements Container {
+public class FileContainer extends ContainerImpl {
     public static final String UPNP_OBJECT_CLASS = "object.container.storageFolder";
-
-    protected List<FileNode> children = new ArrayList<FileNode>();
+    protected final File file;
     protected long lastModified = -1;
     
-    public FileContainer(File file) {
-        super(file);
-    }
-    
-//    @Override
-//    public List<Base> getChildren() {
-//        if (lastModified < file.lastModified()) {
-//            refreshChildren();
-//        }
-//        return super.getChildren();
-//    }
-
-    
-    private void refreshChildren() {
-        for (File f : file.listFiles()) {
-            if (f.isDirectory()) {
-                addChild(new FileContainer(f));
-            }
-        }
-    }
-
-    @Override
-    public Integer getChildCount() {
-        return null;
-    }
-
-    @Override
-    public String getCreateClass() {
-        return null;
-    }
-
-    @Override
-    public String getSearchClass() {
-        return null;
-    }
-
-    @Override
-    public Boolean isSearchable() {
-        return null;
+    public FileContainer(File file, ContainerImpl parent) {
+        super(parent);
+        this.file = file;
     }
 
     @Override
     public String getUpnpClass() {
         return UPNP_OBJECT_CLASS;
     }
+
+    @Override
+    public String getTitle() {
+        return file.getName();
+    }
+
+    @Override
+    public String getId()  {
+        try {
+            return "FILE$" + file.getCanonicalPath();
+        } catch (IOException e) {
+            LogFactory.getLog(getClass()).warn(e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    
+    
+    protected void refreshChildren() {
+        if (file.lastModified() > lastModified) {
+            children.clear();
+            for (File f : file.listFiles()) {
+                if (f.isDirectory()) {
+                    children.add(new FileContainer(f, this));
+                }
+            }
+            lastModified = file.lastModified();
+        }
+    }
+
+    @Override
+    public List<? extends BaseImpl> getChildren(BrowseRequest request) {
+        refreshChildren();
+        return children;
+    }
+
 
 
 }
