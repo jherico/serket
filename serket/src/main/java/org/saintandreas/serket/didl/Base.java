@@ -20,11 +20,13 @@
  */
 package org.saintandreas.serket.didl;
 
+import org.w3c.dom.Node;
+
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
 public interface Base {
-    public String getId();
+    public Node formatAsNode(Node parent); 
 }

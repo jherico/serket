@@ -19,6 +19,11 @@
   </build>
   <dependencies>
     <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-annotations</artifactId>
+      <version>3.4.0.GA</version>
+    </dependency>
+    <dependency>
       <groupId>com.google</groupId>
       <artifactId>guava</artifactId>
       <version>0.1-SNAPSHOT</version>

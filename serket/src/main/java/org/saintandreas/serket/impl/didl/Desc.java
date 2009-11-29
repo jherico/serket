@@ -15,37 +15,37 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-package org.saintandreas.serket.didl.util;
+package org.saintandreas.serket.impl.didl;
 
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class Desc implements org.saintandreas.serket.didl.Desc {
-    private String id;
-    private String metaData;
-    private String type;
-    private String namespace;
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public String getMetaData() {
-        return metaData;
-    }
-
-    @Override
-    public String getType() {
-        return type;
-    }
-
-    @Override
-    public String getNamespace() {
-        return namespace;
-    }
-
-}
+//public class Desc implements org.saintandreas.serket.didl.Desc {
+//    private String id;
+//    private String metaData;
+//    private String type;
+//    private String namespace;
+//
+//    @Override
+//    public String getId() {
+//        return id;
+//    }
+//
+//    @Override
+//    public String getMetaData() {
+//        return metaData;
+//    }
+//
+//    @Override
+//    public String getType() {
+//        return type;
+//    }
+//
+//    @Override
+//    public String getNamespace() {
+//        return namespace;
+//    }
+//
+//}

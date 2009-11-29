@@ -15,12 +15,42 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-package org.saintandreas.serket.didl;
+package org.saintandreas.serket.impl.didl;
+
+import org.saintandreas.serket.impl.didl.file.FileContainer;
+import org.w3c.dom.Node;
+
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public interface Item extends Node {
-    
+public class RootContainer extends Base{
+
+    private volatile int updateId = 1; 
+
+    @Override
+    public String getId() {
+        return "0";
+    }
+
+    @Override
+    public String getParentId() {
+        return "-1";
+    }
+
+    @Override
+    public String getTitle() {
+        return "Root";
+    }
+
+    public int getUpdateId() {
+        return updateId;
+    }
+
+    @Override
+    public String getUpnpClass() {
+        // TODO Auto-generated method stub
+        return FileContainer.UPNP_OBJECT_CLASS;
+    }
 }

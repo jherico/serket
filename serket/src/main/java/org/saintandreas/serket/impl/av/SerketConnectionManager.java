@@ -1,4 +1,4 @@
-package org.saintandreas.serket.reference;
+package org.saintandreas.serket.impl.av;
 
 import org.saintandreas.serket.scpd.ConnectionManager;
 import org.saintandreas.serket.service.ServiceType;

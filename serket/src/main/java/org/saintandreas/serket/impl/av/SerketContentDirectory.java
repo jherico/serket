@@ -1,19 +1,14 @@
-package org.saintandreas.serket.reference;
+package org.saintandreas.serket.impl.av;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.eclipse.jetty.util.component.Container;
 import org.saintandreas.serket.didl.Base;
-import org.saintandreas.serket.didl.util.AContainer;
-import org.saintandreas.serket.didl.util.ANode;
-import org.saintandreas.serket.didl.util.DIDLHelper;
-import org.saintandreas.serket.didl.util.RootContainer;
+import org.saintandreas.serket.impl.didl.RootContainer;
 import org.saintandreas.serket.scpd.ContentDirectory;
 import org.saintandreas.serket.service.ServiceType;
-import org.saintandreas.serket.test.IntegrationTest;
 
 public class SerketContentDirectory extends ContentDirectory {
     private static final Log LOG = LogFactory.getLog(SerketContentDirectory.class);
@@ -31,17 +26,20 @@ public class SerketContentDirectory extends ContentDirectory {
     @Override
     public BrowseResponse browse(BrowseRequest input) throws IOException {
         LOG.debug(input.objectID + " : " + input.browseFlag);
+        // find results
         BrowseResponse response = new BrowseResponse();
-        List<? extends Base> children = rootContainer.getChildren();
-        response.result = DIDLHelper.format(children);
+        List<? extends Base> children = findResults(input);
         response.numberReturned = response.totalMatches = children.size();
         response.updateID = 0;
         return response;
     }
 
+    private List<? extends Base> findResults(BrowseRequest input) {
+        return null;
+    }
+
     @Override
     public CreateObjectResponse createObject(CreateObjectRequest input) {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -84,8 +82,7 @@ public class SerketContentDirectory extends ContentDirectory {
     @Override
     public GetSystemUpdateIDResponse getSystemUpdateID(GetSystemUpdateIDRequest input) {
         GetSystemUpdateIDResponse retVal = new GetSystemUpdateIDResponse();
-        //        retVal.id = System.currentTimeMillis();
-        retVal.id = 1; // System.currentTimeMillis();
+        retVal.id = rootContainer.getUpdateId();
         return retVal;
     }
 
@@ -119,8 +116,7 @@ public class SerketContentDirectory extends ContentDirectory {
         return null;
     }
 
-    public AContainer getRootContainer() {
-        // TODO Auto-generated method stub
+    public RootContainer getRootContainer() {
         return rootContainer;
     }
 

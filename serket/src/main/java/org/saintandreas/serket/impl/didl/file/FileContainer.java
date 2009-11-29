@@ -15,38 +15,37 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-package org.saintandreas.serket.didl.file;
+package org.saintandreas.serket.impl.didl.file;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.didl.Base;
-import org.saintandreas.serket.didl.util.AContainer;
+import org.saintandreas.serket.didl.Container;
+import org.w3c.dom.Node;
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class FileContainer extends AContainer {
+public class FileContainer extends FileNode implements Container {
+    public static final String UPNP_OBJECT_CLASS = "object.container.storageFolder";
 
-    private final File file;
-    private long lastModified;
+    protected List<FileNode> children = new ArrayList<FileNode>();
+    protected long lastModified = -1;
     
     public FileContainer(File file) {
-        this.file = file;
-        lastModified = -1;
+        super(file);
     }
     
-    @Override
-    public List<Base> getChildren() {
-        if (lastModified < file.lastModified()) {
-            refreshChildren();
-        }
-        return super.getChildren();
-    }
+//    @Override
+//    public List<Base> getChildren() {
+//        if (lastModified < file.lastModified()) {
+//            refreshChildren();
+//        }
+//        return super.getChildren();
+//    }
 
     
     private void refreshChildren() {
@@ -58,18 +57,29 @@ public class FileContainer extends AContainer {
     }
 
     @Override
-    public String getTitle() {
-        return file.getName();
+    public Integer getChildCount() {
+        return null;
     }
 
     @Override
-    public String getId()  {
-        try {
-            return "FILE$" + file.getCanonicalPath();
-        } catch (IOException e) {
-            LogFactory.getLog(getClass()).warn(e);
-            throw new RuntimeException(e);
-        }
+    public String getCreateClass() {
+        return null;
     }
+
+    @Override
+    public String getSearchClass() {
+        return null;
+    }
+
+    @Override
+    public Boolean isSearchable() {
+        return null;
+    }
+
+    @Override
+    public String getUpnpClass() {
+        return UPNP_OBJECT_CLASS;
+    }
+
 
 }

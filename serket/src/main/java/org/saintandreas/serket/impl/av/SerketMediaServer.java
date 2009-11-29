@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-package org.saintandreas.serket.reference;
+package org.saintandreas.serket.impl.av;
 
 import org.saintandreas.serket.Serket;
 import org.saintandreas.serket.device.DeviceType;

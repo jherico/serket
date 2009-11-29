@@ -19,18 +19,13 @@ package org.saintandreas.serket.didl;
 
 import java.util.List;
 
+import org.saintandreas.serket.scpd.ContentDirectory;
+
+
 /**
  * @author bdavis@saintandreas.org
  * 
  */
-public interface Container extends Node {
-    public String getTitle();
-
-    public List<Base> getChildren();
-
-    public List<Base> getChildren(int offset, int count);
-
-    public Integer getChildCount();
-
-    public Boolean isSearchable();
+public interface Container extends Base {
+    public List<Base> getChildren(ContentDirectory.BrowseRequest request);
 }

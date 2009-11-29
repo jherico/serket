@@ -1,4 +1,4 @@
-package org.saintandreas.serket.reference.servlet;
+package org.saintandreas.serket.impl.servlet;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

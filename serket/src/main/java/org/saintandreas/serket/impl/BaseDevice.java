@@ -20,8 +20,6 @@ package org.saintandreas.serket.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
 import org.saintandreas.serket.device.Device;
 import org.saintandreas.serket.device.DeviceType;
 import org.saintandreas.serket.device.Icon;
