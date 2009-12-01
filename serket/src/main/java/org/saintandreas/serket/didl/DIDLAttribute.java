@@ -1,4 +1,4 @@
-package org.saintandreas.serket.impl.didl;
+package org.saintandreas.serket.didl;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
@@ -15,6 +15,6 @@ import javax.annotation.meta.TypeQualifier;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({METHOD, FIELD})
 public @interface DIDLAttribute {
-    String name();
+    String value();
     boolean required() default false;
 }

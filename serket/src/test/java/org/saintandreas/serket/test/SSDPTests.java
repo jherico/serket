@@ -17,23 +17,12 @@
 */
 package org.saintandreas.serket.test;
 
-import java.io.IOException;
-import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.MulticastSocket;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Collections;
-import java.util.UUID;
-
-import org.apache.commons.logging.LogFactory;
-import org.junit.Test;
-import org.saintandreas.serket.Serket;
-import org.saintandreas.serket.service.av.ContentDirectoryV1;
-import org.saintandreas.serket.ssdp.Message;
-import org.saintandreas.serket.ssdp.SSDP;
 
 public class SSDPTests {
 
@@ -71,32 +60,32 @@ public class SSDPTests {
         }
     }
 
-    @Test
-    public void testAliveMessage() throws IOException {
-        UUID uuid = UUID.randomUUID();
-        String uuidStr = uuid.toString();
-        String usn = "uuid:" + uuidStr + "::" + ContentDirectoryV1.URI;
-        String result = Message.buildNotifyAliveMessage(ContentDirectoryV1.URI, usn, "http://localhost:1900/fail", 1800, Serket.SERVER_TOKEN);
-        DatagramPacket packet = SSDP.getPacket(result);
-        MulticastSocket socket = new MulticastSocket();
-        socket.setNetworkInterface(wireless);
-        socket.send(packet);
-    }
-
-    public static void main(String[] args) throws InterruptedException, IOException {
-        byte buffer[] = new byte[8192];
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-
-        MulticastSocket socket = new MulticastSocket(SSDP.DEFAULT_PORT);
-//        socket.setNetworkInterface(wired);
-        socket.setReuseAddress(true);
-        socket.joinGroup(SSDP.MULTICAST_ADDRESS);
-        while (true) {
-            socket.receive(packet);
-            String data = new String(packet.getData(), 0, packet.getLength(), "UTF-8");
-            if (data.contains(Serket.SERVER_TOKEN)) {
-                LogFactory.getLog(SSDPTests.class).debug(data);
-            }
-        }
-    }
+//    @Test
+//    public void testAliveMessage() throws IOException {
+//        UUID uuid = UUID.randomUUID();
+//        String uuidStr = uuid.toString();
+//        String usn = "uuid:" + uuidStr + "::" + ContentDirectoryV1.URI;
+//        String result = Message.buildNotifyAliveMessage(ContentDirectoryV1.URI, usn, "http://localhost:1900/fail", 1800, Serket.SERVER_TOKEN);
+//        DatagramPacket packet = SSDP.getPacket(result);
+//        MulticastSocket socket = new MulticastSocket();
+//        socket.setNetworkInterface(wireless);
+//        socket.send(packet);
+//    }
+//
+//    public static void main(String[] args) throws InterruptedException, IOException {
+//        byte buffer[] = new byte[8192];
+//        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+//
+//        MulticastSocket socket = new MulticastSocket(SSDP.DEFAULT_PORT);
+////        socket.setNetworkInterface(wired);
+//        socket.setReuseAddress(true);
+//        socket.joinGroup(SSDP.MULTICAST_ADDRESS);
+//        while (true) {
+//            socket.receive(packet);
+//            String data = new String(packet.getData(), 0, packet.getLength(), "UTF-8");
+//            if (data.contains(Serket.SERVER_TOKEN)) {
+//                LogFactory.getLog(SSDPTests.class).debug(data);
+//            }
+//        }
+//    }
 }

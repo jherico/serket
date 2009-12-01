@@ -17,18 +17,15 @@
 */
 package org.saintandreas.serket.impl.didl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.saintandreas.serket.didl.Base;
 import org.saintandreas.serket.impl.didl.file.FileContainer;
-import org.saintandreas.serket.scpd.ContentDirectory.BrowseRequest;
 
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class RootContainer extends ContainerImpl {
+public class RootContainer extends ContainerImpl<Base> {
 
     private volatile int updateId = 1; 
 
@@ -42,7 +39,7 @@ public class RootContainer extends ContainerImpl {
     }
 
     @Override
-    public String getParentId() {
+    public String getParentID() {
         return "-1";
     }
 
@@ -60,16 +57,14 @@ public class RootContainer extends ContainerImpl {
         return FileContainer.UPNP_OBJECT_CLASS;
     }
     
-    public List<BaseImpl> getChildren() {
-        return children;
-    }
-
     @Override
-    public List<? extends org.saintandreas.serket.didl.Base> getChildren(BrowseRequest request) {
-        return children;
-    }
-
-    @Override
-    protected void refreshChildren() {
+    protected boolean refreshChildren() {
+        boolean retVal = false;
+        for (Base child : getRawChildren()) {
+            if (child instanceof ContainerImpl<?>) {
+                retVal |= ((ContainerImpl<?>)child).refreshChildren();
+            }
+        }
+        return retVal;
     }
 }

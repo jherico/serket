@@ -17,9 +17,6 @@
 */
 package org.saintandreas.serket.didl;
 
-import java.util.List;
-
-import org.saintandreas.serket.scpd.ContentDirectory;
 
 
 /**
@@ -27,6 +24,10 @@ import org.saintandreas.serket.scpd.ContentDirectory;
  * 
  */
 public interface Container extends Base {
-//    public List<? e Base> getRawChildren();
-//    public List<? extends Base> getChildren(ContentDirectory.BrowseRequest request);
+
+    @DIDLAttribute("searchable")
+    public Boolean isSearchable();
+
+    @DIDLAttribute("childCount")
+    public Integer getChildCount();
 }

@@ -3,7 +3,6 @@ package org.saintandreas.serket.scpd.util;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
-import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
@@ -31,7 +30,6 @@ import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JFieldVar;
 import com.sun.codemodel.JForEach;
-import com.sun.codemodel.JForLoop;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;

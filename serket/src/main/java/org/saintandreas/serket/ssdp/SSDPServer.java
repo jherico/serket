@@ -22,8 +22,6 @@ import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.ExecutorService;
 
-import org.apache.commons.logging.LogFactory;
-
 public class SSDPServer {
     public static String [] SEARCH_RESPONSE_IDS = {
         "ssdp:all", "upnp:rootdevice" 

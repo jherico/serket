@@ -17,9 +17,7 @@
 */
 package org.saintandreas.serket.impl.didl;
 
-import java.lang.reflect.InvocationTargetException;
-
-import org.w3c.dom.Node;
+import org.saintandreas.serket.didl.Container;
 
 /**
  * @author bdavis@saintandreas.org
@@ -27,51 +25,18 @@ import org.w3c.dom.Node;
  */
 public abstract class BaseImpl implements org.saintandreas.serket.didl.Base {
 
-    private ContainerImpl parent = null;
+    private Container parent = null;
 
-    public BaseImpl(ContainerImpl parent) {
+    public BaseImpl(Container parent) {
         this.parent= parent;
     }
     
-    @DIDLAttribute(name = "id")
-    public abstract String getId();
-
-    @DIDLElement(name = "class", namespace = DIDLNamespace.UPNP)
-    public abstract String getUpnpClass();
-    
-    @DIDLElement(name = "title", namespace = DIDLNamespace.DUBLIN)
-    public abstract String getTitle();
-    
-    @DIDLElement(name = "date", namespace = DIDLNamespace.DUBLIN, required = false)
-    public String getDate() {
-        return null;
-    }
-
-    @DIDLAttribute(name = "parentId")
-    public String getParentId() {
+    public String getParentID() {
         return getParent().getId();
     }
 
-    public ContainerImpl getParent() {
+    public Container getParent() {
         return parent;
     }
-
-    public void setParent(ContainerImpl parent) {
-        this.parent = parent;
-    }
-    
-    @Override
-    public Node formatAsNode(Node parent) {
-        try {
-            return DIDLHelper.createNode(this, parent);
-        } catch (IllegalArgumentException e) {
-            throw new RuntimeException();
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException();
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException();
-        }
-    }
-
 
 }

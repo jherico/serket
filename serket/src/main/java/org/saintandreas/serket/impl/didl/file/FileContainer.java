@@ -19,25 +19,21 @@ package org.saintandreas.serket.impl.didl.file;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.didl.Container;
-import org.saintandreas.serket.impl.didl.BaseImpl;
 import org.saintandreas.serket.impl.didl.ContainerImpl;
-import org.saintandreas.serket.scpd.ContentDirectory.BrowseRequest;
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class FileContainer extends ContainerImpl {
+public class FileContainer extends ContainerImpl<FileContainer> {
     public static final String UPNP_OBJECT_CLASS = "object.container.storageFolder";
     protected final File file;
     protected long lastModified = -1;
     
-    public FileContainer(File file, ContainerImpl parent) {
+    public FileContainer(File file, Container parent) {
         super(parent);
         this.file = file;
     }
@@ -62,10 +58,10 @@ public class FileContainer extends ContainerImpl {
         }
     }
 
-    
-    
-    protected void refreshChildren() {
-        if (file.lastModified() > lastModified) {
+        
+    protected boolean refreshChildren() {
+        boolean retVal = file.lastModified() > lastModified;
+        if (retVal) {
             children.clear();
             for (File f : file.listFiles()) {
                 if (f.isDirectory()) {
@@ -74,14 +70,7 @@ public class FileContainer extends ContainerImpl {
             }
             lastModified = file.lastModified();
         }
+        return retVal;
     }
-
-    @Override
-    public List<? extends BaseImpl> getChildren(BrowseRequest request) {
-        refreshChildren();
-        return children;
-    }
-
-
 
 }

@@ -20,7 +20,6 @@
  */
 package org.saintandreas.serket.didl;
 
-import org.w3c.dom.Node;
 
 
 /**
@@ -28,5 +27,21 @@ import org.w3c.dom.Node;
  *
  */
 public interface Base {
-    public Node formatAsNode(Node parent); 
+    @DIDLAttribute(value="id", required=true)
+    public String getId();
+
+    @DIDLAttribute(value="parentID", required=true)
+    public String getParentID();
+
+    @DIDLAttribute(value="restricted", required=true)
+    public boolean isRestricted();
+
+    @DIDLAttribute("neverPlayable")
+    public Boolean isNeverPlayable();
+
+    @DIDLElement(value="title", namespace=DIDLNamespace.DUBLIN, required=true, order=0)
+    public String getTitle();
+
+    @DIDLElement(value="class", namespace=DIDLNamespace.UPNP, required=true, order=1)
+    public String getUpnpClass();
 }

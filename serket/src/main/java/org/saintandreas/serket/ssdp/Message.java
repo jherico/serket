@@ -20,7 +20,6 @@ package org.saintandreas.serket.ssdp;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
-import java.net.InetAddress;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,8 +27,6 @@ import java.util.Map;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpParser;
-import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.test.SSDPTests;
 
 import com.google.common.base.Charsets;
 

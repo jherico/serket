@@ -15,15 +15,13 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-package org.saintandreas.serket.impl.didl;
+package org.saintandreas.serket.didl;
 
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.saintandreas.serket.didl.Base;
 import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -35,78 +33,39 @@ import org.w3c.dom.Node;
  */
 public class DIDLHelper {
     private final static String ROOT_NODE_NAME = "DIDL-Lite";
-
-    public static Node createNode(Object obj, Node parent) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        Class<?> ownerClass = obj.getClass();
-        DIDLItem item = ownerClass.getAnnotation(DIDLItem.class);
-        Element retVal = parent.getOwnerDocument().createElementNS(DIDLNamespace.DIDL.uri, item.name());
-        processAccessibleObjects(ownerClass.getMethods(), retVal, obj);
-        processAccessibleObjects(ownerClass.getFields(), retVal, obj);
-        return retVal;
-    }
+    private static Map<Class<?>, AnnotatedClassInfo> ANNOTATION_MAP = new HashMap<Class<?>, AnnotatedClassInfo>();
     
-    private static void processAccessibleObjects(AccessibleObject[] methods, Element retVal, Object obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        for (AccessibleObject m : methods) {
-            DIDLAttribute attr = m.getAnnotation(DIDLAttribute.class);
-            DIDLElement ele = m.getAnnotation(DIDLElement.class);
-            if (attr == null && ele == null) {
-                continue;
-            }
-
-            Object value;
-            if (m instanceof Method) {
-                value = ((Method)m).invoke(obj, (Object[])null);
-            } else {
-                value = ((Field)m).get(obj);
-            }
-            if (attr != null) {
-                addAttribute(retVal, value, attr);
-            } else {
-                addElement(retVal, value, ele);
+    public static Node createNode(Object obj, Node parent)  {
+        Class<?> ownerClass = obj.getClass();
+        AnnotatedClassInfo info = null;
+        if (!ANNOTATION_MAP.containsKey(ownerClass)) {
+            synchronized (ANNOTATION_MAP) {
+                if (!ANNOTATION_MAP.containsKey(ownerClass)) {
+                    ANNOTATION_MAP.put(ownerClass, new AnnotatedClassInfo(ownerClass));
+                }
             }
         }
+        return ANNOTATION_MAP.get(ownerClass).createNode(obj, parent);
     }
 
-    private static void addAttribute(Element node, Object value, DIDLAttribute annotation) {
-        if (value == null) {
-            if (annotation.required()) {
-                throw new RuntimeException();
-            }
-            return;
-        }
-        node.setAttribute(annotation.name(), value.toString());
+    public static Document createDocument(Base item) {
+        return createDocument(Arrays.asList(new Base[] { item }));
     }
-
-    private static void addElement(Element node, Object value, DIDLElement annotation) {
-        if (value == null) {
-            if (annotation.required()) {
-                throw new RuntimeException();
-            }
-            return;
-        }
-        Element newChild = node.getOwnerDocument().createElementNS(annotation.namespace().uri, annotation.name());
-        newChild.setTextContent(value.toString());
-        node.appendChild(newChild);
-    }
-
-//    public static String format(Base item) throws IOException {
-//        return format(Arrays.asList(new Base[] {item}));
-//    }
-//
-//    public static String format(List<? extends Base> children) throws IOException {
-//        return XmlUtil.formatXmlDocument(createDocument(children));
-//    }
 
     public static Document createDocument(List<Base> children) {
         Document retVal = XmlUtil.createDocument();
+//        retVal.getDomConfig().setParameter("namespace-declarations", Boolean.FALSE);
         Element rootElement = retVal.createElementNS(DIDLNamespace.DIDL.uri, ROOT_NODE_NAME);
+        
+        for (DIDLNamespace ns : DIDLNamespace.values()) {
+            rootElement.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:" + ns.prefix, ns.uri);
+        }
         retVal.appendChild(rootElement);
         for (Base b : children) {
-            rootElement.appendChild(b.formatAsNode(rootElement));
+            rootElement.appendChild(createNode(b, rootElement));
         }
         return retVal;
     }
-
 
 //    public static Element createElement(Base child, Document ownerDoc) {
 //        Element retVal = null;
