@@ -1,0 +1,8 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <container id="0\AR\ar14c\al4c" parentID="0\AR\ar14c" childCount="16" restricted="true">
+    <dc:title>Legend</dc:title>
+    <upnp:class>object.container.album.musicAlbum</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:12:05">rhap://172.21.145.229:60280/web/res_al4c.m3u</res>
+  </container>
+</DIDL-Lite>

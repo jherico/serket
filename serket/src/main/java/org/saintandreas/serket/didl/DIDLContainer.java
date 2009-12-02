@@ -15,20 +15,21 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-/*
- * Copyright 2009 Bradley Austin Davis
- */
 package org.saintandreas.serket.didl;
+
+import org.saintandreas.serket.didl.annotations.DIDLAttribute;
+import org.saintandreas.serket.didl.annotations.DIDLElement;
+import org.saintandreas.serket.didl.annotations.DIDLSubElement;
 
 
 
 /**
  * @author bdavis@saintandreas.org
- *
+ * 
  */
-public interface Base {
-    @DIDLAttribute(value="id", required=true)
-    public String getId();
+@DIDLElement("container")
+public interface DIDLContainer extends DIDLObject {
+    public static final String UPNP_OBJECT_CLASS = "object.container";
 
     @DIDLAttribute(value="parentID", required=true)
     public String getParentID();
@@ -39,9 +40,15 @@ public interface Base {
     @DIDLAttribute("neverPlayable")
     public Boolean isNeverPlayable();
 
-    @DIDLElement(value="title", namespace=DIDLNamespace.DUBLIN, required=true, order=0)
+    @DIDLSubElement(value="title", namespace=DIDLNamespace.DUBLIN, required=true, order=0)
     public String getTitle();
 
-    @DIDLElement(value="class", namespace=DIDLNamespace.UPNP, required=true, order=1)
+    @DIDLSubElement(value="class", namespace=DIDLNamespace.UPNP, required=true, order=1)
     public String getUpnpClass();
+
+    @DIDLAttribute("searchable")
+    public Boolean isSearchable();
+
+    @DIDLAttribute("childCount")
+    public Integer getChildCount();
 }

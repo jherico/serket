@@ -108,7 +108,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -138,7 +138,7 @@ public abstract class AVTransport
 
         public String actions;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -168,7 +168,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -200,7 +200,7 @@ public abstract class AVTransport
         public String recMedia;
         public String recQualityModes;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -240,7 +240,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -278,7 +278,7 @@ public abstract class AVTransport
         public String recordMedium;
         public String writeStatus;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -348,7 +348,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -385,7 +385,7 @@ public abstract class AVTransport
         public int relCount;
         public int absCount;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -450,7 +450,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -482,7 +482,7 @@ public abstract class AVTransport
         public AVTransport.TransportStatus currentTransportStatus;
         public AVTransport.TransportPlaySpeed currentSpeed;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -522,7 +522,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -553,7 +553,7 @@ public abstract class AVTransport
         public AVTransport.CurrentPlayMode playMode;
         public String recQualityMode;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -588,7 +588,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -636,7 +636,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -685,7 +685,7 @@ public abstract class AVTransport
         public int instanceID;
         public org.saintandreas.serket.scpd.AVTransport.TransportPlaySpeed speed;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -738,7 +738,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -786,7 +786,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -842,7 +842,7 @@ public abstract class AVTransport
         public AVTransport.SeekMode unit;
         public String target;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -902,7 +902,7 @@ public abstract class AVTransport
         public String currentURI;
         public String currentURIMetaData;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -962,7 +962,7 @@ public abstract class AVTransport
         public String nextURI;
         public String nextURIMetaData;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1021,7 +1021,7 @@ public abstract class AVTransport
         public int instanceID;
         public org.saintandreas.serket.scpd.AVTransport.CurrentPlayMode newPlayMode;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1075,7 +1075,7 @@ public abstract class AVTransport
         public int instanceID;
         public String newRecordQualityMode;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1128,7 +1128,7 @@ public abstract class AVTransport
 
         public int instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {

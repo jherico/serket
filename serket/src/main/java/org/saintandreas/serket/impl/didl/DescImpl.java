@@ -17,14 +17,14 @@
 */
 package org.saintandreas.serket.impl.didl;
 
-import org.saintandreas.serket.didl.Desc;
+import org.saintandreas.serket.didl.DIDLDesc;
 
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public class DescImpl implements Desc {
+public class DescImpl implements DIDLDesc {
     private String id;
     private String type;
     private String nameSpace;

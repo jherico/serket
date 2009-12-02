@@ -37,7 +37,6 @@ public class DIDLHelper {
     
     public static Node createNode(Object obj, Node parent)  {
         Class<?> ownerClass = obj.getClass();
-        AnnotatedClassInfo info = null;
         if (!ANNOTATION_MAP.containsKey(ownerClass)) {
             synchronized (ANNOTATION_MAP) {
                 if (!ANNOTATION_MAP.containsKey(ownerClass)) {
@@ -48,20 +47,20 @@ public class DIDLHelper {
         return ANNOTATION_MAP.get(ownerClass).createNode(obj, parent);
     }
 
-    public static Document createDocument(Base item) {
-        return createDocument(Arrays.asList(new Base[] { item }));
+    public static Document createDocument(Object item) {
+        return createDocument(Arrays.asList(new Object[] { item }));
     }
 
-    public static Document createDocument(List<Base> children) {
+    public static Document createDocument(List<?> children) {
         Document retVal = XmlUtil.createDocument();
 //        retVal.getDomConfig().setParameter("namespace-declarations", Boolean.FALSE);
         Element rootElement = retVal.createElementNS(DIDLNamespace.DIDL.uri, ROOT_NODE_NAME);
-        
+       
         for (DIDLNamespace ns : DIDLNamespace.values()) {
             rootElement.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:" + ns.prefix, ns.uri);
         }
         retVal.appendChild(rootElement);
-        for (Base b : children) {
+        for (Object b : children) {
             rootElement.appendChild(createNode(b, rootElement));
         }
         return retVal;

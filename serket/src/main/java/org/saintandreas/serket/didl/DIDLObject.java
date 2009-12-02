@@ -15,19 +15,21 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
+/*
+ * Copyright 2009 Bradley Austin Davis
+ */
 package org.saintandreas.serket.didl;
+
+import org.saintandreas.serket.didl.annotations.DIDLAttribute;
 
 
 
 /**
  * @author bdavis@saintandreas.org
- * 
+ *
  */
-public interface Container extends Base {
+public interface DIDLObject {
+    @DIDLAttribute(value="id", required=true)
+    public String getId();
 
-    @DIDLAttribute("searchable")
-    public Boolean isSearchable();
-
-    @DIDLAttribute("childCount")
-    public Integer getChildCount();
 }

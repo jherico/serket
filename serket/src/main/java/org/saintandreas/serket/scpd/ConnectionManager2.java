@@ -54,7 +54,7 @@ public abstract class ConnectionManager2
 
         public int connectionID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -137,7 +137,7 @@ public abstract class ConnectionManager2
 
         public String connectionIDs;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -167,7 +167,7 @@ public abstract class ConnectionManager2
 
         public int connectionID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -203,7 +203,7 @@ public abstract class ConnectionManager2
         public org.saintandreas.serket.scpd.ConnectionManager2.Direction direction;
         public ConnectionManager2 .ConnectionStatus status;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -282,7 +282,7 @@ public abstract class ConnectionManager2
         public String source;
         public String sink;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -320,7 +320,7 @@ public abstract class ConnectionManager2
         public int peerConnectionID;
         public ConnectionManager2 .Direction direction;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -367,7 +367,7 @@ public abstract class ConnectionManager2
         public int aVTransportID;
         public int rcsID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {

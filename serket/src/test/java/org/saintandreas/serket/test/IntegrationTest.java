@@ -125,7 +125,8 @@ public class IntegrationTest {
         uuid = "uuid:" + UUID.randomUUID().toString();
         mediaServer = new SerketMediaServer(uuid, "/ui");
         mediaServer.getServiceList().add(cd = new SerketContentDirectory("/service/cd/control", "/service/cd/event"));
-        cd.getRootContainer().getRawChildren().add(new FileContainer(new File("c:\\media"), cd.getRootContainer()));
+        FileContainer fc = new FileContainer(cd.getRootContainer(), new File("c:\\media")); 
+        cd.getRootContainer().addChild(fc);
         mediaServer.getServiceList().add(cm = new SerketConnectionManager("/service/cm/control", "/service/cm/event"));
         mediaServer.getIconList().add(new SerketIcon("image/png", "/images/Play1Hot_256.png", 256, 256, 24));
         jettyServer = new Server(8080);

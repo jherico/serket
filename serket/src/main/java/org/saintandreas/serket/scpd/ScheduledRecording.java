@@ -109,7 +109,7 @@ public abstract class ScheduledRecording
         public int requestedCount;
         public String sortCriteria;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -157,7 +157,7 @@ public abstract class ScheduledRecording
         public int totalMatches;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -206,7 +206,7 @@ public abstract class ScheduledRecording
         public int requestedCount;
         public String sortCriteria;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -259,7 +259,7 @@ public abstract class ScheduledRecording
         public int totalMatches;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -304,7 +304,7 @@ public abstract class ScheduledRecording
 
         public String elements;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -336,7 +336,7 @@ public abstract class ScheduledRecording
         public String result;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -384,7 +384,7 @@ public abstract class ScheduledRecording
 
         public String recordScheduleID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -432,7 +432,7 @@ public abstract class ScheduledRecording
 
         public String recordTaskID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -480,7 +480,7 @@ public abstract class ScheduledRecording
 
         public String recordScheduleID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -528,7 +528,7 @@ public abstract class ScheduledRecording
 
         public String recordTaskID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -576,7 +576,7 @@ public abstract class ScheduledRecording
 
         public String recordScheduleID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -624,7 +624,7 @@ public abstract class ScheduledRecording
 
         public String recordTaskID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -673,7 +673,7 @@ public abstract class ScheduledRecording
         public org.saintandreas.serket.scpd.ScheduledRecording.DataTypeID dataTypeID;
         public String filter;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -708,7 +708,7 @@ public abstract class ScheduledRecording
 
         public String propertyInfo;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -738,7 +738,7 @@ public abstract class ScheduledRecording
 
         public ScheduledRecording.DataTypeID dataTypeID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -768,7 +768,7 @@ public abstract class ScheduledRecording
 
         public String propertyList;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -798,7 +798,7 @@ public abstract class ScheduledRecording
 
         public String recordScheduleID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -829,7 +829,7 @@ public abstract class ScheduledRecording
         public String recordScheduleConflictIDList;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -865,7 +865,7 @@ public abstract class ScheduledRecording
         public String recordScheduleID;
         public String filter;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -901,7 +901,7 @@ public abstract class ScheduledRecording
         public String result;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -936,7 +936,7 @@ public abstract class ScheduledRecording
 
         public String recordTaskID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -967,7 +967,7 @@ public abstract class ScheduledRecording
         public String recordTaskConflictIDList;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1003,7 +1003,7 @@ public abstract class ScheduledRecording
         public String recordTaskID;
         public String filter;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1039,7 +1039,7 @@ public abstract class ScheduledRecording
         public String result;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1093,7 +1093,7 @@ public abstract class ScheduledRecording
         public String sortCaps;
         public int sortLevelCap;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1146,7 +1146,7 @@ public abstract class ScheduledRecording
 
         public int id;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1176,7 +1176,7 @@ public abstract class ScheduledRecording
 
         public String recordTaskID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {

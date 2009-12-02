@@ -1,14 +1,19 @@
 package org.saintandreas.serket.impl.av;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.didl.Base;
-import org.saintandreas.serket.impl.didl.RootContainer;
+import org.saintandreas.serket.didl.DIDLObject;
+import org.saintandreas.serket.didl.DIDLHelper;
+import org.saintandreas.serket.impl.didl.SerketBase;
+import org.saintandreas.serket.impl.didl.SerketContainer;
+import org.saintandreas.serket.impl.didl.misc.RootContainer;
 import org.saintandreas.serket.scpd.ContentDirectory;
 import org.saintandreas.serket.service.ServiceType;
+import org.saintandreas.util.XmlUtil;
 
 public class SerketContentDirectory extends ContentDirectory {
     private static final Log LOG = LogFactory.getLog(SerketContentDirectory.class);
@@ -26,16 +31,31 @@ public class SerketContentDirectory extends ContentDirectory {
     @Override
     public BrowseResponse browse(BrowseRequest input) throws IOException {
         LOG.debug(input.objectID + " : " + input.browseFlag);
-        // find results
-        BrowseResponse response = new BrowseResponse();
-        List<? extends Base> children = findResults(input);
-        response.numberReturned = response.totalMatches = children.size();
-        response.updateID = 0;
-        return response;
-    }
+        SerketBase item = rootContainer.findById(input.objectID);
+        SerketContainer<?> container = null;
+        if (item instanceof SerketContainer<?>) {
+            container = ((SerketContainer<?>)item);
+        }
 
-    private List<? extends Base> findResults(BrowseRequest input) {
-        return null;
+        BrowseResponse response = new BrowseResponse();
+        List<SerketBase> retVal = new ArrayList<SerketBase>();
+        switch (input.browseFlag ) {
+        case BrowseMetadata:
+            retVal.add(item);
+            response.numberReturned = response.totalMatches = 1;
+            break;
+        case BrowseDirectChildren:
+            if (container != null) {
+                container.refreshChildren();
+                retVal.addAll(container.getChildren(input.startingIndex, input.requestedCount));
+                response.numberReturned = retVal.size();
+                response.totalMatches = container.getChildren(0, Integer.MAX_VALUE).size();
+            }
+            break;
+        }
+        response.updateID = container != null ? container.getUpdateId() : 0;
+        response.result = XmlUtil.formatXmlDocument(DIDLHelper.createDocument(retVal));
+        return response;
     }
 
     @Override

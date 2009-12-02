@@ -180,7 +180,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -210,7 +210,7 @@ public abstract class RenderingControl
 
         public Integer currentBlueVideoBlackLevel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -240,7 +240,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -270,7 +270,7 @@ public abstract class RenderingControl
 
         public Integer currentBlueVideoGain;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -300,7 +300,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -330,7 +330,7 @@ public abstract class RenderingControl
 
         public Integer currentBrightness;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -360,7 +360,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -390,7 +390,7 @@ public abstract class RenderingControl
 
         public Integer currentColorTemperature;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -420,7 +420,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -450,7 +450,7 @@ public abstract class RenderingControl
 
         public Integer currentContrast;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -480,7 +480,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -510,7 +510,7 @@ public abstract class RenderingControl
 
         public Integer currentGreenVideoBlackLevel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -540,7 +540,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -570,7 +570,7 @@ public abstract class RenderingControl
 
         public Integer currentGreenVideoGain;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -600,7 +600,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -630,7 +630,7 @@ public abstract class RenderingControl
 
         public Integer currentHorizontalKeystone;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -661,7 +661,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -696,7 +696,7 @@ public abstract class RenderingControl
 
         public Boolean currentLoudness;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -727,7 +727,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public RenderingControl.Channel channel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -762,7 +762,7 @@ public abstract class RenderingControl
 
         public Boolean currentMute;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -792,7 +792,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -822,7 +822,7 @@ public abstract class RenderingControl
 
         public Integer currentRedVideoBlackLevel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -852,7 +852,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -882,7 +882,7 @@ public abstract class RenderingControl
 
         public Integer currentRedVideoGain;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -912,7 +912,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -942,7 +942,7 @@ public abstract class RenderingControl
 
         public Integer currentSharpness;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -972,7 +972,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1002,7 +1002,7 @@ public abstract class RenderingControl
 
         public Integer currentVerticalKeystone;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1033,7 +1033,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1069,7 +1069,7 @@ public abstract class RenderingControl
         public Integer minValue;
         public Integer maxValue;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1105,7 +1105,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1140,7 +1140,7 @@ public abstract class RenderingControl
 
         public Integer currentVolume;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1171,7 +1171,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1206,7 +1206,7 @@ public abstract class RenderingControl
 
         public Integer currentVolume;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1236,7 +1236,7 @@ public abstract class RenderingControl
 
         public Integer instanceID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1266,7 +1266,7 @@ public abstract class RenderingControl
 
         public String currentPresetNameList;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1303,7 +1303,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public RenderingControl.PresetName presetName;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1357,7 +1357,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredBlueVideoBlackLevel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1411,7 +1411,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredBlueVideoGain;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1465,7 +1465,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredBrightness;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1519,7 +1519,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredColorTemperature;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1573,7 +1573,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredContrast;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1627,7 +1627,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredGreenVideoBlackLevel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1681,7 +1681,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredGreenVideoGain;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1735,7 +1735,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredHorizontalKeystone;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1790,7 +1790,7 @@ public abstract class RenderingControl
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
         public Boolean desiredLoudness;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1850,7 +1850,7 @@ public abstract class RenderingControl
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
         public Boolean desiredMute;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1909,7 +1909,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredRedVideoBlackLevel;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1963,7 +1963,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredRedVideoGain;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -2017,7 +2017,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredSharpness;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -2071,7 +2071,7 @@ public abstract class RenderingControl
         public Integer instanceID;
         public Integer desiredVerticalKeystone;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -2126,7 +2126,7 @@ public abstract class RenderingControl
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
         public Integer desiredVolume;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -2186,7 +2186,7 @@ public abstract class RenderingControl
         public org.saintandreas.serket.scpd.RenderingControl.Channel channel;
         public Integer desiredVolume;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {

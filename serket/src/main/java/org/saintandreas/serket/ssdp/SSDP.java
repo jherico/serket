@@ -44,13 +44,6 @@ public class SSDP {
         return new DatagramPacket(buffer, buffer.length, MULTICAST_ADDRESS, DEFAULT_PORT);
     }
 
-    private final static String DISCOVER_MESSAGE =
-    "M-SEARCH * HTTP/1.1\r\n" +
-    "ST: upnp:rootdevice\r\n" +
-    "MX: 3\r\n" +
-    "MAN: \"ssdp:discover\"\r\n" +
-    "HOST: 239.255.255.250:1900\r\n\r\n";
-
     public static void sendDiscover() throws IOException {
         MulticastSocket socket = new MulticastSocket();
         DatagramPacket packet = getPacket(Message.buildSearchMessage("upnp:rootdevice", 3));

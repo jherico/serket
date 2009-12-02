@@ -17,26 +17,61 @@
 */
 package org.saintandreas.serket.impl.didl;
 
-import org.saintandreas.serket.didl.Container;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.saintandreas.serket.impl.didl.event.SerketEvent;
+import org.saintandreas.serket.impl.didl.event.SerketEventListener;
 
 /**
  * @author bdavis@saintandreas.org
  *
  */
-public abstract class BaseImpl implements org.saintandreas.serket.didl.Base {
+public abstract class BaseImpl implements SerketBase {
+    private SerketContainer<?> parent = null;
+    private String cachedId = null;
+    private List<SerketEventListener> listeners = new ArrayList<SerketEventListener>();
 
-    private Container parent = null;
 
-    public BaseImpl(Container parent) {
-        this.parent= parent;
+    @SuppressWarnings("unchecked")
+    public BaseImpl(SerketContainer parent) {
+        this.parent = parent;
     }
     
     public String getParentID() {
         return getParent().getId();
     }
 
-    public Container getParent() {
+    public SerketContainer<?> getParent() {
         return parent;
     }
+    
+    public final String getId() {
+        if (getParent() != null) {
+            if (cachedId == null) {
+                cachedId = getParentID() + "/" + getLocalId();
+            }
+            return cachedId;
+        }
+        return getLocalId();
+    }
+    
+    @Override
+    public void addListener(SerketEventListener listener) {
+        this.listeners.add(listener);
+    }
 
+    @Override
+    public void removeListener(SerketEventListener listener) {
+        this.listeners.remove(listener);
+    }
+
+    public void sendEvent(SerketEvent serketEvent) {
+        for (SerketEventListener listener : listeners) {
+            listener.onEvent(serketEvent);
+        }
+    }
+
+    
+    
 }

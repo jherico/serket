@@ -1,69 +1,127 @@
 package org.saintandreas.serket.didl;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.saintandreas.serket.didl.annotations.DIDLAttribute;
+import org.saintandreas.serket.didl.annotations.DIDLElement;
+import org.saintandreas.serket.didl.annotations.DIDLSubElement;
 import org.saintandreas.util.ReflectUtil;
 import org.saintandreas.util.ReflectUtil.ValueAccessor;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class AnnotatedClassInfo {
-    private DIDLItem itemAnnotation = null;
+    private DIDLElement itemAnnotation = null;
 
-    private class DIDLElementComparator implements Comparator<DIDLElement> {
+    private class DIDLElementComparator implements Comparator<DIDLSubElement> {
 
         @Override
-        public int compare(DIDLElement o1, DIDLElement o2) {
+        public int compare(DIDLSubElement o1, DIDLSubElement o2) {
             return o1.order() == o2.order() ? 0 : (o1.order() > o2.order() ? 1 : -1);
         }
 
     }
 
-    private SortedMap<DIDLElement, ValueAccessor<Method>> elementMap = new TreeMap<DIDLElement, ValueAccessor<Method>>(new DIDLElementComparator());
+    private SortedMap<DIDLSubElement, ValueAccessor<Method>> elementMap = new TreeMap<DIDLSubElement, ValueAccessor<Method>>(new DIDLElementComparator());
     private Map<DIDLAttribute, ValueAccessor<Method>> attributeMap = new HashMap<DIDLAttribute, ValueAccessor<Method>>();
 
-    public AnnotatedClassInfo(Class<?> annotatedClass) {
-        Set<Class<?>> processedClasses = new HashSet<Class<?>>();
-        Class<?> currentClass = annotatedClass;
-        while (currentClass != null) {
-            if (processedClasses.add(currentClass)) {
-                processClass(currentClass, elementMap, attributeMap);
-            }
-            if (itemAnnotation == null) {
-                itemAnnotation = currentClass.getAnnotation(DIDLItem.class);
-            }
-            currentClass = currentClass.getSuperclass();
-        }
 
-        currentClass = annotatedClass;
-        while (currentClass != null) {
-            for (Class<?> interfaze : currentClass.getInterfaces()) {
-                if (processedClasses.add(interfaze)) {
-                    processClass(interfaze, elementMap, attributeMap);
-                }
+//
+//    List<Class<?>> getClassesAndInterfaces(Class<?> clazz) {
+//        List<Class<?>> retVal = new ArrayList<Class<?>>();
+//        Set<Class<?>> seen = new HashSet<Class<?>>();
+//        retVal.addAll(getAncestors(clazz, seen));
+//        while (clazz != null) {
+//            for (Class<?> interfaze : clazz.getInterfaces()) {
+//                if (seen.add(interfaze)) {
+//                    retVal.add(interfaze);
+//                    retVal.addAll(getAncestors(interfaze, seen));
+//                }
+//            }
+//            clazz = clazz.getSuperclass();
+//        }
+//        retVal.addAll(getAncestors(clazz, seen));
+//        Class<?> current = clazz;
+//        while (current != null) {
+//            retVal.add(current);
+//            seen.add(current);
+//            current = current.getSuperclass();
+//        }
+//    }
+
+    public static List<Class<?>> getAncestorsAndInterfaces(Class<?> clazz) {
+        Set<Class<?>> seen = new HashSet<Class<?>>();
+//        List<Class<?>> retVal = new ArrayList<Class<?>>();
+//        retVal.add(clazz);
+//        seen.add(clazz);
+        return getAncestorsAndInterfaces(clazz, seen); 
+    }
+    
+    public static List<Class<?>> getAncestorsAndInterfaces(Class<?> clazz, Set<Class<?>> seen) {
+        List<Class<?>> retVal = new ArrayList<Class<?>>();
+        retVal.addAll(getAncestors(clazz, seen));
+        retVal.addAll(getInterfaces(clazz, seen));
+        while (clazz != null) {
+            for (Class<?> interfaze : clazz.getInterfaces()) {
+                retVal.addAll(getAncestorsAndInterfaces(interfaze, seen));
             }
-            currentClass = currentClass.getSuperclass();
+            clazz = clazz.getSuperclass();
         }
+        return retVal;
+    }    
+    
+    public static List<Class<?>> getAncestors(Class<?> clazz, Set<Class<?>> seen) {
+        List<Class<?>> retVal = new ArrayList<Class<?>>();
+        while (clazz != null) {
+            if (seen.add(clazz)) {
+                retVal.add(clazz);
+            }
+            clazz = clazz.getSuperclass();
+        }
+        return retVal;
     }
 
-    private static void processClass(Class<?> annotatedClass, Map<DIDLElement, ValueAccessor<Method>> elementMap, Map<DIDLAttribute, ValueAccessor<Method>> attributeMap) {
-        for (Method m : annotatedClass.getMethods()) {
-            DIDLAttribute attr = m.getAnnotation(DIDLAttribute.class);
-            if (attr != null && !attributeMap.containsKey(attr)) {
-                attributeMap.put(attr, ReflectUtil.getValueAccessor(m));
+    public static List<Class<?>> getInterfaces(Class<?> clazz, Set<Class<?>> seen) {
+        List<Class<?>> retVal = new ArrayList<Class<?>>();
+        for (Class<?> interfaze : clazz.getInterfaces()) {
+            if (seen.add(interfaze)) {
+                retVal.add(interfaze);
             }
+        }
+        return retVal;
+    }
+    
+    public AnnotatedClassInfo(Class<?> annotatedClass) {
+        List<Class<?>> clazzes = getAncestorsAndInterfaces(annotatedClass);
+        for (Class<?> clazz : clazzes) {
+            if (itemAnnotation == null) {
+                itemAnnotation = clazz.getAnnotation(DIDLElement.class);
+            }
+            
+            for (Method m : clazz.getMethods()) {
+                DIDLAttribute attr = m.getAnnotation(DIDLAttribute.class);
+                if (attr != null && !attributeMap.containsKey(attr)) {
+                    attributeMap.put(attr, ReflectUtil.getValueAccessor(m));
+                }
 
-            DIDLElement ele = m.getAnnotation(DIDLElement.class);
-            if (ele != null && !elementMap.containsKey(ele)) {
-                elementMap.put(ele, ReflectUtil.getValueAccessor(m));
+                DIDLSubElement ele = m.getAnnotation(DIDLSubElement.class);
+                if (ele != null && !elementMap.containsKey(ele)) {
+                    elementMap.put(ele, ReflectUtil.getValueAccessor(m));
+                }
             }
+        }
+
+        if (itemAnnotation == null) {
+            throw new RuntimeException();
         }
     }
 
@@ -73,7 +131,7 @@ public class AnnotatedClassInfo {
             addAttribute(retVal, entry.getKey(), entry.getValue().getValueSafely(obj));
         }
 
-        for (Map.Entry<DIDLElement, ValueAccessor<Method>> entry : elementMap.entrySet()) {
+        for (Map.Entry<DIDLSubElement, ValueAccessor<Method>> entry : elementMap.entrySet()) {
             addElement(retVal, entry.getKey(), entry.getValue().getValueSafely(obj));
         }
         
@@ -90,7 +148,7 @@ public class AnnotatedClassInfo {
         node.setAttribute(annotation.value(), value.toString());
     }
 
-    private static void addElement(Element node, DIDLElement annotation, Object value) {
+    private static void addElement(Element node, DIDLSubElement annotation, Object value) {
         if (value == null) {
             if (annotation.required()) {
                 throw new RuntimeException("required element " + annotation.value() + " had null value");

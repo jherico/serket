@@ -24,6 +24,7 @@ import org.saintandreas.util.StringUtil;
 
 @SuppressWarnings("serial")
 public class UpnpServiceServlet extends HttpServlet {
+    @SuppressWarnings("unused")
     private static final Log LOG = LogFactory.getLog(UpnpServiceServlet.class);
 
     private final List<BaseService> services = new ArrayList<BaseService>();

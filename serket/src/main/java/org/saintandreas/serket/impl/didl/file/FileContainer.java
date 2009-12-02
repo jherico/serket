@@ -14,33 +14,35 @@
  * 
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 package org.saintandreas.serket.impl.didl.file;
 
 import java.io.File;
-import java.io.IOException;
 
+import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.didl.Container;
-import org.saintandreas.serket.impl.didl.ContainerImpl;
+import org.saintandreas.serket.impl.didl.AContainerImpl;
+import org.saintandreas.serket.impl.didl.SerketBase;
+import org.saintandreas.serket.impl.didl.SerketContainer;
 
 /**
  * @author bdavis@saintandreas.org
- *
+ * 
  */
-public class FileContainer extends ContainerImpl<FileContainer> {
-    public static final String UPNP_OBJECT_CLASS = "object.container.storageFolder";
+public class FileContainer extends AContainerImpl<SerketBase> {
+    private final static Log LOG = LogFactory.getLog(FileContainer.class); 
     protected final File file;
     protected long lastModified = -1;
     
-    public FileContainer(File file, Container parent) {
+    public FileContainer(SerketContainer<?> parent, File file) {
         super(parent);
         this.file = file;
+        
     }
-
+    
     @Override
-    public String getUpnpClass() {
-        return UPNP_OBJECT_CLASS;
+    public Integer getChildCount() {
+        return null;
     }
 
     @Override
@@ -49,28 +51,29 @@ public class FileContainer extends ContainerImpl<FileContainer> {
     }
 
     @Override
-    public String getId()  {
-        try {
-            return "FILE$" + file.getCanonicalPath();
-        } catch (IOException e) {
-            LogFactory.getLog(getClass()).warn(e);
-            throw new RuntimeException(e);
-        }
+    public String getLocalId() {
+        return file.getName();
     }
 
-        
-    protected boolean refreshChildren() {
-        boolean retVal = file.lastModified() > lastModified;
+
+    public boolean refreshChildren() {
+        boolean retVal = file.lastModified() > lastModified; 
         if (retVal) {
-            children.clear();
+            if (LOG.isTraceEnabled()) LOG.trace("refreshing children of " + getId());
+            clearChildren();
             for (File f : file.listFiles()) {
                 if (f.isDirectory()) {
-                    children.add(new FileContainer(f, this));
+                    addChild(new FileContainer(this, f));
                 }
             }
             lastModified = file.lastModified();
         }
+        if (retVal) {
+            increment();
+        }
         return retVal;
     }
+
+
 
 }

@@ -1,0 +1,117 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <container id="0\PL\pl25" parentID="0\PL" childCount="29" restricted="true">
+    <dc:title>&apos;90s Flashback: Alt Hits for Gen X</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:53:34">rhap://172.21.142.251:52278/web/res_pl25.m3u</res>
+  </container>
+  <container id="0\PL\pl1b" parentID="0\PL" childCount="7" restricted="true">
+    <dc:title>1</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:25:08">rhap://172.21.142.251:52278/web/res_pl1b.m3u</res>
+  </container>
+  <container id="0\PL\pl2e" parentID="0\PL" childCount="90" restricted="true">
+    <dc:title>100 Acoustical Guitar Tunes</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="6:32:54">rhap://172.21.142.251:52278/web/res_pl2e.m3u</res>
+  </container>
+  <container id="0\PL\pl29" parentID="0\PL" childCount="48" restricted="true">
+    <dc:title>2008: The Year in Alternative</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:08:31">rhap://172.21.142.251:52278/web/res_pl29.m3u</res>
+  </container>
+  <container id="0\PL\pl1a" parentID="0\PL" childCount="30" restricted="true">
+    <dc:title>2nd playlist</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:04:57">rhap://172.21.142.251:52278/web/res_pl1a.m3u</res>
+  </container>
+  <container id="0\PL\pl2f" parentID="0\PL" childCount="54" restricted="true">
+    <dc:title>7th Annual Shortlist Prize Nominees</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:36:02">rhap://172.21.142.251:52278/web/res_pl2f.m3u</res>
+  </container>
+  <container id="0\PL\pl1d" parentID="0\PL" childCount="13" restricted="true">
+    <dc:title>80&apos;s</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:49:31">rhap://172.21.142.251:52278/web/res_pl1d.m3u</res>
+  </container>
+  <container id="0\PL\pl2d" parentID="0\PL" childCount="94" restricted="true">
+    <dc:title>A good century (so far)</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="6:36:53">rhap://172.21.142.251:52278/web/res_pl2d.m3u</res>
+  </container>
+  <container id="0\PL\pl2c" parentID="0\PL" childCount="57" restricted="true">
+    <dc:title>Best Indie of 2007</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="4:07:01">rhap://172.21.142.251:52278/web/res_pl2c.m3u</res>
+  </container>
+  <container id="0\PL\pl2b" parentID="0\PL" childCount="28" restricted="true">
+    <dc:title>Coachella 2008</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:52:16">rhap://172.21.142.251:52278/web/res_pl2b.m3u</res>
+  </container>
+  <container id="0\PL\pl30" parentID="0\PL" childCount="14" restricted="true">
+    <dc:title>Coldplay Sampler</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:00:00">rhap://172.21.142.251:52278/web/res_pl30.m3u</res>
+  </container>
+  <container id="0\PL\pl20" parentID="0\PL" childCount="14" restricted="true">
+    <dc:title>Friday Night Lights Original Television Soundtrack</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:02:49">rhap://172.21.142.251:52278/web/res_pl20.m3u</res>
+  </container>
+  <container id="0\PL\pl1c" parentID="0\PL" childCount="0" restricted="true">
+    <dc:title>Hlaupa</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:00:00">rhap://172.21.142.251:52278/web/res_pl1c.m3u</res>
+  </container>
+  <container id="0\PL\pl27" parentID="0\PL" childCount="1" restricted="true">
+    <dc:title>How Deep Is Your Love</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:24">rhap://172.21.142.251:52278/web/res_pl27.m3u</res>
+  </container>
+  <container id="0\PL\pl23" parentID="0\PL" childCount="1" restricted="true">
+    <dc:title>Human</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:05">rhap://172.21.142.251:52278/web/res_pl23.m3u</res>
+  </container>
+  <container id="0\PL\pl22" parentID="0\PL" childCount="10" restricted="true">
+    <dc:title>Hunting High And Low</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:37:12">rhap://172.21.142.251:52278/web/res_pl22.m3u</res>
+  </container>
+  <container id="0\PL\pl1e" parentID="0\PL" childCount="66" restricted="true">
+    <dc:title>My Playlist</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="4:39:00">rhap://172.21.142.251:52278/web/res_pl1e.m3u</res>
+  </container>
+  <container id="0\PL\pl28" parentID="0\PL" childCount="1" restricted="true">
+    <dc:title>My Playlist</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:07:19">rhap://172.21.142.251:52278/web/res_pl28.m3u</res>
+  </container>
+  <container id="0\PL\pl26" parentID="0\PL" childCount="1" restricted="true">
+    <dc:title>Neighborhood #1 (Tunnels)</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:48">rhap://172.21.142.251:52278/web/res_pl26.m3u</res>
+  </container>
+  <container id="0\PL\pl1f" parentID="0\PL" childCount="11" restricted="true">
+    <dc:title>No Line On The Horizon</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:53:41">rhap://172.21.142.251:52278/web/res_pl1f.m3u</res>
+  </container>
+  <container id="0\PL\pl24" parentID="0\PL" childCount="1" restricted="true">
+    <dc:title>Paper Planes</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:23">rhap://172.21.142.251:52278/web/res_pl24.m3u</res>
+  </container>
+  <container id="0\PL\pl21" parentID="0\PL" childCount="14" restricted="true">
+    <dc:title>Rescue Me (Original Television Soundtrack)</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:53:58">rhap://172.21.142.251:52278/web/res_pl21.m3u</res>
+  </container>
+  <container id="0\PL\pl2a" parentID="0\PL" childCount="30" restricted="true">
+    <dc:title>Sex and the Playlist</dc:title>
+    <upnp:class>object.container.playlistContainer</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:53:50">rhap://172.21.142.251:52278/web/res_pl2a.m3u</res>
+  </container>
+</DIDL-Lite>

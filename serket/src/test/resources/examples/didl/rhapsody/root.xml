@@ -1,0 +1,23 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <container id="0\AR" parentID="0" childCount="186" restricted="true">
+    <dc:title>Artists</dc:title>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="0\AL" parentID="0" childCount="291" restricted="true">
+    <dc:title>Albums</dc:title>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="0\TR" parentID="0" childCount="2810" restricted="true">
+    <dc:title>Tracks</dc:title>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="0\PL" parentID="0" childCount="9" restricted="true">
+    <dc:title>Playlists</dc:title>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="0\RS" parentID="0" childCount="2" restricted="true">
+    <dc:title>Stations</dc:title>
+    <upnp:class>object.container</upnp:class>
+  </container>
+</DIDL-Lite>
+ 

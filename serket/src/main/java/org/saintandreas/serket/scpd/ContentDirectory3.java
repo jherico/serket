@@ -126,7 +126,7 @@ public abstract class ContentDirectory3
         public int requestedCount;
         public String sortCriteria;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -184,7 +184,7 @@ public abstract class ContentDirectory3
         public int totalMatches;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -230,7 +230,7 @@ public abstract class ContentDirectory3
         public String containerID;
         public String elements;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -266,7 +266,7 @@ public abstract class ContentDirectory3
         public String objectID;
         public String result;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -302,7 +302,7 @@ public abstract class ContentDirectory3
         public String containerID;
         public String objectID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -337,7 +337,7 @@ public abstract class ContentDirectory3
 
         public String newID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -367,7 +367,7 @@ public abstract class ContentDirectory3
 
         public String resourceURI;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -415,7 +415,7 @@ public abstract class ContentDirectory3
 
         public String objectID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -464,7 +464,7 @@ public abstract class ContentDirectory3
         public String sourceURI;
         public String destinationURI;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -499,7 +499,7 @@ public abstract class ContentDirectory3
 
         public Integer transferID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -531,7 +531,7 @@ public abstract class ContentDirectory3
         public Integer cDSView;
         public String queryRequest;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -572,7 +572,7 @@ public abstract class ContentDirectory3
         public String queryResult;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -625,7 +625,7 @@ public abstract class ContentDirectory3
 
         public String featureList;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -673,7 +673,7 @@ public abstract class ContentDirectory3
 
         public String fFQCapabilities;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -721,7 +721,7 @@ public abstract class ContentDirectory3
 
         public String searchCaps;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -769,7 +769,7 @@ public abstract class ContentDirectory3
 
         public String resetToken;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -817,7 +817,7 @@ public abstract class ContentDirectory3
 
         public String sortCaps;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -865,7 +865,7 @@ public abstract class ContentDirectory3
 
         public String sortExtensionCaps;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -913,7 +913,7 @@ public abstract class ContentDirectory3
 
         public int id;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -943,7 +943,7 @@ public abstract class ContentDirectory3
 
         public Integer transferID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -975,7 +975,7 @@ public abstract class ContentDirectory3
         public String transferLength;
         public String transferTotal;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1016,7 +1016,7 @@ public abstract class ContentDirectory3
         public String sourceURI;
         public String destinationURI;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1051,7 +1051,7 @@ public abstract class ContentDirectory3
 
         public Integer transferID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1082,7 +1082,7 @@ public abstract class ContentDirectory3
         public String objectID;
         public String newParentID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1117,7 +1117,7 @@ public abstract class ContentDirectory3
 
         public String newObjectID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1152,7 +1152,7 @@ public abstract class ContentDirectory3
         public int requestedCount;
         public String sortCriteria;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1210,7 +1210,7 @@ public abstract class ContentDirectory3
         public int totalMatches;
         public int updateID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1255,7 +1255,7 @@ public abstract class ContentDirectory3
 
         public Integer transferID;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {
@@ -1314,7 +1314,7 @@ public abstract class ContentDirectory3
         public String currentTagValue;
         public String newTagValue;
 
-        @SuppressWarnings("unchecked")
+        
         public void parse(SOAPMessage soapMessage)
             throws SOAPException
         {

@@ -1,4 +1,4 @@
-package org.saintandreas.serket.didl;
+package org.saintandreas.serket.didl.annotations;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
