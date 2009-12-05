@@ -1,0 +1,662 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <item id="0\TR\tr86" parentID="0\TR" restricted="true">
+    <dc:title>Wrong Way</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Sublime</upnp:artist>
+    <upnp:album>Sublime (Explicit)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>1996</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00590325</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00590325</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2245632" duration="0:02:16">rhap://172.21.145.229:60280/web/tr00590325.wma</res>
+  </item>
+  <item id="0\TR\tr92f" parentID="0\TR" restricted="true">
+    <dc:title>Wrong Way</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Sublime</upnp:artist>
+    <upnp:album>Sublime (Explicit)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00969abe</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00969abe</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2245632" duration="0:02:16">rhap://172.21.145.229:60280/web/tr00969abe.wma</res>
+  </item>
+  <item id="0\TR\trd2" parentID="0\TR" restricted="true">
+    <dc:title>X</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>System of a Down</upnp:artist>
+    <upnp:album>Toxicity (Edited)</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2001</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0066d3b1</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0066d3b1</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="1948416" duration="0:01:58">rhap://172.21.145.229:60280/web/tr0066d3b1.wma</res>
+  </item>
+  <item id="0\TR\tr174" parentID="0\TR" restricted="true">
+    <dc:title>X&amp;Y</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Coldplay</upnp:artist>
+    <upnp:album>X&amp;Y</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00846780</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00846780</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4524288" duration="0:04:34">rhap://172.21.145.229:60280/web/tr00846780.wma</res>
+  </item>
+  <item id="0\TR\tr3dd" parentID="0\TR" restricted="true">
+    <dc:title>X-Girlfriend</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bush</upnp:artist>
+    <upnp:album>Sixteen Stone</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>1994</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0057f08c</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0057f08c</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="743040" duration="0:00:45">rhap://172.21.145.229:60280/web/tr0057f08c.wma</res>
+  </item>
+  <item id="0\TR\tr60b" parentID="0\TR" restricted="true">
+    <dc:title>X-Static</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Foo Fighters</upnp:artist>
+    <upnp:album>Foo Fighters</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>1995</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00742b12</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00742b12</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4161024" duration="0:04:12">rhap://172.21.145.229:60280/web/tr00742b12.wma</res>
+  </item>
+  <item id="0\TR\tr491" parentID="0\TR" restricted="true">
+    <dc:title>X.Y.U.</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Smashing Pumpkins</upnp:artist>
+    <upnp:album>Mellon Collie And The Infinite Sadness</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>1995</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0048876f</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0048876f</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="6984576" duration="0:07:03">rhap://172.21.145.229:60280/web/tr0048876f.wma</res>
+  </item>
+  <item id="0\TR\trb9" parentID="0\TR" restricted="true">
+    <dc:title>XIII. Le Cygne (The Swan)</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Nikolai Rimsky-Korsakov</upnp:artist>
+    <upnp:album>Romantic Piano Favourites Vol. 3</upnp:album>
+    <upnp:genre>Classical</upnp:genre>
+    <dc:date>1988</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005ad81c</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005ad81c</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="1172352" duration="0:01:11">rhap://172.21.145.229:60280/web/tr005ad81c.wma</res>
+  </item>
+  <item id="0\TR\trb3d" parentID="0\TR" restricted="true">
+    <dc:title>XXplosive</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Dr. Dre</upnp:artist>
+    <upnp:album>2001 (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>1999</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005a863a</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005a863a</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3550080" duration="0:03:35">rhap://172.21.145.229:60280/web/tr005a863a.wma</res>
+  </item>
+  <item id="0\TR\trab8" parentID="0\TR" restricted="true">
+    <dc:title>Yank Me Crank Me - (live)</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Ted Nugent</upnp:artist>
+    <upnp:album>Out Of Control (Box Set)</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>1993</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa006b3605</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl006b3605</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4639872" duration="0:04:41">rhap://172.21.145.229:60280/web/tr006b3605.wma</res>
+  </item>
+  <item id="0\TR\tr90c" parentID="0\TR" restricted="true">
+    <dc:title>Yeah You</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>N.E.R.D.</upnp:artist>
+    <upnp:album>Seeing Sounds (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c7928b</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c7928b</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4045440" duration="0:04:05">rhap://172.21.145.229:60280/web/tr00c7928b.wma</res>
+  </item>
+  <item id="0\TR\tr380" parentID="0\TR" restricted="true">
+    <dc:title>Yellow</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Coldplay</upnp:artist>
+    <upnp:album>Parachutes</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2000</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0059ed94</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0059ed94</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4441728" duration="0:04:29">rhap://172.21.145.229:60280/web/tr0059ed94.wma</res>
+  </item>
+  <item id="0\TR\tr8ee" parentID="0\TR" restricted="true">
+    <dc:title>Yes</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Coldplay</upnp:artist>
+    <upnp:album>Viva La Vida Or Death And All His Friends</upnp:album>
+    <upnp:genre>Alt/Punk</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c7eac6</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c7eac6</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="7034112" duration="0:07:06">rhap://172.21.145.229:60280/web/tr00c7eac6.wma</res>
+  </item>
+  <item id="0\TR\tr16b" parentID="0\TR" restricted="true">
+    <dc:title>Yesterday To Tomorrow</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Audioslave</upnp:artist>
+    <upnp:album>Out Of Exile</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00841bee</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00841bee</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4524288" duration="0:04:34">rhap://172.21.145.229:60280/web/tr00841bee.wma</res>
+  </item>
+  <item id="0\TR\tr445" parentID="0\TR" restricted="true">
+    <dc:title>You</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>R.E.M.</upnp:artist>
+    <upnp:album>Monster</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>1994</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00586efd</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00586efd</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4854528" duration="0:04:54">rhap://172.21.145.229:60280/web/tr00586efd.wma</res>
+  </item>
+  <item id="0\TR\tr98a" parentID="0\TR" restricted="true">
+    <dc:title>You</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Atmosphere</upnp:artist>
+    <upnp:album>When Life Gives You Lemons, You Paint That Sh*t Gold - Standard Edition (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c353fd</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c353fd</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3203328" duration="0:03:14">rhap://172.21.145.229:60280/web/tr00c353fd.wma</res>
+  </item>
+  <item id="0\TR\trbad" parentID="0\TR" restricted="true">
+    <dc:title>You &amp; Me</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Dave Matthews Band</upnp:artist>
+    <upnp:album>Big Whiskey and the GrooGrux King</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2009</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00f35d59</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00f35d59</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="5614080" duration="0:05:40">rhap://172.21.145.229:60280/web/tr00f35d59.wma</res>
+  </item>
+  <item id="0\TR\tr9fb" parentID="0\TR" restricted="true">
+    <dc:title>You Aint Missin Nothing</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>T.I.</upnp:artist>
+    <upnp:album>Paper Trail (Exclusive,Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00d3f576</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00d3f576</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="5118720" duration="0:05:10">rhap://172.21.145.229:60280/web/tr00d3f576.wma</res>
+  </item>
+  <item id="0\TR\tr1ce" parentID="0\TR" restricted="true">
+    <dc:title>You And I</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Michael Buble</upnp:artist>
+    <upnp:album>It&apos;s Time</upnp:album>
+    <upnp:genre>Vocal/Easy Listening</upnp:genre>
+    <dc:date></dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0089fb17</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0089fb17</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3863808" duration="0:03:54">rhap://172.21.145.229:60280/web/tr0089fb17.wma</res>
+  </item>
+  <item id="0\TR\tr645" parentID="0\TR" restricted="true">
+    <dc:title>You Are The One</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Shiny Toy Guns</upnp:artist>
+    <upnp:album>We Are Pilots (Explicit)</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa009cd844</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl009cd844</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4491264" duration="0:04:32">rhap://172.21.145.229:60280/web/tr009cd844.wma</res>
+  </item>
+  <item id="0\TR\tra04" parentID="0\TR" restricted="true">
+    <dc:title>You Can Do Better Than Me</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Death Cab For Cutie</upnp:artist>
+    <upnp:album>Narrow Stairs</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c3df25</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c3df25</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="1964928" duration="0:01:59">rhap://172.21.145.229:60280/web/tr00c3df25.wma</res>
+  </item>
+  <item id="0\TR\tr1fe" parentID="0\TR" restricted="true">
+    <dc:title>You Could Be Happy</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Snow Patrol</upnp:artist>
+    <upnp:album>Eyes Open</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00908093</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00908093</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3005184" duration="0:03:02">rhap://172.21.145.229:60280/web/tr00908093.wma</res>
+  </item>
+  <item id="0\TR\tr1c4" parentID="0\TR" restricted="true">
+    <dc:title>You Don&apos;t Know Me</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Michael Buble</upnp:artist>
+    <upnp:album>It&apos;s Time</upnp:album>
+    <upnp:genre>Vocal/Easy Listening</upnp:genre>
+    <dc:date></dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0089fb0d</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0089fb0d</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4194048" duration="0:04:14">rhap://172.21.145.229:60280/web/tr0089fb0d.wma</res>
+  </item>
+  <item id="0\TR\tr4fb" parentID="0\TR" restricted="true">
+    <dc:title>You Don&apos;t Know What Love Is [You Just Do As You&apos;re Told]</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>White Stripes</upnp:artist>
+    <upnp:album>Icky Thump</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2007</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00ac1a48</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00ac1a48</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3863808" duration="0:03:54">rhap://172.21.145.229:60280/web/tr00ac1a48.wma</res>
+  </item>
+  <item id="0\TR\tr447" parentID="0\TR" restricted="true">
+    <dc:title>You Give Me Something</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>James Morrison</upnp:artist>
+    <upnp:album>Undiscovered</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2007</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00a61383</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00a61383</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3517056" duration="0:03:33">rhap://172.21.145.229:60280/web/tr00a61383.wma</res>
+  </item>
+  <item id="0\TR\tr4c" parentID="0\TR" restricted="true">
+    <dc:title>You Got Lucky</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Tom Petty</upnp:artist>
+    <upnp:album>Greatest Hits</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>1993</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0057fb6c</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0057fb6c</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3566592" duration="0:03:36">rhap://172.21.145.229:60280/web/tr0057fb6c.wma</res>
+  </item>
+  <item id="0\TR\trbc4" parentID="0\TR" restricted="true">
+    <dc:title>You Got That Right</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Lynyrd Skynyrd</upnp:artist>
+    <upnp:album>All Time Greatest Hits</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2000</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005947f2</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005947f2</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3764736" duration="0:03:48">rhap://172.21.145.229:60280/web/tr005947f2.wma</res>
+  </item>
+  <item id="0\TR\tr3ba" parentID="0\TR" restricted="true">
+    <dc:title>You Just Can&apos;t Smile It Away</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bill Withers</upnp:artist>
+    <upnp:album>Lean On Me: The Best Of Bill Withers</upnp:album>
+    <upnp:genre>Soul/R&amp;B</upnp:genre>
+    <dc:date>1994</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0059e367</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0059e367</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4639872" duration="0:04:41">rhap://172.21.145.229:60280/web/tr0059e367.wma</res>
+  </item>
+  <item id="0\TR\tr2b2" parentID="0\TR" restricted="true">
+    <dc:title>You Know My Steez</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Gang Starr</upnp:artist>
+    <upnp:album>Moment Of Truth (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>1998</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005937e3</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005937e3</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4078464" duration="0:04:07">rhap://172.21.145.229:60280/web/tr005937e3.wma</res>
+  </item>
+  <item id="0\TR\tr911" parentID="0\TR" restricted="true">
+    <dc:title>You Know What</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>N.E.R.D.</upnp:artist>
+    <upnp:album>Seeing Sounds (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c79290</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c79290</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4458240" duration="0:04:30">rhap://172.21.145.229:60280/web/tr00c79290.wma</res>
+  </item>
+  <item id="0\TR\tr332" parentID="0\TR" restricted="true">
+    <dc:title>You Know What You Are?</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Nine Inch Nails</upnp:artist>
+    <upnp:album>With Teeth (Explicit)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0083be24</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0083be24</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3665664" duration="0:03:42">rhap://172.21.145.229:60280/web/tr0083be24.wma</res>
+  </item>
+  <item id="0\TR\tr7e3" parentID="0\TR" restricted="true">
+    <dc:title>You Never Knew</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Hieroglyphics</upnp:artist>
+    <upnp:album>Third Eye Vision (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>1998</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00588e89</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00588e89</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4507776" duration="0:04:33">rhap://172.21.145.229:60280/web/tr00588e89.wma</res>
+  </item>
+  <item id="0\TR\tr2d8" parentID="0\TR" restricted="true">
+    <dc:title>You Only Live Once</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>The Strokes</upnp:artist>
+    <upnp:album>First Impressions Of Earth (Explicit)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0088e037</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0088e037</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3120768" duration="0:03:09">rhap://172.21.145.229:60280/web/tr0088e037.wma</res>
+  </item>
+  <item id="0\TR\tr55c" parentID="0\TR" restricted="true">
+    <dc:title>You Owe Me</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Nas</upnp:artist>
+    <upnp:album>Nastradamus (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>1999</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005b7023</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005b7023</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4738944" duration="0:04:47">rhap://172.21.145.229:60280/web/tr005b7023.wma</res>
+  </item>
+  <item id="0\TR\traa3" parentID="0\TR" restricted="true">
+    <dc:title>You Talk Sunshine I Breathe Fire - (mono)</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Ted Nugent</upnp:artist>
+    <upnp:album>Out Of Control (Box Set)</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>1993</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa006b35f0</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl006b35f0</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2707968" duration="0:02:44">rhap://172.21.145.229:60280/web/tr006b35f0.wma</res>
+  </item>
+  <item id="0\TR\tr8f7" parentID="0\TR" restricted="true">
+    <dc:title>You Think I Ain&apos;t Worth A Dollar, But I Feel Like A Millionaire</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Queens of the Stone Age</upnp:artist>
+    <upnp:album>Songs For The Deaf (Explicit)</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2002</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00685346</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00685346</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3170304" duration="0:03:12">rhap://172.21.145.229:60280/web/tr00685346.wma</res>
+  </item>
+  <item id="0\TR\trfa" parentID="0\TR" restricted="true">
+    <dc:title>You Think It&apos;s A Joke</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Goldfinger</upnp:artist>
+    <upnp:album>Stomping Ground (Explicit)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2000</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa006c5f32</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl006c5f32</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3170304" duration="0:03:12">rhap://172.21.145.229:60280/web/tr006c5f32.wma</res>
+  </item>
+  <item id="0\TR\tr3bc" parentID="0\TR" restricted="true">
+    <dc:title>You Try To Find A Love</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bill Withers</upnp:artist>
+    <upnp:album>Lean On Me: The Best Of Bill Withers</upnp:album>
+    <upnp:genre>Soul/R&amp;B</upnp:genre>
+    <dc:date>1994</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0059e36a</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0059e36a</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="5647104" duration="0:05:42">rhap://172.21.145.229:60280/web/tr0059e36a.wma</res>
+  </item>
+  <item id="0\TR\tr8cf" parentID="0\TR" restricted="true">
+    <dc:title>You Will Pull Through</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Barcelona (1)</upnp:artist>
+    <upnp:album>Absolutes</upnp:album>
+    <upnp:genre></upnp:genre>
+    <dc:date>2007</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00b2643f</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00b2643f</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="7331328" duration="0:07:24">rhap://172.21.145.229:60280/web/tr00b2643f.wma</res>
+  </item>
+  <item id="0\TR\tr456" parentID="0\TR" restricted="true">
+    <dc:title>You Won&apos;t Know</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Brand New</upnp:artist>
+    <upnp:album>The Devil And God Are Raging Inside Me</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa009ffe07</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl009ffe07</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="5630592" duration="0:05:41">rhap://172.21.145.229:60280/web/tr009ffe07.wma</res>
+  </item>
+  <item id="0\TR\tr570" parentID="0\TR" restricted="true">
+    <dc:title>You Won&apos;t See Me Tonight</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Nas</upnp:artist>
+    <upnp:album>I Am...The Autobiography (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>1999</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005c2769</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005c2769</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4326144" duration="0:04:22">rhap://172.21.145.229:60280/web/tr005c2769.wma</res>
+  </item>
+  <item id="0\TR\tr1f9" parentID="0\TR" restricted="true">
+    <dc:title>You&apos;re All I Have</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Snow Patrol</upnp:artist>
+    <upnp:album>Eyes Open</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0090808e</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0090808e</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4524288" duration="0:04:34">rhap://172.21.145.229:60280/web/tr0090808e.wma</res>
+  </item>
+  <item id="0\TR\tr7c5" parentID="0\TR" restricted="true">
+    <dc:title>You&apos;re Crashing, But You&apos;re No Wave</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Fall Out Boy</upnp:artist>
+    <upnp:album>Infinity On High</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2007</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00a3804b</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00a3804b</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3665664" duration="0:03:42">rhap://172.21.145.229:60280/web/tr00a3804b.wma</res>
+  </item>
+  <item id="0\TR\tr6c8" parentID="0\TR" restricted="true">
+    <dc:title>You&apos;re Not Alone</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Chicago</upnp:artist>
+    <upnp:album>Very Best Of: Only The Beginning</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2002</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa006f8b26</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl006f8b26</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3913344" duration="0:03:57">rhap://172.21.145.229:60280/web/tr006f8b26.wma</res>
+  </item>
+  <item id="0\TR\tr6c0" parentID="0\TR" restricted="true">
+    <dc:title>You&apos;re The Inspiration</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Chicago</upnp:artist>
+    <upnp:album>Very Best Of: Only The Beginning</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2002</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa006f8b1e</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl006f8b1e</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3781248" duration="0:03:49">rhap://172.21.145.229:60280/web/tr006f8b1e.wma</res>
+  </item>
+  <item id="0\TR\tr562" parentID="0\TR" restricted="true">
+    <dc:title>You&apos;re The Man</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Nas</upnp:artist>
+    <upnp:album>Stillmatic (Explicit)</upnp:album>
+    <upnp:genre>Rap/Hip-Hop</upnp:genre>
+    <dc:date>2001</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005bcfb6</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005bcfb6</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3401472" duration="0:03:26">rhap://172.21.145.229:60280/web/tr005bcfb6.wma</res>
+  </item>
+  <item id="0\TR\tr7b0" parentID="0\TR" restricted="true">
+    <dc:title>Young Folks</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Peter Bjorn and John</upnp:artist>
+    <upnp:album>Writer&apos;s Block</upnp:album>
+    <upnp:genre>Alt/Punk</upnp:genre>
+    <dc:date>2007</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00a37061</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00a37061</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4606848" duration="0:04:39">rhap://172.21.145.229:60280/web/tr00a37061.wma</res>
+  </item>
+  <item id="0\TR\tracb" parentID="0\TR" restricted="true">
+    <dc:title>Younglife</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Anberlin</upnp:artist>
+    <upnp:album>New Surrender</upnp:album>
+    <upnp:genre>Christian/Gospel</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00d55b7f</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00d55b7f</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3616128" duration="0:03:39">rhap://172.21.145.229:60280/web/tr00d55b7f.wma</res>
+  </item>
+  <item id="0\TR\tr197" parentID="0\TR" restricted="true">
+    <dc:title>Your Heart Is An Empty Room</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Death Cab For Cutie</upnp:artist>
+    <upnp:album>Plans</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00861ec4</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00861ec4</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3616128" duration="0:03:39">rhap://172.21.145.229:60280/web/tr00861ec4.wma</res>
+  </item>
+  <item id="0\TR\tr8d5" parentID="0\TR" restricted="true">
+    <dc:title>Your House</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Jimmy Eat World</upnp:artist>
+    <upnp:album>Bleed American</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2001</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa005b1835</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl005b1835</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4722432" duration="0:04:46">rhap://172.21.145.229:60280/web/tr005b1835.wma</res>
+  </item>
+  <item id="0\TR\tr8aa" parentID="0\TR" restricted="true">
+    <dc:title>Your Neck</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Alkaline Trio</upnp:artist>
+    <upnp:album>Crimson (deluxe Version)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0088aa43</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0088aa43</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3219840" duration="0:03:15">rhap://172.21.145.229:60280/web/tr0088aa43.wma</res>
+  </item>
+  <item id="0\TR\tr8b7" parentID="0\TR" restricted="true">
+    <dc:title>Your Neck (Demo)</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Alkaline Trio</upnp:artist>
+    <upnp:album>Crimson (deluxe Version)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0088aa50</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0088aa50</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3203328" duration="0:03:14">rhap://172.21.145.229:60280/web/tr0088aa50.wma</res>
+  </item>
+  <item id="0\TR\tra06" parentID="0\TR" restricted="true">
+    <dc:title>Your New Twin Sized Bed</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Death Cab For Cutie</upnp:artist>
+    <upnp:album>Narrow Stairs</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c3df27</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c3df27</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3071232" duration="0:03:06">rhap://172.21.145.229:60280/web/tr00c3df27.wma</res>
+  </item>
+  <item id="0\TR\trb93" parentID="0\TR" restricted="true">
+    <dc:title>Your Protector</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Fleet Foxes</upnp:artist>
+    <upnp:album>Fleet Foxes</upnp:album>
+    <upnp:genre>Alt/Punk</upnp:genre>
+    <dc:date>2008</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00c682e3</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00c682e3</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4144512" duration="0:04:11">rhap://172.21.145.229:60280/web/tr00c682e3.wma</res>
+  </item>
+  <item id="0\TR\tr6cb" parentID="0\TR" restricted="true">
+    <dc:title>Your Song</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Elton John</upnp:artist>
+    <upnp:album>Greatest Hits 1970-2002</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2002</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa006ad70b</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl006ad70b</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4045440" duration="0:04:05">rhap://172.21.145.229:60280/web/tr006ad70b.wma</res>
+  </item>
+  <item id="0\TR\tr163" parentID="0\TR" restricted="true">
+    <dc:title>Your Time Has Come</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Audioslave</upnp:artist>
+    <upnp:album>Out Of Exile</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date>2005</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00841be6</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00841be6</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4243584" duration="0:04:17">rhap://172.21.145.229:60280/web/tr00841be6.wma</res>
+  </item>
+  <item id="0\TR\tr47e" parentID="0\TR" restricted="true">
+    <dc:title>Zero</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Smashing Pumpkins</upnp:artist>
+    <upnp:album>Mellon Collie And The Infinite Sadness</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>1995</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00488723</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00488723</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2625408" duration="0:02:39">rhap://172.21.145.229:60280/web/tr00488723.wma</res>
+  </item>
+  <item id="0\TR\tr879" parentID="0\TR" restricted="true">
+    <dc:title>Zero Friction</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Presidents of the United States of America</upnp:artist>
+    <upnp:album>Love Everybody</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2004</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa009bad8c</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl009bad8c</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2774016" duration="0:02:48">rhap://172.21.145.229:60280/web/tr009bad8c.wma</res>
+  </item>
+  <item id="0\TR\tr92b" parentID="0\TR" restricted="true">
+    <dc:title>Zimbabwe</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Sublime</upnp:artist>
+    <upnp:album>Sublime (Explicit)</upnp:album>
+    <upnp:genre>Alternative/Punk</upnp:genre>
+    <dc:date>2006</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa00969aba</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl00969aba</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2674944" duration="0:02:42">rhap://172.21.145.229:60280/web/tr00969aba.wma</res>
+  </item>
+  <item id="0\TR\tr9b9" parentID="0\TR" restricted="true">
+    <dc:title>Ænema</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Tool</upnp:artist>
+    <upnp:album>Ænima</upnp:album>
+    <upnp:genre>Rock/Pop</upnp:genre>
+    <dc:date></dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/res_laa000009b9</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/res_lbl000009b9</upnp:blurbURI>
+    <res protocolInfo="http-get:*:audio/mpeg:*" size="6588288" duration="0:06:39">http://172.21.145.229:60280/web/res_ltr000009b9.mp3</res>
+  </item>
+</DIDL-Lite>

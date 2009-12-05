@@ -1,0 +1,42 @@
+
+<DIDL-Lite>
+  <container id="0$0$0" childCount="65" parentID="0$0" restricted="true">
+    <dc:title>Movies</dc:title>
+    <dc:date>2009-11-06T21:34:05</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$1" childCount="9" parentID="0$0" restricted="true">
+    <dc:title>Music Video</dc:title>
+    <dc:date>2031-02-16T02:30:16</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$2" childCount="29" parentID="0$0" restricted="true">
+    <dc:title>NetVideo</dc:title>
+    <dc:date>2009-11-06T21:23:55</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$3" childCount="7" parentID="0$0" restricted="true">
+    <dc:title>New</dc:title>
+    <dc:date>2009-11-20T20:50:33</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$4" childCount="0" parentID="0$0" restricted="true">
+    <dc:title>Pixar Shorts</dc:title>
+    <dc:date>2009-04-09T13:33:45</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$5" childCount="10" parentID="0$0" restricted="true">
+    <dc:title>Rifftrax</dc:title>
+    <dc:date>2009-11-09T17:12:03</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$7" childCount="22" parentID="0$0" restricted="true">
+    <dc:title>TV</dc:title>
+    <dc:date>2009-11-06T23:12:54</dc:date>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+  <container id="0$0$10" childCount="0" parentID="0$0" restricted="true">
+    <dc:title>#--TRANSCODE--#</dc:title>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+</DIDL-Lite>

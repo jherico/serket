@@ -1,0 +1,178 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <item id="0\AR\ar14c\al4c\tr283" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Is This Love</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d452</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d452</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3797760" duration="0:03:50">rhap://172.21.145.229:60280/web/tr0067d452.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr284" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>No Woman No Cry (Live)</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d453</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d453</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="7067136" duration="0:07:08">rhap://172.21.145.229:60280/web/tr0067d453.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr285" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Could You Be Loved</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d454</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d454</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3913344" duration="0:03:57">rhap://172.21.145.229:60280/web/tr0067d454.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr286" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Three Little Birds</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d455</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d455</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2972160" duration="0:03:00">rhap://172.21.145.229:60280/web/tr0067d455.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr287" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Buffalo Soldier</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d456</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d456</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4243584" duration="0:04:17">rhap://172.21.145.229:60280/web/tr0067d456.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr288" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Get Up, Stand Up</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d457</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d457</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3252864" duration="0:03:17">rhap://172.21.145.229:60280/web/tr0067d457.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr289" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Stir It Up</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d458</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d458</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="5448960" duration="0:05:30">rhap://172.21.145.229:60280/web/tr0067d458.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr28a" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Easy Skanking</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d459</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d459</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2922624" duration="0:02:57">rhap://172.21.145.229:60280/web/tr0067d459.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr28b" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>One Love / People Get Ready</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d45a</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d45a</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="2840064" duration="0:02:52">rhap://172.21.145.229:60280/web/tr0067d45a.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr28c" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>I Shot The Sheriff</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d45b</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d45b</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4623360" duration="0:04:40">rhap://172.21.145.229:60280/web/tr0067d45b.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr28d" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Waiting In Vain</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d45c</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d45c</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4227072" duration="0:04:16">rhap://172.21.145.229:60280/web/tr0067d45c.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr28e" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Redemption Song</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d45d</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d45d</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3748224" duration="0:03:47">rhap://172.21.145.229:60280/web/tr0067d45d.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr28f" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Satisfy My Soul</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d45e</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d45e</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="4474752" duration="0:04:31">rhap://172.21.145.229:60280/web/tr0067d45e.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr290" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Exodus</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d45f</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d45f</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="7595520" duration="0:07:40">rhap://172.21.145.229:60280/web/tr0067d45f.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr291" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Jamming</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d460</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d460</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="3484032" duration="0:03:31">rhap://172.21.145.229:60280/web/tr0067d460.wma</res>
+  </item>
+  <item id="0\AR\ar14c\al4c\tr292" parentID="0\AR\ar14c\al4c" restricted="true">
+    <dc:title>Punky Raggae Party</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:artist>Bob Marley</upnp:artist>
+    <upnp:album>Legend</upnp:album>
+    <upnp:genre>World/Reggae</upnp:genre>
+    <dc:date>1984</dc:date>
+    <upnp:albumArtURI>http://172.21.145.229:60280/web/aa0067d461</upnp:albumArtURI>
+    <upnp:blurbURI>http://172.21.145.229:60280/web/bl0067d461</upnp:blurbURI>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/x-ms-wma:*" size="6802944" duration="0:06:52">rhap://172.21.145.229:60280/web/tr0067d461.wma</res>
+  </item>
+</DIDL-Lite>

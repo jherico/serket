@@ -1,0 +1,11 @@
+NOTIFY * HTTP/1.1
+CONFIGID.UPNP.ORG: 51619
+BOOTID.UPNP.ORG: 24464
+MAXVERSION.UPNP.ORG: 1
+SEARCHPORT.UPNP.ORG: 1924
+HOST: 239.255.255.250:1900
+NTS: ssdp:byebye
+USN: uuid:GSZGWYKSQPXHHUXZQOV::urn:schemas-upnp-org:service:ContentDirectory:1
+NT: urn:schemas-upnp-org:service:ContentDirectory:1
+Content-Length: 0
+

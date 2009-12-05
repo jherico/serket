@@ -1,0 +1,932 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <container id="0\AR\ar2807" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>3OH!3</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:12">rhap://172.21.145.229:60280/web/res_ar2807.m3u</res>
+  </container>
+  <container id="0\AR\ar22b4" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>&lt;unknown artist&gt;</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:13:47">rhap://172.21.145.229:60280/web/res_ar22b4.m3u</res>
+  </container>
+  <container id="0\AR\ar4d" parentID="0\AR" childCount="20" restricted="true">
+    <dc:title>&lt;Various Artists&gt;</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="4:56:51">rhap://172.21.145.229:60280/web/res_ar4d.m3u</res>
+  </container>
+  <container id="0\AR\ar72" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>A Perfect Circle</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:27:36">rhap://172.21.145.229:60280/web/res_ar72.m3u</res>
+  </container>
+  <container id="0\AR\ar4da" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Akinyele</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:21:20">rhap://172.21.145.229:60280/web/res_ar4da.m3u</res>
+  </container>
+  <container id="0\AR\ar4f" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Akon</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:07">rhap://172.21.145.229:60280/web/res_ar4f.m3u</res>
+  </container>
+  <container id="0\AR\ar4e" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Alice in Chains</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:28:18">rhap://172.21.145.229:60280/web/res_ar4e.m3u</res>
+  </container>
+  <container id="0\AR\ar2b85" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Alison Krauss</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:19">rhap://172.21.145.229:60280/web/res_ar2b85.m3u</res>
+  </container>
+  <container id="0\AR\ar1ac8" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Alkaline Trio</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:27:07">rhap://172.21.145.229:60280/web/res_ar1ac8.m3u</res>
+  </container>
+  <container id="0\AR\ar2e57" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Anberlin</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:44:59">rhap://172.21.145.229:60280/web/res_ar2e57.m3u</res>
+  </container>
+  <container id="0\AR\ar54" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Ani DiFranco</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:46:36">rhap://172.21.145.229:60280/web/res_ar54.m3u</res>
+  </container>
+  <container id="0\AR\ar900" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Antonio Vivaldi</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:06:20">rhap://172.21.145.229:60280/web/res_ar900.m3u</res>
+  </container>
+  <container id="0\AR\ar8eb" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Aram Ilyich Khachaturian</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:02:25">rhap://172.21.145.229:60280/web/res_ar8eb.m3u</res>
+  </container>
+  <container id="0\AR\ar8f3" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Arcangelo Corelli</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:01:08">rhap://172.21.145.229:60280/web/res_ar8f3.m3u</res>
+  </container>
+  <container id="0\AR\ar2161" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Atmosphere</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:14">rhap://172.21.145.229:60280/web/res_ar2161.m3u</res>
+  </container>
+  <container id="0\AR\ar51" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Audioslave</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:47:20">rhap://172.21.145.229:60280/web/res_ar51.m3u</res>
+  </container>
+  <container id="0\AR\ar20bc" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bad Religion</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:57:35">rhap://172.21.145.229:60280/web/res_ar20bc.m3u</res>
+  </container>
+  <container id="0\AR\ar19ac" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Band Of Horses</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:37">rhap://172.21.145.229:60280/web/res_ar19ac.m3u</res>
+  </container>
+  <container id="0\AR\ar1bee" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Barcelona (1)</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:44:42">rhap://172.21.145.229:60280/web/res_ar1bee.m3u</res>
+  </container>
+  <container id="0\AR\ar410" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bill Withers</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:09:43">rhap://172.21.145.229:60280/web/res_ar410.m3u</res>
+  </container>
+  <container id="0\AR\ar41" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>blink-182</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:35:16">rhap://172.21.145.229:60280/web/res_ar41.m3u</res>
+  </container>
+  <container id="0\AR\ar3080" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bloc Party</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:53:51">rhap://172.21.145.229:60280/web/res_ar3080.m3u</res>
+  </container>
+  <container id="0\AR\ar43d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Blondie</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:05:30">rhap://172.21.145.229:60280/web/res_ar43d.m3u</res>
+  </container>
+  <container id="0\AR\ar14dc" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Blue Scholars</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:28">rhap://172.21.145.229:60280/web/res_ar14dc.m3u</res>
+  </container>
+  <container id="0\AR\ar14c" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bob Marley</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:12:05">rhap://172.21.145.229:60280/web/res_ar14c.m3u</res>
+  </container>
+  <container id="0\AR\ar28f6" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bon Iver</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:37:12">rhap://172.21.145.229:60280/web/res_ar28f6.m3u</res>
+  </container>
+  <container id="0\AR\ar12a9" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bon Jovi</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:09">rhap://172.21.145.229:60280/web/res_ar12a9.m3u</res>
+  </container>
+  <container id="0\AR\ar61a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Brand New</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:54:48">rhap://172.21.145.229:60280/web/res_ar61a.m3u</res>
+  </container>
+  <container id="0\AR\ar5e" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Breaking Benjamin</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:35:48">rhap://172.21.145.229:60280/web/res_ar5e.m3u</res>
+  </container>
+  <container id="0\AR\ar313e" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bullet For My Valentine</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:05:48">rhap://172.21.145.229:60280/web/res_ar313e.m3u</res>
+  </container>
+  <container id="0\AR\ar439" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Bush</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:52:15">rhap://172.21.145.229:60280/web/res_ar439.m3u</res>
+  </container>
+  <container id="0\AR\ar3f" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Camille Saint-Saens</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:06:26">rhap://172.21.145.229:60280/web/res_ar3f.m3u</res>
+  </container>
+  <container id="0\AR\ar35bc" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Cheap Trick</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:59:46">rhap://172.21.145.229:60280/web/res_ar35bc.m3u</res>
+  </container>
+  <container id="0\AR\ar3651" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Chicago</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:37:25">rhap://172.21.145.229:60280/web/res_ar3651.m3u</res>
+  </container>
+  <container id="0\AR\ar5b" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Citizen Cope</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:29:23">rhap://172.21.145.229:60280/web/res_ar5b.m3u</res>
+  </container>
+  <container id="0\AR\ar1970" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Coheed And Cambria</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:59:56">rhap://172.21.145.229:60280/web/res_ar1970.m3u</res>
+  </container>
+  <container id="0\AR\ar166c" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Colbie Caillat</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:16">rhap://172.21.145.229:60280/web/res_ar166c.m3u</res>
+  </container>
+  <container id="0\AR\ar773" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Cold War Kids</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:54:52">rhap://172.21.145.229:60280/web/res_ar773.m3u</res>
+  </container>
+  <container id="0\AR\ar64" parentID="0\AR" childCount="4" restricted="true">
+    <dc:title>Coldplay</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:23:33">rhap://172.21.145.229:60280/web/res_ar64.m3u</res>
+  </container>
+  <container id="0\AR\ar201d" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Colin Hay</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:11:27">rhap://172.21.145.229:60280/web/res_ar201d.m3u</res>
+  </container>
+  <container id="0\AR\ar3fa" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Creedence Clearwater Revival</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:02:34">rhap://172.21.145.229:60280/web/res_ar3fa.m3u</res>
+  </container>
+  <container id="0\AR\ar71" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Dashboard Confessional</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:36:31">rhap://172.21.145.229:60280/web/res_ar71.m3u</res>
+  </container>
+  <container id="0\AR\ar2206" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Dave Matthews Band</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:45:42">rhap://172.21.145.229:60280/web/res_ar2206.m3u</res>
+  </container>
+  <container id="0\AR\arad" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>David Gray</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:53:53">rhap://172.21.145.229:60280/web/res_arad.m3u</res>
+  </container>
+  <container id="0\AR\ar20c0" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Dead Kennedys</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:56:42">rhap://172.21.145.229:60280/web/res_ar20c0.m3u</res>
+  </container>
+  <container id="0\AR\ar73" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Death Cab For Cutie</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:51:19">rhap://172.21.145.229:60280/web/res_ar73.m3u</res>
+  </container>
+  <container id="0\AR\ar43f" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Deep Dish</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:38">rhap://172.21.145.229:60280/web/res_ar43f.m3u</res>
+  </container>
+  <container id="0\AR\ar87d" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>DMX</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:15:15">rhap://172.21.145.229:60280/web/res_ar87d.m3u</res>
+  </container>
+  <container id="0\AR\ar2e5c" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Dr. Dre</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:05:22">rhap://172.21.145.229:60280/web/res_ar2e5c.m3u</res>
+  </container>
+  <container id="0\AR\ar35f4" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Elton John</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:37:20">rhap://172.21.145.229:60280/web/res_ar35f4.m3u</res>
+  </container>
+  <container id="0\AR\arf27" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Eminem</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:12:05">rhap://172.21.145.229:60280/web/res_arf27.m3u</res>
+  </container>
+  <container id="0\AR\ar12e7" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Eric Clapton</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:09:18">rhap://172.21.145.229:60280/web/res_ar12e7.m3u</res>
+  </container>
+  <container id="0\AR\ar1e4a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Everlast</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:11">rhap://172.21.145.229:60280/web/res_ar1e4a.m3u</res>
+  </container>
+  <container id="0\AR\ar12d3" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Fall Out Boy</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:47:51">rhap://172.21.145.229:60280/web/res_ar12d3.m3u</res>
+  </container>
+  <container id="0\AR\arf9a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Feist</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:49:56">rhap://172.21.145.229:60280/web/res_arf9a.m3u</res>
+  </container>
+  <container id="0\AR\ar30c3" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Fleet Foxes</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:39:36">rhap://172.21.145.229:60280/web/res_ar30c3.m3u</res>
+  </container>
+  <container id="0\AR\ar32b1" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Flogging Molly</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:09">rhap://172.21.145.229:60280/web/res_ar32b1.m3u</res>
+  </container>
+  <container id="0\AR\arc2a" parentID="0\AR" childCount="5" restricted="true">
+    <dc:title>Foo Fighters</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:32:36">rhap://172.21.145.229:60280/web/res_arc2a.m3u</res>
+  </container>
+  <container id="0\AR\ar28b6" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Franz Ferdinand</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:40:17">rhap://172.21.145.229:60280/web/res_ar28b6.m3u</res>
+  </container>
+  <container id="0\AR\ar107d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Frou Frou</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:03">rhap://172.21.145.229:60280/web/res_ar107d.m3u</res>
+  </container>
+  <container id="0\AR\ar189" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Gang Starr</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:18:25">rhap://172.21.145.229:60280/web/res_ar189.m3u</res>
+  </container>
+  <container id="0\AR\ar204" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Gin Blossoms</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:07:48">rhap://172.21.145.229:60280/web/res_ar204.m3u</res>
+  </container>
+  <container id="0\AR\ar58" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Goldfinger</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:41:43">rhap://172.21.145.229:60280/web/res_ar58.m3u</res>
+  </container>
+  <container id="0\AR\ar291" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Gorillaz</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:02:14">rhap://172.21.145.229:60280/web/res_ar291.m3u</res>
+  </container>
+  <container id="0\AR\ar1d19" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Harvey Danger</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:13:36">rhap://172.21.145.229:60280/web/res_ar1d19.m3u</res>
+  </container>
+  <container id="0\AR\arbc3" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Heart</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:18:49">rhap://172.21.145.229:60280/web/res_arbc3.m3u</res>
+  </container>
+  <container id="0\AR\ar13d5" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Hieroglyphics</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:10:41">rhap://172.21.145.229:60280/web/res_ar13d5.m3u</res>
+  </container>
+  <container id="0\AR\ar113" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Hot Hot Heat</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:02:10">rhap://172.21.145.229:60280/web/res_ar113.m3u</res>
+  </container>
+  <container id="0\AR\ar4c" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Incubus</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:33:58">rhap://172.21.145.229:60280/web/res_ar4c.m3u</res>
+  </container>
+  <container id="0\AR\ar3b" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Interpol</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:28:34">rhap://172.21.145.229:60280/web/res_ar3b.m3u</res>
+  </container>
+  <container id="0\AR\ar50" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Iron &amp; Wine</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:44:42">rhap://172.21.145.229:60280/web/res_ar50.m3u</res>
+  </container>
+  <container id="0\AR\ar49" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Jack Johnson</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:32:14">rhap://172.21.145.229:60280/web/res_ar49.m3u</res>
+  </container>
+  <container id="0\AR\ar5c9" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>James Morrison</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:43:26">rhap://172.21.145.229:60280/web/res_ar5c9.m3u</res>
+  </container>
+  <container id="0\AR\ar1c81" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Jimmy Eat World</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:46:39">rhap://172.21.145.229:60280/web/res_ar1c81.m3u</res>
+  </container>
+  <container id="0\AR\ar3c" parentID="0\AR" childCount="6" restricted="true">
+    <dc:title>Johann Sebastian Bach</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:46:54">rhap://172.21.145.229:60280/web/res_ar3c.m3u</res>
+  </container>
+  <container id="0\AR\ara94" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>John Legend</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:59:00">rhap://172.21.145.229:60280/web/res_ara94.m3u</res>
+  </container>
+  <container id="0\AR\ar44" parentID="0\AR" childCount="5" restricted="true">
+    <dc:title>Journey</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:16:30">rhap://172.21.145.229:60280/web/res_ar44.m3u</res>
+  </container>
+  <container id="0\AR\ar35ef" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Justin Timberlake</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:06:12">rhap://172.21.145.229:60280/web/res_ar35ef.m3u</res>
+  </container>
+  <container id="0\AR\ar2ed6" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Kansas</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:28">rhap://172.21.145.229:60280/web/res_ar2ed6.m3u</res>
+  </container>
+  <container id="0\AR\ar2404" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Kanye West</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:39:27">rhap://172.21.145.229:60280/web/res_ar2404.m3u</res>
+  </container>
+  <container id="0\AR\ar1457" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Kate Nash</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:05">rhap://172.21.145.229:60280/web/res_ar1457.m3u</res>
+  </container>
+  <container id="0\AR\ar5d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Keane</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:50:27">rhap://172.21.145.229:60280/web/res_ar5d.m3u</res>
+  </container>
+  <container id="0\AR\ar2558" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Kings Of Leon</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:17:38">rhap://172.21.145.229:60280/web/res_ar2558.m3u</res>
+  </container>
+  <container id="0\AR\ard00" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Lifehouse</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:55:18">rhap://172.21.145.229:60280/web/res_ard00.m3u</res>
+  </container>
+  <container id="0\AR\ar48a" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Linkin Park</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:18:27">rhap://172.21.145.229:60280/web/res_ar48a.m3u</res>
+  </container>
+  <container id="0\AR\ar202" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Live</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:59:18">rhap://172.21.145.229:60280/web/res_ar202.m3u</res>
+  </container>
+  <container id="0\AR\ar2602" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Loretta Yorke Feat. Ken</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:43">rhap://172.21.145.229:60280/web/res_ar2602.m3u</res>
+  </container>
+  <container id="0\AR\ar1807" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Louis XIV</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:42:50">rhap://172.21.145.229:60280/web/res_ar1807.m3u</res>
+  </container>
+  <container id="0\AR\ar187" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Ludacris</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:13:50">rhap://172.21.145.229:60280/web/res_ar187.m3u</res>
+  </container>
+  <container id="0\AR\ar92b" parentID="0\AR" childCount="4" restricted="true">
+    <dc:title>Ludwig van Beethoven</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:00:11">rhap://172.21.145.229:60280/web/res_ar92b.m3u</res>
+  </container>
+  <container id="0\AR\ar31f7" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Lynyrd Skynyrd</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:14:58">rhap://172.21.145.229:60280/web/res_ar31f7.m3u</res>
+  </container>
+  <container id="0\AR\ar2163" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>M.I.A.</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:23">rhap://172.21.145.229:60280/web/res_ar2163.m3u</res>
+  </container>
+  <container id="0\AR\ar336d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Meiko</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:40:36">rhap://172.21.145.229:60280/web/res_ar336d.m3u</res>
+  </container>
+  <container id="0\AR\ar1f7f" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>MGMT</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:40:19">rhap://172.21.145.229:60280/web/res_ar1f7f.m3u</res>
+  </container>
+  <container id="0\AR\ar4a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Michael Buble</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:57:54">rhap://172.21.145.229:60280/web/res_ar4a.m3u</res>
+  </container>
+  <container id="0\AR\ar46" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Michael Jackson</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:11:26">rhap://172.21.145.229:60280/web/res_ar46.m3u</res>
+  </container>
+  <container id="0\AR\ar268" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Millencolin</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:32:12">rhap://172.21.145.229:60280/web/res_ar268.m3u</res>
+  </container>
+  <container id="0\AR\ar20be" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Minor Threat</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:15:37">rhap://172.21.145.229:60280/web/res_ar20be.m3u</res>
+  </container>
+  <container id="0\AR\ar61c" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Modest Mouse</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:36:30">rhap://172.21.145.229:60280/web/res_ar61c.m3u</res>
+  </container>
+  <container id="0\AR\ar3e" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Muse</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:31">rhap://172.21.145.229:60280/web/res_ar3e.m3u</res>
+  </container>
+  <container id="0\AR\ar1b5c" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>N.E.R.D.</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:57:55">rhap://172.21.145.229:60280/web/res_ar1b5c.m3u</res>
+  </container>
+  <container id="0\AR\ar1c5" parentID="0\AR" childCount="6" restricted="true">
+    <dc:title>Nas</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="4:49:24">rhap://172.21.145.229:60280/web/res_ar1c5.m3u</res>
+  </container>
+  <container id="0\AR\ar31d" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Nine Inch Nails</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:11:38">rhap://172.21.145.229:60280/web/res_ar31d.m3u</res>
+  </container>
+  <container id="0\AR\ar24c" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Norah Jones</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:00">rhap://172.21.145.229:60280/web/res_ar24c.m3u</res>
+  </container>
+  <container id="0\AR\ar1491" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>O.A.R.</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:51:48">rhap://172.21.145.229:60280/web/res_ar1491.m3u</res>
+  </container>
+  <container id="0\AR\arb5b" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Oasis</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:49:58">rhap://172.21.145.229:60280/web/res_arb5b.m3u</res>
+  </container>
+  <container id="0\AR\ar11de" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>One Republic</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:27">rhap://172.21.145.229:60280/web/res_ar11de.m3u</res>
+  </container>
+  <container id="0\AR\ar57" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Outkast</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:57:18">rhap://172.21.145.229:60280/web/res_ar57.m3u</res>
+  </container>
+  <container id="0\AR\ar1890" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Panic At The Disco</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:42:55">rhap://172.21.145.229:60280/web/res_ar1890.m3u</res>
+  </container>
+  <container id="0\AR\ard02" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Paramore</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:41">rhap://172.21.145.229:60280/web/res_ard02.m3u</res>
+  </container>
+  <container id="0\AR\ar379e" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Passion Pit</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:34">rhap://172.21.145.229:60280/web/res_ar379e.m3u</res>
+  </container>
+  <container id="0\AR\ar52" parentID="0\AR" childCount="4" restricted="true">
+    <dc:title>Pearl Jam</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:20:42">rhap://172.21.145.229:60280/web/res_ar52.m3u</res>
+  </container>
+  <container id="0\AR\ar2a1b" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>People In Planes</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:52:49">rhap://172.21.145.229:60280/web/res_ar2a1b.m3u</res>
+  </container>
+  <container id="0\AR\arc96" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Pepper</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:43:02">rhap://172.21.145.229:60280/web/res_arc96.m3u</res>
+  </container>
+  <container id="0\AR\ar12d1" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Peter Bjorn and John</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:05">rhap://172.21.145.229:60280/web/res_ar12d1.m3u</res>
+  </container>
+  <container id="0\AR\ar13f6" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Philip Glass</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:20:39">rhap://172.21.145.229:60280/web/res_ar13f6.m3u</res>
+  </container>
+  <container id="0\AR\ar35a4" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Phoenix</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:19:28">rhap://172.21.145.229:60280/web/res_ar35a4.m3u</res>
+  </container>
+  <container id="0\AR\ar3429" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Pink Floyd</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:42:54">rhap://172.21.145.229:60280/web/res_ar3429.m3u</res>
+  </container>
+  <container id="0\AR\ar71c" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Plain White T&apos;s</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:20:24">rhap://172.21.145.229:60280/web/res_ar71c.m3u</res>
+  </container>
+  <container id="0\AR\ar20a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Portishead</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:05:37">rhap://172.21.145.229:60280/web/res_ar20a.m3u</res>
+  </container>
+  <container id="0\AR\ar1892" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Presidents of the United States of America</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:38:16">rhap://172.21.145.229:60280/web/res_ar1892.m3u</res>
+  </container>
+  <container id="0\AR\ar10f0" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Puscifer</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:48:53">rhap://172.21.145.229:60280/web/res_ar10f0.m3u</res>
+  </container>
+  <container id="0\AR\ar91a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>QB Finest</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:05:04">rhap://172.21.145.229:60280/web/res_ar91a.m3u</res>
+  </container>
+  <container id="0\AR\ar56" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Queens of the Stone Age</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:56:35">rhap://172.21.145.229:60280/web/res_ar56.m3u</res>
+  </container>
+  <container id="0\AR\ar577" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>R.E.M.</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:38:01">rhap://172.21.145.229:60280/web/res_ar577.m3u</res>
+  </container>
+  <container id="0\AR\ar1cf4" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Rage Against the Machine</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:14">rhap://172.21.145.229:60280/web/res_ar1cf4.m3u</res>
+  </container>
+  <container id="0\AR\ar3d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Regina Spektor</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:08:37">rhap://172.21.145.229:60280/web/res_ar3d.m3u</res>
+  </container>
+  <container id="0\AR\ar91b" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Richard Wagner</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:05:11">rhap://172.21.145.229:60280/web/res_ar91b.m3u</res>
+  </container>
+  <container id="0\AR\ar75" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Rise Against</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:56:15">rhap://172.21.145.229:60280/web/res_ar75.m3u</res>
+  </container>
+  <container id="0\AR\ar1db2" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Robert Miles</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:10:16">rhap://172.21.145.229:60280/web/res_ar1db2.m3u</res>
+  </container>
+  <container id="0\AR\ar34e6" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Rodrigo Y Gabriela</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:22">rhap://172.21.145.229:60280/web/res_ar34e6.m3u</res>
+  </container>
+  <container id="0\AR\ar5a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Santana</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:22">rhap://172.21.145.229:60280/web/res_ar5a.m3u</res>
+  </container>
+  <container id="0\AR\ar2402" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Santogold</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:24">rhap://172.21.145.229:60280/web/res_ar2402.m3u</res>
+  </container>
+  <container id="0\AR\ar1cd2" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Sara Bareilles</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:48:56">rhap://172.21.145.229:60280/web/res_ar1cd2.m3u</res>
+  </container>
+  <container id="0\AR\ar10f2" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Saves the Day</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:37:33">rhap://172.21.145.229:60280/web/res_ar10f2.m3u</res>
+  </container>
+  <container id="0\AR\ar12e6" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Scorpions</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:08:09">rhap://172.21.145.229:60280/web/res_ar12e6.m3u</res>
+  </container>
+  <container id="0\AR\ar91e" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Sergei Rachmaninov</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:23:54">rhap://172.21.145.229:60280/web/res_ar91e.m3u</res>
+  </container>
+  <container id="0\AR\ar100b" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Serj Tankian</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:04">rhap://172.21.145.229:60280/web/res_ar100b.m3u</res>
+  </container>
+  <container id="0\AR\ar5f" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Shiny Toy Guns</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:26:43">rhap://172.21.145.229:60280/web/res_ar5f.m3u</res>
+  </container>
+  <container id="0\AR\ar61" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Silverstein</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:46:14">rhap://172.21.145.229:60280/web/res_ar61.m3u</res>
+  </container>
+  <container id="0\AR\ar77f" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Silversun Pickups</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:22:52">rhap://172.21.145.229:60280/web/res_ar77f.m3u</res>
+  </container>
+  <container id="0\AR\ar39" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>slightly stoopid</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:25:17">rhap://172.21.145.229:60280/web/res_ar39.m3u</res>
+  </container>
+  <container id="0\AR\ar671" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Smashing Pumpkins</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:03:18">rhap://172.21.145.229:60280/web/res_ar671.m3u</res>
+  </container>
+  <container id="0\AR\ar16f3" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Snoop Dogg</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:38:06">rhap://172.21.145.229:60280/web/res_ar16f3.m3u</res>
+  </container>
+  <container id="0\AR\ar42" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Snow Patrol</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:45:02">rhap://172.21.145.229:60280/web/res_ar42.m3u</res>
+  </container>
+  <container id="0\AR\arf79" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Soulja Boy Tell&apos; Em</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:41">rhap://172.21.145.229:60280/web/res_arf79.m3u</res>
+  </container>
+  <container id="0\AR\ar2c38" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Soundgarden</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:23:28">rhap://172.21.145.229:60280/web/res_ar2c38.m3u</res>
+  </container>
+  <container id="0\AR\ar12b5" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Steve Miller Band</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:26">rhap://172.21.145.229:60280/web/res_ar12b5.m3u</res>
+  </container>
+  <container id="0\AR\ar40" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Stone Temple Pilots</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:40:30">rhap://172.21.145.229:60280/web/res_ar40.m3u</res>
+  </container>
+  <container id="0\AR\ar59" parentID="0\AR" childCount="5" restricted="true">
+    <dc:title>Sublime</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:40:37">rhap://172.21.145.229:60280/web/res_ar59.m3u</res>
+  </container>
+  <container id="0\AR\ar5c" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>System of a Down</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:59:49">rhap://172.21.145.229:60280/web/res_ar5c.m3u</res>
+  </container>
+  <container id="0\AR\ar2671" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>T.I.</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:14:51">rhap://172.21.145.229:60280/web/res_ar2671.m3u</res>
+  </container>
+  <container id="0\AR\ar8d8" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Talking Heads</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:22">rhap://172.21.145.229:60280/web/res_ar8d8.m3u</res>
+  </container>
+  <container id="0\AR\ar2da2" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Ted Nugent</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="2:25:04">rhap://172.21.145.229:60280/web/res_ar2da2.m3u</res>
+  </container>
+  <container id="0\AR\ar206" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Temple of the Dog</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:06">rhap://172.21.145.229:60280/web/res_ar206.m3u</res>
+  </container>
+  <container id="0\AR\ar22ae" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Airborne Toxic Event</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:05:02">rhap://172.21.145.229:60280/web/res_ar22ae.m3u</res>
+  </container>
+  <container id="0\AR\ar6c7" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The B-52&apos;s</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:36">rhap://172.21.145.229:60280/web/res_ar6c7.m3u</res>
+  </container>
+  <container id="0\AR\ar1aca" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Bravery</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:37:28">rhap://172.21.145.229:60280/web/res_ar1aca.m3u</res>
+  </container>
+  <container id="0\AR\arb5d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Cure</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:09:38">rhap://172.21.145.229:60280/web/res_arb5d.m3u</res>
+  </container>
+  <container id="0\AR\ar1ee5" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Doobie Brothers</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:44:52">rhap://172.21.145.229:60280/web/res_ar1ee5.m3u</res>
+  </container>
+  <container id="0\AR\ar1354" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Flaming Lips</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:53">rhap://172.21.145.229:60280/web/res_ar1354.m3u</res>
+  </container>
+  <container id="0\AR\ar47" parentID="0\AR" childCount="4" restricted="true">
+    <dc:title>The Killers</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:21:39">rhap://172.21.145.229:60280/web/res_ar47.m3u</res>
+  </container>
+  <container id="0\AR\ar2065" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Mamas &amp; The Papas</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:02:42">rhap://172.21.145.229:60280/web/res_ar2065.m3u</res>
+  </container>
+  <container id="0\AR\ar1560" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Mighty Mighty Bosstones</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:15">rhap://172.21.145.229:60280/web/res_ar1560.m3u</res>
+  </container>
+  <container id="0\AR\ar29d6" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Notorious B.I.G.</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:07:46">rhap://172.21.145.229:60280/web/res_ar29d6.m3u</res>
+  </container>
+  <container id="0\AR\ar45" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Offspring</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:31:08">rhap://172.21.145.229:60280/web/res_ar45.m3u</res>
+  </container>
+  <container id="0\AR\ar43" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Postal Service</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:44:53">rhap://172.21.145.229:60280/web/res_ar43.m3u</res>
+  </container>
+  <container id="0\AR\ar191d" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Raconteurs</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:00">rhap://172.21.145.229:60280/web/res_ar191d.m3u</res>
+  </container>
+  <container id="0\AR\ar912" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Rolling Stones</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:04:30">rhap://172.21.145.229:60280/web/res_ar912.m3u</res>
+  </container>
+  <container id="0\AR\ar528" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Shins</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:41:50">rhap://172.21.145.229:60280/web/res_ar528.m3u</res>
+  </container>
+  <container id="0\AR\ar1b5a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Spill Canvas</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:03:23">rhap://172.21.145.229:60280/web/res_ar1b5a.m3u</res>
+  </container>
+  <container id="0\AR\ar1168" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Streets</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:50:18">rhap://172.21.145.229:60280/web/res_ar1168.m3u</res>
+  </container>
+  <container id="0\AR\ar208" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>The Strokes</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:51:58">rhap://172.21.145.229:60280/web/res_ar208.m3u</res>
+  </container>
+  <container id="0\AR\araf7" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>The Used</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="1:26:53">rhap://172.21.145.229:60280/web/res_araf7.m3u</res>
+  </container>
+  <container id="0\AR\ar366a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Tobias Froberg</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:39:05">rhap://172.21.145.229:60280/web/res_ar366a.m3u</res>
+  </container>
+  <container id="0\AR\ar48" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Tom Petty</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:58:22">rhap://172.21.145.229:60280/web/res_ar48.m3u</res>
+  </container>
+  <container id="0\AR\ar22b5" parentID="0\AR" childCount="3" restricted="true">
+    <dc:title>Tool</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="3:30:30">rhap://172.21.145.229:60280/web/res_ar22b5.m3u</res>
+  </container>
+  <container id="0\AR\ar201a" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Vampire Weekend</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:02:17">rhap://172.21.145.229:60280/web/res_ar201a.m3u</res>
+  </container>
+  <container id="0\AR\ar30c1" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Van Halen</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:05:21">rhap://172.21.145.229:60280/web/res_ar30c1.m3u</res>
+  </container>
+  <container id="0\AR\ar60" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Weezer</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:41:08">rhap://172.21.145.229:60280/web/res_ar60.m3u</res>
+  </container>
+  <container id="0\AR\ar825" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>White Stripes</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:48:07">rhap://172.21.145.229:60280/web/res_ar825.m3u</res>
+  </container>
+  <container id="0\AR\ar8f8" parentID="0\AR" childCount="2" restricted="true">
+    <dc:title>Wolfgang Amadeus Mozart</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:13:13">rhap://172.21.145.229:60280/web/res_ar8f8.m3u</res>
+  </container>
+  <container id="0\AR\ar1255" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Wolfmother</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:54:29">rhap://172.21.145.229:60280/web/res_ar1255.m3u</res>
+  </container>
+  <container id="0\AR\ar4d8" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Wu-Tang Clan</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:50:52">rhap://172.21.145.229:60280/web/res_ar4d8.m3u</res>
+  </container>
+  <container id="0\AR\ar55" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Yeah Yeah Yeahs</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:38:56">rhap://172.21.145.229:60280/web/res_ar55.m3u</res>
+  </container>
+  <container id="0\AR\ar62" parentID="0\AR" childCount="1" restricted="true">
+    <dc:title>Zero 7</dc:title>
+    <upnp:class>object.container.person.musicArtist</upnp:class>
+    <res protocolInfo="real.com-rhapsody-http-1-0:*:audio/mpegurl:*" duration="0:59:01">rhap://172.21.145.229:60280/web/res_ar62.m3u</res>
+  </container>
+</DIDL-Lite>

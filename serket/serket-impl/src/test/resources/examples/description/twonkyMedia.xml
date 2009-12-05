@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+  </specVersion>
+  <URLBase>http://192.168.0.102:9005/</URLBase>
+  <device>
+    <dlna:X_DLNADOC xmlns:dlna="urn:schemas-dlna-org:device-1-0">DMS-1.00</dlna:X_DLNADOC>
+    <dlna:X_DLNACAP xmlns:dlna="urn:schemas-dlna-org:device-1-0">av-upload,image-upload,audio-upload</dlna:X_DLNACAP>
+    <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
+    <UDN>uuid:7076436f-6e65-1063-8074-0018dedc11b5</UDN>
+    <friendlyName>TwonkyHarkness</friendlyName>
+    <manufacturer>PacketVideo</manufacturer>
+    <manufacturerURL>http://www.pv.com</manufacturerURL>
+    <modelName>TwonkyMedia</modelName>
+    <modelNumber>5.0.68</modelNumber>
+    <modelURL>http://www.pv.com</modelURL>
+    <modelDescription>TwonkyMedia</modelDescription>
+    <serialNumber>5.0.68</serialNumber>
+    <UPC />
+    <presentationURL>http://192.168.0.102:9005//</presentationURL>
+    <iconList>
+      <icon>
+        <mimetype>image/jpeg</mimetype>
+        <height>48</height>
+        <width>48</width>
+        <depth>24</depth>
+        <url>images/twonkyicon-48x48.jpg</url>
+      </icon>
+      <icon>
+        <mimetype>image/jpeg</mimetype>
+        <height>120</height>
+        <width>120</width>
+        <depth>24</depth>
+        <url>images/twonkyicon-120x120.jpg</url>
+      </icon>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <height>48</height>
+        <width>48</width>
+        <depth>24</depth>
+        <url>images/twonkyicon-48x48.png</url>
+      </icon>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <height>120</height>
+        <width>120</width>
+        <depth>24</depth>
+        <url>images/twonkyicon-120x120.png</url>
+      </icon>
+
+    </iconList>
+    <serviceList>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+        <SCPDURL>ConnectionManager.xml</SCPDURL>
+        <eventSubURL>ConnectionManager/Event</eventSubURL>
+        <controlURL>ConnectionManager/Control</controlURL>
+      </service>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:ContentDirectory:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:ContentDirectory</serviceId>
+        <SCPDURL>ContentDirectory.xml</SCPDURL>
+        <eventSubURL>ContentDirectory/Event</eventSubURL>
+        <controlURL>ContentDirectory/Control</controlURL>
+      </service>
+      <service>
+        <serviceType>urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1</serviceType>
+        <serviceId>urn:microsoft.com:serviceId:X_MS_MediaReceiverRegistrar</serviceId>
+        <SCPDURL>/MediaReceiverRegistrar.xml</SCPDURL>
+        <eventSubURL>/MediaReceiverRegistrar/Event</eventSubURL>
+        <controlURL>/MediaReceiverRegistrar/Control</controlURL>
+      </service>
+
+    </serviceList>
+  </device>
+</root>

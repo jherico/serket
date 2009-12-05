@@ -1,0 +1,21 @@
+
+  <!--
+    <Configure id="Server" class="org.mortbay.jetty.servlet.Context"> <Set name="contextPath">/</Set> <Set name="resourceBase"><SystemProperty name="jetty.docroot"
+    default="."/></Set> <Call name="addServlet"><Arg>org.mortbay.jetty.servlet.DefaultServlet</Arg><Arg>/</Arg></Call> </Configure>
+  -->
+  
+<Configure id="Server" class="org.mortbay.jetty.Server">
+  <Call name="addConnector">
+    <Arg>
+      <New class="org.mortbay.jetty.nio.SelectChannelConnector">
+        <Set name="port">
+          <SystemProperty name="jetty.port" default="8080" />
+        </Set>
+      </New>
+    </Arg>
+  </Call>
+</Configure>
+
+
+
+          

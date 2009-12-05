@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+LOCATION: http://192.168.64.64:51364/
+EXT:
+SERVER: WINDOWS, UPnP/1.1, Intel MicroStack/1.0.1868
+USN: uuid:MQSPXZFGQOJZNRTKJIT::upnp:rootdevice
+CACHE-CONTROL: max-age=1800
+ST: upnp:rootdevice
+
