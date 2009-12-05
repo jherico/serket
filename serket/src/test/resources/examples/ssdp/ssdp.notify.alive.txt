@@ -1,9 +1,0 @@
-NOTIFY * HTTP/1.1
-HOST: 239.255.255.250:1900
-NT: urn:schemas-upnp-org:service:ConnectionManager:1
-NTS: ssdp:alive
-LOCATION: http://172.16.92.80:5001/description/fetch
-USN: Windows_7-x86-6.1::urn:schemas-upnp-org:service:ConnectionManager:1
-CACHE-CONTROL: max-age=1800
-SERVER: Windows_7-x86-6.1, UPnP/1.0, PMS/1.20
-
