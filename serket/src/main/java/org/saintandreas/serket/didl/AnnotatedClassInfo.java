@@ -13,7 +13,7 @@ import java.util.TreeMap;
 
 import org.saintandreas.serket.didl.annotations.DIDLAttribute;
 import org.saintandreas.serket.didl.annotations.DIDLElement;
-import org.saintandreas.serket.didl.annotations.DIDLSubElement;
+import org.saintandreas.serket.didl.annotations.DIDLProperty;
 import org.saintandreas.util.ReflectUtil;
 import org.saintandreas.util.ReflectUtil.ValueAccessor;
 import org.w3c.dom.Element;
@@ -22,16 +22,16 @@ import org.w3c.dom.Node;
 public class AnnotatedClassInfo {
     private DIDLElement itemAnnotation = null;
 
-    private class DIDLElementComparator implements Comparator<DIDLSubElement> {
+    private class DIDLElementComparator implements Comparator<DIDLProperty> {
 
         @Override
-        public int compare(DIDLSubElement o1, DIDLSubElement o2) {
+        public int compare(DIDLProperty o1, DIDLProperty o2) {
             return o1.order() == o2.order() ? 0 : (o1.order() > o2.order() ? 1 : -1);
         }
 
     }
 
-    private SortedMap<DIDLSubElement, ValueAccessor<Method>> elementMap = new TreeMap<DIDLSubElement, ValueAccessor<Method>>(new DIDLElementComparator());
+    private SortedMap<DIDLProperty, ValueAccessor<Method>> elementMap = new TreeMap<DIDLProperty, ValueAccessor<Method>>(new DIDLElementComparator());
     private Map<DIDLAttribute, ValueAccessor<Method>> attributeMap = new HashMap<DIDLAttribute, ValueAccessor<Method>>();
 
 
@@ -113,7 +113,7 @@ public class AnnotatedClassInfo {
                     attributeMap.put(attr, ReflectUtil.getValueAccessor(m));
                 }
 
-                DIDLSubElement ele = m.getAnnotation(DIDLSubElement.class);
+                DIDLProperty ele = m.getAnnotation(DIDLProperty.class);
                 if (ele != null && !elementMap.containsKey(ele)) {
                     elementMap.put(ele, ReflectUtil.getValueAccessor(m));
                 }
@@ -131,7 +131,7 @@ public class AnnotatedClassInfo {
             addAttribute(retVal, entry.getKey(), entry.getValue().getValueSafely(obj));
         }
 
-        for (Map.Entry<DIDLSubElement, ValueAccessor<Method>> entry : elementMap.entrySet()) {
+        for (Map.Entry<DIDLProperty, ValueAccessor<Method>> entry : elementMap.entrySet()) {
             addElement(retVal, entry.getKey(), entry.getValue().getValueSafely(obj));
         }
         
@@ -148,7 +148,7 @@ public class AnnotatedClassInfo {
         node.setAttribute(annotation.value(), value.toString());
     }
 
-    private static void addElement(Element node, DIDLSubElement annotation, Object value) {
+    private static void addElement(Element node, DIDLProperty annotation, Object value) {
         if (value == null) {
             if (annotation.required()) {
                 throw new RuntimeException("required element " + annotation.value() + " had null value");

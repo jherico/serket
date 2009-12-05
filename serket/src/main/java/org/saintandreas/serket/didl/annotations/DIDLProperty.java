@@ -16,7 +16,7 @@ import org.saintandreas.serket.didl.DIDLNamespace;
 @TypeQualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({METHOD, FIELD})
-public @interface DIDLSubElement {
+public @interface DIDLProperty {
     public String value();
     public DIDLNamespace namespace() default DIDLNamespace.DIDL;
     public boolean required() default false;

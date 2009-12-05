@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.didl.DIDLObject;
 import org.saintandreas.serket.didl.DIDLHelper;
+import org.saintandreas.serket.didl.types.Object;
 import org.saintandreas.serket.impl.didl.SerketBase;
 import org.saintandreas.serket.impl.didl.SerketContainer;
 import org.saintandreas.serket.impl.didl.misc.RootContainer;

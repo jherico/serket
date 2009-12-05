@@ -22,7 +22,7 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.didl.DIDLObject;
+import org.saintandreas.serket.didl.types.Object;
 import org.saintandreas.serket.impl.didl.AContainerImpl;
 import org.saintandreas.serket.impl.didl.SerketBase;
 import org.saintandreas.serket.impl.didl.SerketContainer;
@@ -66,7 +66,7 @@ public class RootContainer extends AContainerImpl<SerketBase> {
     @Override
     public boolean refreshChildren() {
         boolean retVal = false;
-        for (DIDLObject child : getChildren()) {
+        for (Object child : getChildren()) {
             if (child instanceof SerketContainer<?>) {
                 retVal |= ((SerketContainer<?>)child).refreshChildren();
             }

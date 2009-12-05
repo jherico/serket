@@ -1,0 +1,32 @@
+<DIDL-Lite>
+  <container id="virtualpath://upnpmusic" parentID="0" restricted="1" searchable="1" childCount="0">
+    <dc:title>Music Files</dc:title>
+    <dc:creator>Unknown</dc:creator>
+    <upnp:genre>Unknown</upnp:genre>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="virtualpath://upnpvideo" parentID="0" restricted="1" searchable="1" childCount="0">
+    <dc:title>Video Files</dc:title>
+    <dc:creator>Unknown</dc:creator>
+    <upnp:genre>Unknown</upnp:genre>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="virtualpath://upnppictures" parentID="0" restricted="1" searchable="1" childCount="0">
+    <dc:title>Picture Files</dc:title>
+    <dc:creator>Unknown</dc:creator>
+    <upnp:genre>Unknown</upnp:genre>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="musicdb://" parentID="0" restricted="1" searchable="1">
+    <dc:title>Music Library</dc:title>
+    <dc:creator>Unknown</dc:creator>
+    <upnp:genre>Unknown</upnp:genre>
+    <upnp:class>object.container</upnp:class>
+  </container>
+  <container id="videodb://" parentID="0" restricted="1" searchable="1">
+    <dc:title>Video Library</dc:title>
+    <dc:creator>Unknown</dc:creator>
+    <upnp:genre>Unknown</upnp:genre>
+    <upnp:class>object.container.storageFolder</upnp:class>
+  </container>
+</DIDL-Lite>

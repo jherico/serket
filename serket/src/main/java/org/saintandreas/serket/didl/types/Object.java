@@ -18,7 +18,7 @@
 /*
  * Copyright 2009 Bradley Austin Davis
  */
-package org.saintandreas.serket.didl;
+package org.saintandreas.serket.didl.types;
 
 import org.saintandreas.serket.didl.annotations.DIDLAttribute;
 
@@ -28,7 +28,7 @@ import org.saintandreas.serket.didl.annotations.DIDLAttribute;
  * @author bdavis@saintandreas.org
  *
  */
-public interface DIDLObject {
+public interface Object {
     @DIDLAttribute(value="id", required=true)
     public String getId();
 

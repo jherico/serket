@@ -2,11 +2,11 @@ package org.saintandreas.serket.impl.didl;
 
 import java.util.List;
 
-import org.saintandreas.serket.didl.DIDLContainer;
+import org.saintandreas.serket.didl.types.Container;
 import org.saintandreas.serket.impl.didl.event.SerketEvent;
 import org.saintandreas.serket.impl.didl.event.SerketEventListener;
 
-public interface SerketContainer<T extends SerketBase> extends SerketEventListener, SerketBase, DIDLContainer{
+public interface SerketContainer<T extends SerketBase> extends SerketEventListener, SerketBase, Container{
     // TODO this kind of getChildren is incompatible with sort criteria
     public List<T> getChildren(int start, int count);
     public int getUpdateId(); 

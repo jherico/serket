@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.saintandreas.serket.didl.DIDLContainer;
+import org.saintandreas.serket.didl.types.Container;
 import org.saintandreas.serket.impl.didl.event.SerketEvent;
 import org.saintandreas.serket.impl.didl.event.SerketEventListener;
 
@@ -20,7 +20,7 @@ public abstract class AContainerImpl<T extends SerketBase> extends BaseImpl impl
 
     @Override
     public String getUpnpClass() {
-        return DIDLContainer.UPNP_OBJECT_CLASS;
+        return Container.UPNP_OBJECT_CLASS;
     }
 
     @Override

@@ -1,10 +1,10 @@
-package org.saintandreas.serket.didl;
+package org.saintandreas.serket.didl.types;
 
 import org.saintandreas.serket.didl.annotations.DIDLAttribute;
 import org.saintandreas.serket.didl.annotations.DIDLElement;
 
 @DIDLElement("desc")
-public interface DIDLDesc extends DIDLObject{
+public interface Desc extends Object{
 
     @DIDLAttribute("type") 
     public String getType();

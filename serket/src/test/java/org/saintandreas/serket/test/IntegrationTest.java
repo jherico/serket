@@ -47,6 +47,8 @@ import org.saintandreas.serket.ssdp.Message;
 import org.saintandreas.serket.ssdp.SSDP;
 import org.saintandreas.serket.ssdp.SSDPServer;
 import org.saintandreas.util.NetUtil;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class IntegrationTest {
     private static final Log LOG = LogFactory.getLog(IntegrationTest.class);
@@ -60,6 +62,7 @@ public class IntegrationTest {
     private final Server jettyServer;
     private final SSDPServer ssdpServer;
 
+    private final ConfigurableApplicationContext context;
     
     public class HandlerFactory implements SSDPServer.HandlerFactory {
         @Override
@@ -123,6 +126,7 @@ public class IntegrationTest {
 
     public IntegrationTest() {
         uuid = "uuid:" + UUID.randomUUID().toString();
+        context = new ClassPathXmlApplicationContext("test-context.xml");
         mediaServer = new SerketMediaServer(uuid, "/ui");
         mediaServer.getServiceList().add(cd = new SerketContentDirectory("/service/cd/control", "/service/cd/event"));
         FileContainer fc = new FileContainer(cd.getRootContainer(), new File("c:\\media")); 

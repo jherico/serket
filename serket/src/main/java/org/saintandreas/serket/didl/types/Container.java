@@ -15,11 +15,12 @@
  * You should have received a copy of the GNU General Public License along with
  * serket. If not, see <http://www.gnu.org/licenses/>.
 */
-package org.saintandreas.serket.didl;
+package org.saintandreas.serket.didl.types;
 
+import org.saintandreas.serket.didl.DIDLNamespace;
 import org.saintandreas.serket.didl.annotations.DIDLAttribute;
 import org.saintandreas.serket.didl.annotations.DIDLElement;
-import org.saintandreas.serket.didl.annotations.DIDLSubElement;
+import org.saintandreas.serket.didl.annotations.DIDLProperty;
 
 
 
@@ -28,7 +29,7 @@ import org.saintandreas.serket.didl.annotations.DIDLSubElement;
  * 
  */
 @DIDLElement("container")
-public interface DIDLContainer extends DIDLObject {
+public interface Container extends Object {
     public static final String UPNP_OBJECT_CLASS = "object.container";
 
     @DIDLAttribute(value="parentID", required=true)
@@ -40,10 +41,10 @@ public interface DIDLContainer extends DIDLObject {
     @DIDLAttribute("neverPlayable")
     public Boolean isNeverPlayable();
 
-    @DIDLSubElement(value="title", namespace=DIDLNamespace.DUBLIN, required=true, order=0)
+    @DIDLProperty(value="title", namespace=DIDLNamespace.DUBLIN, required=true, order=0)
     public String getTitle();
 
-    @DIDLSubElement(value="class", namespace=DIDLNamespace.UPNP, required=true, order=1)
+    @DIDLProperty(value="class", namespace=DIDLNamespace.UPNP, required=true, order=1)
     public String getUpnpClass();
 
     @DIDLAttribute("searchable")
