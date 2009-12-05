@@ -17,7 +17,7 @@ import javax.xml.soap.SOAPMessage;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.saintandreas.serket.impl.BaseService;
+import org.saintandreas.serket.service.BaseService;
 import org.saintandreas.util.SOAPSerializable;
 import org.saintandreas.util.SOAPUtil;
 import org.saintandreas.util.StringUtil;

@@ -9,7 +9,7 @@ import javax.xml.soap.SOAPBodyElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 
-import org.saintandreas.serket.impl.BaseService;
+import org.saintandreas.serket.service.BaseService;
 import org.saintandreas.util.SOAPSerializable;
 import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Element;

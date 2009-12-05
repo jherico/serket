@@ -18,10 +18,10 @@
 package org.saintandreas.serket.impl.av;
 
 import org.saintandreas.serket.Serket;
+import org.saintandreas.serket.device.BaseDevice;
 import org.saintandreas.serket.device.DeviceType;
 import org.saintandreas.serket.device.Manufacturer;
 import org.saintandreas.serket.device.Model;
-import org.saintandreas.serket.impl.BaseDevice;
 import org.saintandreas.util.NetUtil;
 
 public class SerketMediaServer extends BaseDevice {

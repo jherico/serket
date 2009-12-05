@@ -3,6 +3,34 @@
   <groupId>org.saintandreas</groupId>
   <artifactId>serket</artifactId>
   <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <inceptionYear>2009</inceptionYear>
+  <name>Serket DLNA Library</name>
+  <description>An open source implementation of DLNA / UPNP protocols.</description>
+  <url>http://code.google.com/p/serket/</url>
+  <developers>
+    <developer>
+      <id>bdavis</id>
+      <name>Brad Davis</name>
+      <email>bdavis@saintandreas.org</email>
+      <roles>
+        <role>project lead</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:svn:http://serket.googlecode.com/svn/trunk/serket-read-only</connection>
+    <developerConnection>scm:svn:https://serket.googlecode.com/svn/trunk/serket</developerConnection>
+    <url>http://code.google.com/p/serket/source/checkout</url>
+  </scm>
+  <modules>
+    <module>serket-didl</module>
+    <module>serket-core</module>
+    <module>serket-ssdp</module>
+    <module>serket-scpd</module>
+    <module>serket-impl</module>
+  </modules>
   <build>
     <pluginManagement>
       <plugins>
@@ -17,106 +45,41 @@
       </plugins>
     </pluginManagement>
   </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.saintandreas</groupId>
+        <artifactId>util</artifactId>
+        <version>0.9.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google</groupId>
+        <artifactId>guava</artifactId>
+        <version>0.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>1.3.9</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>[1.5.8,10)</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+        <version>3.0.1</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-annotations</artifactId>
-      <version>3.4.0.GA</version>
-    </dependency>
-    <dependency>
-      <groupId>javassist</groupId>
-      <artifactId>javassist</artifactId>
-      <version>3.8.0.GA</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>3.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google</groupId>
-      <artifactId>guava</artifactId>
-      <version>0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>1.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>1.2.124</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>jsr305</artifactId>
-      <version>1.3.9</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-httpclient</groupId>
-      <artifactId>commons-httpclient</artifactId>
-      <version>3.0.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>[1.5.8,10)</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>[1.5.8,10)</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-webapp</artifactId>
-      <version>7.0.0.v20091005</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-http</artifactId>
-      <version>7.0.0.v20091005</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>2.5.6</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>2.5.6</version>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-annotations</artifactId>
-      <version>3.4.0.GA</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>persistence-api</artifactId>
-      <version>1.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.15</version>
-    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -124,17 +87,8 @@
       <scope>test</scope>
     </dependency>
     <!--
-      <dependency> <groupId>org.springframework</groupId> <artifactId>spring-orm</artifactId> <version>2.5.6</version> </dependency> <dependency> <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId> <version>2.4</version> </dependency> <dependency> <groupId>commons-httpclient</groupId> <artifactId>commons-httpclient</artifactId>
-      <version>3.1</version> </dependency> <dependency> <groupId>commons-io</groupId> <artifactId>commons-io</artifactId> <version>1.4</version> </dependency> <dependency>
-      <groupId>commons-codec</groupId> <artifactId>commons-codec</artifactId> <version>1.3</version> </dependency> <dependency> <groupId>commons-configuration</groupId>
-      <artifactId>commons-configuration</artifactId> <version>1.6</version> </dependency> <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId>
-      <version>1.2.121</version> </dependency> <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-server</artifactId> <version>7.0.0.v20091005</version>
-      </dependency> <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-http</artifactId> <version>7.0.0.v20091005</version> </dependency> <dependency>
-      <groupId>org.hamcrest</groupId> <artifactId>hamcrest-all</artifactId> <version>1.1</version> </dependency> <dependency> <groupId>org.jdom</groupId>
-      <artifactId>jdom</artifactId> <version>1.1</version> </dependency> <dependency> <groupId>org.apache.sanselan</groupId> <artifactId>sanselan</artifactId>
-      <version>0.97-incubator</version> </dependency> <dependency> <groupId>org.beanshell</groupId> <artifactId>bsh-core</artifactId> <version>2.0b4</version> </dependency>
-      <dependency> <groupId>com.sun.jna</groupId> <artifactId>jna</artifactId> <version>3.0.9</version> </dependency>
     -->
   </dependencies>
 </project>
+
+
