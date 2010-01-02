@@ -29,6 +29,8 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.google.common.base.Charsets;
 
@@ -118,7 +120,7 @@ public final class StringUtil {
     }
 
     public static String readFromFile(File file) throws IOException {
-        return readFromFile(file, null);
+        return readFromFile(file, Charsets.UTF_8);
     }
 
     public static String readFromFile(File file, Charset charset) throws IOException {
@@ -147,7 +149,7 @@ public final class StringUtil {
     }
 
     public static String read(InputStream stream) throws IOException {
-        return read(stream, null);
+        return read(stream, Charsets.UTF_8);
     }
 
     public static String read(InputStream stream, Charset charset) throws IOException {
@@ -164,5 +166,44 @@ public final class StringUtil {
         }
         return mRetVal;
     }
+
+    public static String concat(String[] strings) {
+        return concat(strings, ',');
+    }
+
+    public static String concat(String[] strings, char sep) {
+        StringBuffer mRetVal = new StringBuffer();
+        if (strings != null) {
+            for (String s : strings) {
+                if (mRetVal.length() != 0) {
+                    mRetVal.append(sep);
+                }
+                mRetVal.append(s);
+            }
+        }
+        return mRetVal.toString();
+    }
+
+    /**
+     * parses a line by a regular expression and returns the first hit. If the
+     * regular expression doesn't fit, it returns the default value
+     * 
+     * @param s
+     *            the line to be parsed
+     * @param regex
+     *            the parsing regular expression
+     * @param default_value
+     *            the value to be returned, if teh regex doesn't apply
+     * @return either the parsed result or the default_value
+     */
+    public static String parseStringByRE(String s, String regex, String default_value) {
+        Pattern p = Pattern.compile(regex, Pattern.DOTALL + Pattern.MULTILINE + Pattern.CASE_INSENSITIVE + Pattern.UNIX_LINES);
+        Matcher m = p.matcher(s);
+        if (m.find()) {
+            return m.group(1);
+        }
+        return default_value;
+    }
+
 
 }
