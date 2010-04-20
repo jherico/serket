@@ -24,6 +24,7 @@ import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.impl.didl.AContainerImpl;
 import org.saintandreas.serket.impl.didl.SerketBase;
 import org.saintandreas.serket.impl.didl.SerketContainer;
+import org.saintandreas.serket.impl.video.VideoUtil;
 
 /**
  * @author bdavis@saintandreas.org
@@ -64,6 +65,8 @@ public class FileContainer extends AContainerImpl<SerketBase> {
             for (File f : file.listFiles()) {
                 if (f.isDirectory()) {
                     addChild(new FileContainer(this, f));
+                } else if (VideoUtil.isVideoFile(f)) {
+                    
                 }
             }
             lastModified = file.lastModified();

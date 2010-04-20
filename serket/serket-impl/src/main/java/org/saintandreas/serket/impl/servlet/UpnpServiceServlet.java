@@ -20,7 +20,8 @@ import org.apache.commons.logging.LogFactory;
 import org.saintandreas.serket.service.BaseService;
 import org.saintandreas.util.SOAPSerializable;
 import org.saintandreas.util.SOAPUtil;
-import org.saintandreas.util.StringUtil;
+
+import com.google.common.io.CharStreams;
 
 @SuppressWarnings("serial")
 public class UpnpServiceServlet extends HttpServlet {
@@ -34,7 +35,7 @@ public class UpnpServiceServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         try {
             String[] soapAction = request.getHeader("SOAPACTION").replaceAll("\"", "").split("#");
-            String body = StringUtil.read(request.getReader());
+            String body = CharStreams.toString(request.getReader());
             MimeHeaders headers = SOAPUtil.getMIMEHeaders(request);
             SOAPMessage message = SOAPUtil.parse(headers, new ByteArrayInputStream(body.getBytes()));
             for (BaseService service : services) {

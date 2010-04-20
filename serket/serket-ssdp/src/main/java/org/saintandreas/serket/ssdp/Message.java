@@ -24,9 +24,15 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpParser;
+import org.apache.http.Header;
+import org.apache.http.HttpException;
+import org.apache.http.impl.io.AbstractMessageParser;
+import org.apache.http.impl.io.AbstractSessionInputBuffer;
+import org.apache.http.io.SessionInputBuffer;
+import org.apache.http.message.BasicLineParser;
+import org.apache.http.message.LineParser;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
 
 import com.google.common.base.Charsets;
 
@@ -124,18 +130,48 @@ public class Message {
         this.originalString = originalString;
     }
     
-    public static Message parseMessage(DatagramPacket packet) throws HttpException, IOException {
+    public static class ByteArrayInputBuffer extends AbstractSessionInputBuffer {
+        private final ByteArrayInputStream is;
+
+        public ByteArrayInputBuffer(byte[] buffer) {
+            this(buffer, new BasicHttpParams());
+        }
+
+        public ByteArrayInputBuffer(byte[] buffer, HttpParams params) {
+            this(buffer, 8192, params);
+        }
+
+        public ByteArrayInputBuffer(byte[] buffer, int bufferSize, HttpParams params) {
+            is = new ByteArrayInputStream(buffer);
+            this.init(is, bufferSize, params);
+        }
+         
+        @Override
+        public boolean isDataAvailable(int timeout) throws IOException {
+            boolean result = hasBufferedData();
+            if (!result) {
+                fillBuffer();
+                result = hasBufferedData();
+            }
+            return result;
+        }
+        
+    }
+    
+    public static Message parseMessage(DatagramPacket packet) throws IOException, HttpException {
         Type type;
         Map<String, Header> headers = new HashMap<String, Header>();
         String usn = null;
-        ByteArrayInputStream is = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
-        String header = HttpParser.readLine(is, Charsets.UTF_8.name());
-        Header[] hs = HttpParser.parseHeaders(is, Charsets.UTF_8.name());
+        
+        LineParser parser = new BasicLineParser();
+        SessionInputBuffer inBuffer = new ByteArrayInputBuffer(packet.getData());
+        String command = inBuffer.readLine();
+        Header[] hs = AbstractMessageParser.parseHeaders(inBuffer, 64, 1024, parser);
         for (Header h : hs) {
             headers.put(h.getName(), h);
         }
         
-        if (Message.NOTIFY_START.startsWith(header)) {
+        if (Message.NOTIFY_START.startsWith(command)) {
             Header h = headers.get("NTS");
             usn = headers.get("USN").getValue();
             if ("ssdp:alive".equals(h.getValue())) {
@@ -148,15 +184,14 @@ public class Message {
                 // LogFactory.getLog(SSDPTests.class).debug("Notify message byebye " + usn);
                 type = Type.NOTIFY_BYEBYE;
             } else throw new RuntimeException("unknown type");
-        } else if (Message.SEARCH_START.startsWith(header)) {
+        } else if (Message.SEARCH_START.startsWith(command)) {
             usn = headers.get("ST").getValue();
             // LogFactory.getLog(SSDPTests.class).debug("Search message " + usn);
             type = Type.SEARCH;
-        } else if (Message.HTTP_OK_START.startsWith(header)) {
+        } else if (Message.HTTP_OK_START.startsWith(command)) {
             // LogFactory.getLog(SSDPTests.class).debug("Response message");
             type = Type.RESPONSE;
         } else throw new RuntimeException("unknown type");
         return new Message(type, headers, usn, packet, new String(packet.getData(), 0, packet.getLength(), Charsets.US_ASCII));
     }
-
 }

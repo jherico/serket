@@ -5,11 +5,11 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ReflectUtil {
-    private static final Log LOG = LogFactory.getLog(ReflectUtil.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReflectUtil.class);
 
     public static abstract class ValueAccessor<T extends AccessibleObject> {
         protected final T accessor;
@@ -26,7 +26,7 @@ public class ReflectUtil {
             } catch (RuntimeException e) {
                 throw e;
             } catch (Exception e) {
-                LOG.warn(e);
+                LOG.warn("Error fetching value", e);
                 return null;
             }
         }

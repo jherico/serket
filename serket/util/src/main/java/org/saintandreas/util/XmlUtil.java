@@ -18,17 +18,16 @@
 package org.saintandreas.util;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -59,6 +58,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import com.google.common.base.Charsets;
+import com.google.common.io.Files;
+import com.google.common.io.Resources;
 
 /**
  * @author bdavis@saintandreas.org
@@ -101,8 +102,16 @@ public final class XmlUtil {
         return parseXmlResource(resource, Charsets.UTF_8);
     }
 
+    public static Document parseXmlResource(URL resource) throws SAXException, IOException, ParserConfigurationException {
+        return parseXmlResource(resource, Charsets.UTF_8);
+    }
+
     public static Document parseXmlResource(String resource, Charset charset) throws SAXException, IOException, ParserConfigurationException {
-        return parseXmlStream(StreamUtil.getResourceAsStream(resource), charset);
+        return parseXmlResource(Resources.getResource(resource), charset);
+    }
+
+    public static Document parseXmlResource(URL resource, Charset charset) throws SAXException, IOException, ParserConfigurationException {
+        return parseXmlString(Resources.toString(resource, charset));
     }
 
     public static Document parseXmlString(String xml) throws SAXException, IOException, ParserConfigurationException {
@@ -115,11 +124,6 @@ public final class XmlUtil {
 
     public static Document parseXmlStream(InputStream stream, Charset charset) throws SAXException, IOException, ParserConfigurationException {
         return parseXmlReader(new InputStreamReader(stream, charset));
-    }
-
-    // TODO fix this
-    public static synchronized Document parseXmlReader(Reader reader) throws SAXException, IOException, ParserConfigurationException {
-        return sDocumentBuilder.parse(new InputSource(reader));
     }
 
     public static Document parseXmlFile(String path) throws SAXException, IOException, ParserConfigurationException  {
@@ -135,12 +139,11 @@ public final class XmlUtil {
     }
 
     public static Document parseXmlFile(File path, Charset charset) throws SAXException, IOException, ParserConfigurationException  {
-        InputStream mStream = null;
-        try {
-            return parseXmlStream(mStream = new FileInputStream(path), charset);
-        } finally {
-            StreamUtil.safeClose(mStream);
-        }
+        return parseXmlString(Files.toString(path, charset));
+    }
+
+    public static synchronized Document parseXmlReader(Reader reader) throws SAXException, IOException, ParserConfigurationException {
+        return sDocumentBuilder.parse(new InputSource(reader));
     }
 
     public static synchronized Document createDocument() {
@@ -204,13 +207,10 @@ public final class XmlUtil {
     }
 
     public static void writeXmlStream(Document doc, OutputStream stream, Charset charset) throws IOException {
-        try {
-            writeXml(doc, new OutputStreamWriter(stream, charset));
-        } finally {
-            StreamUtil.safeClose(stream);
-        }
+        StringWriter writer = new StringWriter();
+        writeXml(doc, writer);
+        stream.write(writer.toString().getBytes(charset));
     }
-
 
     public static Element createElement(Node element, String name) {
         return element.getOwnerDocument().createElement(name);
