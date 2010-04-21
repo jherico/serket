@@ -14,7 +14,6 @@ import javax.annotation.meta.TypeQualifier;
 @Documented
 @TypeQualifier
 @Retention(RetentionPolicy.RUNTIME)
-@Target({TYPE,METHOD,FIELD})
-public @interface DIDLElement {
-    String value();
+@Target({METHOD, FIELD})
+public @interface DIDLText {
 }

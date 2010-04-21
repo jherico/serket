@@ -66,7 +66,7 @@ public class FileContainer extends AContainerImpl<SerketBase> {
                 if (f.isDirectory()) {
                     addChild(new FileContainer(this, f));
                 } else if (VideoUtil.isVideoFile(f)) {
-                    
+                    addChild(new VideoFileItem(this, f));
                 }
             }
             lastModified = file.lastModified();

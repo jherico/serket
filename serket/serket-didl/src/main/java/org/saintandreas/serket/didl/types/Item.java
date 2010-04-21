@@ -21,5 +21,10 @@ public interface Item extends Object {
 
     @DIDLProperty(value="class", namespace=DIDLNamespace.UPNP, required=true, order=1)
     public String getUpnpClass();
+    
+    @DIDLElement(value="res")
+    public Resource getRes();
+    
+    
 
 }

@@ -4,7 +4,7 @@ import org.saintandreas.serket.didl.DIDLNamespace;
 import org.saintandreas.serket.didl.annotations.DIDLProperty;
 import org.saintandreas.serket.didl.types.Item;
 
-public interface DIDLVideoItem extends Item {
+public interface VideoBroadcast extends Item {
     @DIDLProperty(value="genre", namespace=DIDLNamespace.UPNP)
     public String getGenre();
 

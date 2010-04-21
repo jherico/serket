@@ -44,13 +44,16 @@ public class Message {
     public final static String HTTP_OK_START = "HTTP/1.1 200 OK\r\n";
 
     private final static String NOTIFY_TYPE_TEMPLATE = "NTS: %s\r\n";
+    private final static String CACHE_CONTROL_TEMPLATE = "CACHE-CONTROL: max-age=%d\r\n";
     private final static String SEARCH_DISCOVER = "MAN: \"ssdp:discover\"\r\n"; 
     private final static String SYSTEM_IDENTIFIER = System.getProperty("os.name") + "/" + System.getProperty("os.version");
     private final static String NOTIFICATION_TYPE_TEMPLATE = "NT: %s\r\n";
     private final static String UNIQUE_SERVICE_NAME_TEMPLATE = "USN: %s\r\n"; 
-    private final static String SERVER_TEMPLATE = "SERVER: " + SYSTEM_IDENTIFIER + " UPnP/1.1 %s\r\n"; 
+    private final static String SERVER_TEMPLATE = "SERVER: " + SYSTEM_IDENTIFIER + " UPnP/1.1 %s\r\n";
+    private final static String LOCATION_TEMPLATE = "LOCATION: %s\r\n";
     private final static String USER_AGENT_TEMPLATE = "USER-AGENT: " + SYSTEM_IDENTIFIER + " UPnP/1.1 %s\r\n"; 
     private final static String MULTICAST_HOST = "HOST: 239.255.255.250:1900\r\n";
+    private final static String SEARCH_TARGET_TEMPLATE = "ST: %s\r\n";
 
     public static enum Type {
         NOTIFY_ALIVE, NOTIFY_BYEBYE, NOTIFY_UPDATE, SEARCH, RESPONSE
@@ -64,9 +67,10 @@ public class Message {
         UNIQUE_SERVICE_NAME_TEMPLATE;
         
     private final static String NOTIFY_ALIVE_TEMPLATE = 
-        "LOCATION: %s\r\n" +
-        "CACHE-CONTROL: max-age=%d\r\n" +
-        SERVER_TEMPLATE + "\r\n";
+        LOCATION_TEMPLATE +
+        CACHE_CONTROL_TEMPLATE +
+        SERVER_TEMPLATE + 
+        "\r\n";
 
 //    private final static String NOTIFY_UPDATE_TEMPLATE = 
 //        NOTIFY_START + 
@@ -107,13 +111,27 @@ public class Message {
         MULTICAST_HOST +
         SEARCH_DISCOVER + 
         USER_AGENT_TEMPLATE +
-        "ST: %s\r\n" + 
+        SEARCH_TARGET_TEMPLATE + 
         "MX: %d\r\n" +
         "\r\n";
 
 
     public static String buildSearchMessage(String searchType, int seconds) {
         return String.format(SEARCH_TEAMPLTE, "serket/1.0", searchType, seconds);
+    }
+
+    private final static String SEARCH_RESPONSE_TEAMPLTE = 
+        HTTP_OK_START +
+        UNIQUE_SERVICE_NAME_TEMPLATE + 
+        SEARCH_TARGET_TEMPLATE + 
+        LOCATION_TEMPLATE +
+        CACHE_CONTROL_TEMPLATE +
+        SERVER_TEMPLATE + 
+        "EXT:\r\n" +
+        "\r\n";
+    
+    public static String buildSearchResponseMessage(String uniqueServiceName, String searchTarget, String location, long expireSeconds, String serverSuffix) {
+        return String.format(SEARCH_RESPONSE_TEAMPLTE, uniqueServiceName, searchTarget, location,  expireSeconds, serverSuffix);
     }
 
     public final Type type;

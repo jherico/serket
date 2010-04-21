@@ -14,12 +14,26 @@ import java.util.TreeMap;
 import org.saintandreas.serket.didl.annotations.DIDLAttribute;
 import org.saintandreas.serket.didl.annotations.DIDLElement;
 import org.saintandreas.serket.didl.annotations.DIDLProperty;
+import org.saintandreas.serket.didl.annotations.DIDLText;
 import org.saintandreas.util.ReflectUtil;
 import org.saintandreas.util.ReflectUtil.ValueAccessor;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class AnnotatedClassInfo {
+    private static Map<Class<?>, AnnotatedClassInfo> ANNOTATION_MAP = new HashMap<Class<?>, AnnotatedClassInfo>();
+
+    public static AnnotatedClassInfo getInfo(Class<?> clazz) {
+        if (!ANNOTATION_MAP.containsKey(clazz)) {
+            synchronized (ANNOTATION_MAP) {
+                if (!ANNOTATION_MAP.containsKey(clazz)) {
+                    ANNOTATION_MAP.put(clazz, new AnnotatedClassInfo(clazz));
+                }
+            }
+        }
+        return ANNOTATION_MAP.get(clazz);
+    }
+
     private DIDLElement itemAnnotation = null;
 
     private class DIDLElementComparator implements Comparator<DIDLProperty> {
@@ -33,36 +47,12 @@ public class AnnotatedClassInfo {
 
     private SortedMap<DIDLProperty, ValueAccessor<Method>> elementMap = new TreeMap<DIDLProperty, ValueAccessor<Method>>(new DIDLElementComparator());
     private Map<DIDLAttribute, ValueAccessor<Method>> attributeMap = new HashMap<DIDLAttribute, ValueAccessor<Method>>();
+    private Map<DIDLElement, ValueAccessor<Method>> childMap = new HashMap<DIDLElement, ValueAccessor<Method>>();
+    private ValueAccessor<Method> textAccessor = null;
 
-
-//
-//    List<Class<?>> getClassesAndInterfaces(Class<?> clazz) {
-//        List<Class<?>> retVal = new ArrayList<Class<?>>();
-//        Set<Class<?>> seen = new HashSet<Class<?>>();
-//        retVal.addAll(getAncestors(clazz, seen));
-//        while (clazz != null) {
-//            for (Class<?> interfaze : clazz.getInterfaces()) {
-//                if (seen.add(interfaze)) {
-//                    retVal.add(interfaze);
-//                    retVal.addAll(getAncestors(interfaze, seen));
-//                }
-//            }
-//            clazz = clazz.getSuperclass();
-//        }
-//        retVal.addAll(getAncestors(clazz, seen));
-//        Class<?> current = clazz;
-//        while (current != null) {
-//            retVal.add(current);
-//            seen.add(current);
-//            current = current.getSuperclass();
-//        }
-//    }
 
     public static List<Class<?>> getAncestorsAndInterfaces(Class<?> clazz) {
         Set<Class<?>> seen = new HashSet<Class<?>>();
-//        List<Class<?>> retVal = new ArrayList<Class<?>>();
-//        retVal.add(clazz);
-//        seen.add(clazz);
         return getAncestorsAndInterfaces(clazz, seen); 
     }
     
@@ -113,11 +103,31 @@ public class AnnotatedClassInfo {
                     attributeMap.put(attr, ReflectUtil.getValueAccessor(m));
                 }
 
-                DIDLProperty ele = m.getAnnotation(DIDLProperty.class);
-                if (ele != null && !elementMap.containsKey(ele)) {
-                    elementMap.put(ele, ReflectUtil.getValueAccessor(m));
+                DIDLProperty childElement = m.getAnnotation(DIDLProperty.class);
+                if (childElement != null && !elementMap.containsKey(childElement)) {
+                    elementMap.put(childElement, ReflectUtil.getValueAccessor(m));
+                }
+                
+                DIDLElement childNode = m.getAnnotation(DIDLElement.class);
+                if (childNode != null && !childMap.containsKey(childNode)) {
+                    childMap.put(childNode, ReflectUtil.getValueAccessor(m));
+                }
+
+                if (m.getAnnotation(DIDLText.class) != null) {
+                    if (this.textAccessor != null) {
+                        throw new IllegalStateException("A DIDLElement may not have more than one DIDLText annotation");
+                    }
+                    textAccessor = ReflectUtil.getValueAccessor(m);
+                }
+                
+                if (childNode != null && !childMap.containsKey(childNode)) {
+                    childMap.put(childNode, ReflectUtil.getValueAccessor(m));
                 }
             }
+        }
+        
+        if (!childMap.isEmpty() && textAccessor != null) {
+            throw new IllegalStateException("A DIDLElement may not have both DIDLProperty and DIDLText annotations");
         }
 
         if (itemAnnotation == null) {
@@ -135,6 +145,19 @@ public class AnnotatedClassInfo {
             addElement(retVal, entry.getKey(), entry.getValue().getValueSafely(obj));
         }
         
+        for (Map.Entry<DIDLElement, ValueAccessor<Method>> entry : childMap.entrySet()) {
+            Object childObj = entry.getValue().getValueSafely(obj);
+            if (childObj != null) {
+                AnnotatedClassInfo.getInfo(childObj.getClass()).createNode(childObj, retVal);
+            }
+        }
+        
+        if (textAccessor != null) {
+            Object value = textAccessor.getValueSafely(obj);
+            if (value != null) {
+                retVal.setTextContent(value.toString());
+            }
+        }
         return retVal;
     }
 

@@ -33,18 +33,9 @@ import org.w3c.dom.Node;
  */
 public class DIDLHelper {
     private final static String ROOT_NODE_NAME = "DIDL-Lite";
-    private static Map<Class<?>, AnnotatedClassInfo> ANNOTATION_MAP = new HashMap<Class<?>, AnnotatedClassInfo>();
-    
     public static Node createNode(Object obj, Node parent)  {
         Class<?> ownerClass = obj.getClass();
-        if (!ANNOTATION_MAP.containsKey(ownerClass)) {
-            synchronized (ANNOTATION_MAP) {
-                if (!ANNOTATION_MAP.containsKey(ownerClass)) {
-                    ANNOTATION_MAP.put(ownerClass, new AnnotatedClassInfo(ownerClass));
-                }
-            }
-        }
-        return ANNOTATION_MAP.get(ownerClass).createNode(obj, parent);
+        return AnnotatedClassInfo.getInfo(ownerClass).createNode(obj, parent);
     }
 
     public static Document createDocument(Object item) {

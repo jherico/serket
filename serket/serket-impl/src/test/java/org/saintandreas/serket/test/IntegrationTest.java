@@ -3,11 +3,17 @@ package org.saintandreas.serket.test;
 import java.io.File;
 import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.MulticastSocket;
+import java.net.SocketAddress;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.UUID;
@@ -41,12 +47,14 @@ import org.saintandreas.serket.impl.av.SerketIcon;
 import org.saintandreas.serket.impl.av.SerketMediaServer;
 import org.saintandreas.serket.impl.didl.file.FileContainer;
 import org.saintandreas.serket.impl.servlet.DescriptionServlet;
+import org.saintandreas.serket.impl.servlet.FetchServlet;
 import org.saintandreas.serket.impl.servlet.UpnpServiceServlet;
 import org.saintandreas.serket.service.Service;
 import org.saintandreas.serket.ssdp.Message;
 import org.saintandreas.serket.ssdp.SSDP;
 import org.saintandreas.serket.ssdp.SSDPServer;
 import org.saintandreas.util.NetUtil;
+import org.saintandreas.util.ThreadUtil;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -72,8 +80,28 @@ public class IntegrationTest {
     }
     
     
-    public void handleSearchMessage(Message message) {
-        LogFactory.getLog(getClass()).trace("handling message " + message.usn);
+    public void handleSearchMessage(DatagramPacket packet, Message searchRequest) throws IOException {
+        LOG.trace("handling message " + searchRequest.usn);
+        int wait = Integer.valueOf(searchRequest.headers.get("MX").getValue().trim());
+        ThreadUtil.safeSleep(new Random().nextInt(wait * 1000));
+        Map<String, String> nts = new HashMap<String, String>();
+        nts.put(uuid, uuid);
+        nts.put("upnp:rootdevice", uuid + "::" + "upnp:rootdevice");
+        nts.put(mediaServer.getDeviceType(), uuid + "::" + mediaServer.getDeviceType());
+        
+        for (Service s : mediaServer.getServiceList()) {
+            nts.put(s.getServiceType(), uuid + "::" + s.getServiceType());
+        }
+        LOG.trace("Sending alive messages");
+        String location = "http://" + NetUtil.getInet4Address().getHostAddress() + ":8080/description/";
+        DatagramSocket socket = new DatagramSocket();
+//        socket.connect(packet.getSocketAddress());
+        for (Map.Entry<String, String> entry : nts.entrySet()) {
+            String message = Message.buildSearchResponseMessage(entry.getValue(), entry.getKey(), location, 1800, "serketLib/0.1");
+            DatagramPacket outPacket = SSDP.getPacket(message);
+            outPacket.setSocketAddress(packet.getSocketAddress());
+            socket.send(outPacket);
+        }
     }
 
     
@@ -102,11 +130,11 @@ public class IntegrationTest {
                     break;
                 case SEARCH: {
                     if (message.usn.startsWith(uuid)) {
-                        handleSearchMessage(message);
+                        handleSearchMessage(this.packet, message);
                     } else {
                         for (String s : SSDPServer.SEARCH_RESPONSE_IDS) {
                             if (message.usn.equals(s)) {
-                                handleSearchMessage(message);
+                                handleSearchMessage(this.packet, message);
                                 break;
                             }
                         }
@@ -154,7 +182,7 @@ public class IntegrationTest {
     public void initJetty() {
         List<org.eclipse.jetty.server.Handler> handlerList = new ArrayList<org.eclipse.jetty.server.Handler>();
 
-        // the service descriptor handler
+        // the raw file resource handler
         {
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/images");
@@ -177,6 +205,14 @@ public class IntegrationTest {
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/description");
             context.addServlet(new ServletHolder(new DescriptionServlet(mediaServer)), "/*");
+            handlerList.add(context);
+        }
+
+        // the content access handler
+        {
+            ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+            context.setContextPath("/fetch");
+            context.addServlet(new ServletHolder(new FetchServlet()), "/*");
             handlerList.add(context);
         }
 

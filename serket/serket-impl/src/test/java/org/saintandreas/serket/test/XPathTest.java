@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
+import org.junit.Test;
 import org.saintandreas.util.XPathUtil;
 import org.saintandreas.util.XmlUtil;
 import org.w3c.dom.Document;
@@ -12,6 +13,10 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 public class XPathTest {
+    @Test
+    public void noop() {
+
+    }
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         Document doc = XmlUtil.parseXmlResource("/temp.xml");

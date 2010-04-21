@@ -9,24 +9,6 @@ public abstract class ItemImpl extends BaseImpl implements Item {
     }
 
     @Override
-    public String getLocalId() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public String getTitle() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public String getUpnpClass() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public Boolean isNeverPlayable() {
         // TODO Auto-generated method stub
         return null;
